@@ -829,7 +829,7 @@
         <div class="featured-post-visual">
           <div class="featured-post-visual-inner">
             <span class="post-category-badge">Case Study</span>
-            <span class="featured-post-icon">💸</span>
+            <span class="featured-post-icon"><ion-icon name="wallet-outline" aria-hidden="true"></ion-icon></span>
             <span class="featured-label">Featured Post</span>
           </div>
         </div>
@@ -842,8 +842,8 @@
             time.
           </p>
           <div class="post-meta" style="margin-bottom: 2rem">
-            <span class="post-meta-item">📅 February 17, 2026</span>
-            <span class="post-meta-item">⏱ 8 min read</span>
+            <span class="post-meta-item"><ion-icon name="calendar-outline" aria-hidden="true"></ion-icon> February 17, 2026</span>
+            <span class="post-meta-item"><ion-icon name="time-outline" aria-hidden="true"></ion-icon> 8 min read</span>
           </div>
           <span class="read-more">Read Article</span>
         </div>
@@ -892,6 +892,7 @@
         <ul class="footer-links">
           <li><a href="../index.html">Home</a></li>
           <li><a href="../services.html">Services</a></li>
+          <li><a href="../local.html">Local Businesses</a></li>
           <li><a href="../work.html">Work</a></li>
           <li><a href="../about.html">About</a></li>
           <li><a href="../contact.html">Contact</a></li>
@@ -904,63 +905,5 @@
     </footer>
 
     <script src="../js/main.js"></script>
-    <script>
-      // Custom Cursor
-      const cursor = document.querySelector(".cursor");
-      const follower = document.querySelector(".cursor-follower");
-      let mouseX = 0,
-        mouseY = 0,
-        cursorX = 0,
-        cursorY = 0,
-        followerX = 0,
-        followerY = 0;
-
-      document.addEventListener("mousemove", (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      });
-
-      function animateCursor() {
-        cursorX += (mouseX - cursorX) * 0.2;
-        cursorY += (mouseY - cursorY) * 0.2;
-        cursor.style.left = cursorX + "px";
-        cursor.style.top = cursorY + "px";
-        followerX += (mouseX - followerX) * 0.1;
-        followerY += (mouseY - followerY) * 0.1;
-        follower.style.left = followerX + "px";
-        follower.style.top = followerY + "px";
-        requestAnimationFrame(animateCursor);
-      }
-      animateCursor();
-
-      document
-        .querySelectorAll("a, .post-card, .featured-post")
-        .forEach((el) => {
-          el.addEventListener("mouseenter", () => {
-            cursor.style.transform = "scale(2)";
-            follower.style.transform = "scale(2)";
-          });
-          el.addEventListener("mouseleave", () => {
-            cursor.style.transform = "scale(1)";
-            follower.style.transform = "scale(1)";
-          });
-        });
-
-      // Scroll
-      const scrollIndicator = document.querySelector(".scroll-indicator");
-      const scrollProgress = document.querySelector(".scroll-progress");
-      const nav = document.querySelector("nav");
-
-      window.addEventListener("scroll", () => {
-        const scrollPercent =
-          (window.pageYOffset /
-            (document.documentElement.scrollHeight - window.innerHeight)) *
-          100;
-        scrollIndicator.textContent = Math.round(scrollPercent) + "%";
-        scrollProgress.style.width = scrollPercent + "%";
-        scrollIndicator.classList.toggle("active", scrollPercent > 0);
-        nav.classList.toggle("scrolled", window.scrollY > 100);
-      });
-    </script>
   </body>
 </html>

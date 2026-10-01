@@ -678,3 +678,28 @@ footer {
     gap: 2rem;
   }
 }
+
+/* Inline form status (replaces alert dialogs) */
+.form-status {
+  margin-top: 1rem;
+  font-weight: 500;
+  min-height: 1.5em;
+}
+
+/* Footer links wrap cleanly on small screens */
+.footer-links {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-links a {
+  white-space: nowrap;
+}
+
+/* Services page: stack the two-column service rows on phones */
+@media (max-width: 768px) {
+  [style*="grid-template-columns: 1fr 1.5fr"],
+  [style*="grid-template-columns: 1.5fr 1fr"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 2rem !important;
+  }
+}

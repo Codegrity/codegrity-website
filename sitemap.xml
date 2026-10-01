@@ -7,15 +7,23 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.codegrity.com/</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Local Businesses Page -->
+  <url>
+    <loc>https://www.codegrity.com/local.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- Services Page -->
   <url>
     <loc>https://www.codegrity.com/services.html</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -23,7 +31,7 @@
   <!-- Portfolio/Work Page -->
   <url>
     <loc>https://www.codegrity.com/work.html</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -31,7 +39,7 @@
   <!-- About Page -->
   <url>
     <loc>https://www.codegrity.com/about.html</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -39,7 +47,7 @@
   <!-- Contact Page -->
   <url>
     <loc>https://www.codegrity.com/contact.html</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
