@@ -8,7 +8,7 @@
     </title>
     <meta
       name="description"
-      content="CodeGrity delivers custom software development with integrity. Web apps, mobile development, e-commerce, and cloud solutions. 8+ years, 100+ projects, 98% client satisfaction. McKinney, Texas."
+      content="CodeGrity delivers custom software development with integrity. Web apps, mobile apps, e-commerce and fast websites for local businesses. A McKinney, Texas software company founded in 2023."
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -873,8 +873,14 @@
 
       .footer-links {
         display: flex;
-        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem 2rem;
         list-style: none;
+      }
+
+      .footer-links a {
+        white-space: nowrap;
       }
 
       .footer-links a {
@@ -972,13 +978,11 @@
 
     <!-- Clients -->
     <section class="clients">
-      <p class="clients-label">Trusted by innovative companies</p>
+      <p class="clients-label">Companies we have built for</p>
       <div class="logo-marquee">
-        <div class="client-logo">ENTERPRISE</div>
-        <div class="client-logo">STARTUP</div>
-        <div class="client-logo">INNOVATION</div>
-        <div class="client-logo">GROWTH</div>
-        <div class="client-logo">SCALE</div>
+        <div class="client-logo">ZILIS</div>
+        <div class="client-logo">GOALLINE PAYMENTS</div>
+        <div class="client-logo">STEP AND RAIL</div>
       </div>
     </section>
 
@@ -996,7 +1000,7 @@
       <div class="services-grid">
         <div class="service-card">
           <div class="service-number">SERVICE 01</div>
-          <div class="service-icon">💻</div>
+          <div class="service-icon"><ion-icon name="desktop-outline" aria-hidden="true"></ion-icon></div>
           <h3>Web Development</h3>
           <p>
             Modern, scalable web applications built with React, Next.js, and
@@ -1007,7 +1011,7 @@
 
         <div class="service-card">
           <div class="service-number">SERVICE 02</div>
-          <div class="service-icon">📱</div>
+          <div class="service-icon"><ion-icon name="phone-portrait-outline" aria-hidden="true"></ion-icon></div>
           <h3>Mobile Development</h3>
           <p>
             Native and cross-platform mobile apps for iOS and Android that users
@@ -1018,7 +1022,7 @@
 
         <div class="service-card">
           <div class="service-number">SERVICE 03</div>
-          <div class="service-icon">🛒</div>
+          <div class="service-icon"><ion-icon name="cart-outline" aria-hidden="true"></ion-icon></div>
           <h3>E-commerce Solutions</h3>
           <p>
             Custom shopping experiences that convert visitors into customers and
@@ -1029,7 +1033,7 @@
 
         <div class="service-card">
           <div class="service-number">SERVICE 04</div>
-          <div class="service-icon">🔌</div>
+          <div class="service-icon"><ion-icon name="git-network-outline" aria-hidden="true"></ion-icon></div>
           <h3>API Development</h3>
           <p>
             RESTful and GraphQL APIs with seamless third-party integrations that
@@ -1040,7 +1044,7 @@
 
         <div class="service-card">
           <div class="service-number">SERVICE 05</div>
-          <div class="service-icon">☁️</div>
+          <div class="service-icon"><ion-icon name="cloud-outline" aria-hidden="true"></ion-icon></div>
           <h3>Cloud Solutions</h3>
           <p>
             Scalable, secure infrastructure on AWS, Azure, and Google Cloud that
@@ -1051,7 +1055,7 @@
 
         <div class="service-card">
           <div class="service-number">SERVICE 06</div>
-          <div class="service-icon">💡</div>
+          <div class="service-icon"><ion-icon name="bulb-outline" aria-hidden="true"></ion-icon></div>
           <h3>Consulting & Strategy</h3>
           <p>
             Technical strategy, comprehensive code audits, and architectural
@@ -1274,6 +1278,7 @@
         <div class="footer-logo">CodeGrity</div>
         <ul class="footer-links">
           <li><a href="services.html">Services</a></li>
+          <li><a href="local.html">Local Businesses</a></li>
           <li><a href="work.html">Work</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -1399,12 +1404,7 @@
           "addressRegion": "TX",
           "addressCountry": "US"
         },
-        "priceRange": "$$$$",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "100"
-        },
+        "priceRange": "$$",
         "sameAs": ["https://www.linkedin.com/company/codegrity"]
       }
     </script>

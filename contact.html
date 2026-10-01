@@ -94,6 +94,7 @@
               <label for="service">What service are you interested in? *</label>
               <select id="service" name="service" required>
                 <option value="">Select a service</option>
+                <option value="local-website">Local business website + care plan</option>
                 <option value="web">Web Development</option>
                 <option value="mobile">Mobile Development</option>
                 <option value="ecommerce">E-commerce Solutions</option>
@@ -108,7 +109,8 @@
               <label for="budget">Project Budget</label>
               <select id="budget" name="budget">
                 <option value="">Select budget range</option>
-                <option value="under-25k">Under $25k</option>
+                <option value="under-5k">Under $5k</option>
+                <option value="5k-25k">$5k - $25k</option>
                 <option value="25k-50k">$25k - $50k</option>
                 <option value="50k-100k">$50k - $100k</option>
                 <option value="100k-plus">$100k+</option>
@@ -140,6 +142,7 @@
             </div>
 
             <button type="submit" class="btn-primary">Send Message →</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
             <p class="form-note">We typically respond within 24 hours</p>
           </form>
         </div>
@@ -152,7 +155,7 @@
 
             <div class="contact-methods">
               <div class="contact-method">
-                <div class="method-icon">📧</div>
+                <div class="method-icon"><ion-icon name="mail-outline" aria-hidden="true"></ion-icon></div>
                 <div class="method-content">
                   <div class="method-label">Email</div>
                   <a href="mailto:psojdei@codegrity.com"
@@ -162,7 +165,7 @@
               </div>
 
               <div class="contact-method">
-                <div class="method-icon">📞</div>
+                <div class="method-icon"><ion-icon name="call-outline" aria-hidden="true"></ion-icon></div>
                 <div class="method-content">
                   <div class="method-label">Phone</div>
                   <a href="tel:+19728387422">+1 (972) 838-7422</a>
@@ -238,6 +241,7 @@
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
+          <li><a href="local.html">Local Businesses</a></li>
           <li><a href="work.html">Work</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -247,14 +251,14 @@
         &copy; 2026 CodeGrity. Engineering Excellence, Delivered with Integrity.
       </div>
     </footer>
-
-    <script
-      data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-    ></script>
     <script src="js/main.js"></script>
     <script>
       // Form submission handler with Formspree
+      function showStatus(msg, ok) {
+        const el = document.getElementById("formStatus");
+        el.textContent = msg;
+        el.style.color = ok ? "#34d399" : "#f87171";
+      }
       document
         .getElementById("contactForm")
         .addEventListener("submit", async function (e) {
@@ -279,20 +283,14 @@
 
             if (response.ok) {
               // Success
-              alert(
-                "✅ Thank you for your inquiry!\n\nWe will respond within 24 hours.\n\nFor immediate assistance:\nCall: (972) 838-7422\nEmail: psojdei@codegrity.com",
-              );
+              showStatus("Thanks, your message is in. We reply within one business day. Need us sooner? Call (972) 838-7422.", true);
               form.reset();
             } else {
               // Error
-              alert(
-                "❌ Oops! There was a problem sending your message.\n\nPlease email us directly at:\npsojdei@codegrity.com\n\nOr call: (972) 838-7422",
-              );
+              showStatus("That did not send. Please email psojdei@codegrity.com or call (972) 838-7422.", false);
             }
           } catch (error) {
-            alert(
-              "❌ Network error. Please try again or contact us directly:\n\nEmail: psojdei@codegrity.com\nPhone: (972) 838-7422",
-            );
+            showStatus("Your connection dropped before the message sent. Try again, or email psojdei@codegrity.com.", false);
           }
 
           // Reset button
@@ -319,12 +317,7 @@
           "addressRegion": "TX",
           "addressCountry": "US"
         },
-        "priceRange": "$$$$",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "100"
-        },
+        "priceRange": "$$",
         "sameAs": ["https://www.linkedin.com/company/codegrity"]
       }
     </script>
