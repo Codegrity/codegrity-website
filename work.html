@@ -3,14 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Our Portfolio - Custom Software Projects & Case Studies | CodeGrity
-    </title>
-    <meta
-      name="description"
-      content="View our portfolio: GoalLine Payment processing platform, Step and Rail construction management system, Zilis e-commerce solution. Real projects, real results, measurable outcomes."
-    />
+    <!-- seo:start -->
+    <title>Our Work | Codegrity</title>
+    <meta name="description" content="Projects Codegrity has shipped: the GoalLine Payments company website, the Step and Rail dashboard modernization, and our own products." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://www.codegrity.com/work" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Codegrity" />
+    <meta property="og:title" content="Our Work | Codegrity" />
+    <meta property="og:description" content="Projects Codegrity has shipped: the GoalLine Payments company website, the Step and Rail dashboard modernization, and our own products." />
+    <meta property="og:url" content="https://www.codegrity.com/work" />
+    <meta property="og:image" content="https://www.codegrity.com/images/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Codegrity: senior software engineers in McKinney, Texas" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Our Work | Codegrity" />
+    <meta name="twitter:description" content="Projects Codegrity has shipped: the GoalLine Payments company website, the Step and Rail dashboard modernization, and our own products." />
+    <meta name="twitter:image" content="https://www.codegrity.com/images/og-default.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <!-- seo:end -->
 
     <!-- Google Analytics -->
     <script
@@ -26,18 +41,126 @@
       gtag("config", "G-XQH3T0SR8M");
     </script>
 
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <!-- schema:start -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": [
+              "Organization",
+              "ProfessionalService"
+            ],
+            "@id": "https://www.codegrity.com/#org",
+            "name": "Codegrity",
+            "legalName": "Codegrity LLC",
+            "url": "https://www.codegrity.com/",
+            "logo": "https://www.codegrity.com/images/codegrity-logo-512.png",
+            "image": "https://www.codegrity.com/images/og-default.png",
+            "description": "Senior software engineers in McKinney, Texas. We fix, connect and automate the systems small and mid-sized businesses run on.",
+            "telephone": "+1-972-838-7422",
+            "email": "psojdei@codegrity.com",
+            "foundingDate": "2023",
+            "founder": {
+              "@id": "https://www.codegrity.com/about#pj-sojdei"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "McKinney",
+              "addressRegion": "TX",
+              "addressCountry": "US"
+            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "McKinney, TX"
+              },
+              {
+                "@type": "City",
+                "name": "Dallas, TX"
+              },
+              {
+                "@type": "Country",
+                "name": "United States"
+              }
+            ],
+            "priceRange": "$$",
+            "sameAs": [
+              "https://www.linkedin.com/company/codegrity"
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.codegrity.com/about#pj-sojdei",
+            "name": "PJ Sojdei",
+            "jobTitle": "Founder",
+            "worksFor": {
+              "@id": "https://www.codegrity.com/#org"
+            },
+            "url": "https://www.codegrity.com/about"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.codegrity.com/#website",
+            "url": "https://www.codegrity.com/",
+            "name": "Codegrity",
+            "publisher": {
+              "@id": "https://www.codegrity.com/#org"
+            },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.codegrity.com/work#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.codegrity.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Work",
+                "item": "https://www.codegrity.com/work"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <!-- schema:end -->
+    <link rel="stylesheet" href="/css/chrome.css" />
   </head>
   <body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-    <div class="scroll-progress"></div>
-    <div class="scroll-indicator">0%</div>
-
-    <div id="nav-placeholder"></div>
-    <script src="js/nav.js" defer></script>
-
-    <!-- Navigation removed: now loaded via /js/nav.js -->
+    <!-- header:start -->
+    <a class="cg-skip" href="#main">Skip to content</a>
+    <header class="cg-header">
+      <nav class="cg-nav" aria-label="Main">
+        <a href="/" class="cg-brand" aria-label="Codegrity home">
+          <span class="cg-mark" aria-hidden="true"></span>
+          <span class="cg-wordmark">Code<span>grity</span></span>
+        </a>
+        <ul class="cg-menu" id="cg-menu">
+          <li><a href="/services">Services</a></li>
+          <li><a href="/local">Local Businesses</a></li>
+          <li><a href="/work" aria-current="page">Work</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li class="cg-menu-cta"><a href="/contact" data-cta="nav-mobile">Book a call</a></li>
+        </ul>
+        <a href="/contact" class="cg-cta" data-cta="nav">Book a call</a>
+        <button class="cg-toggle" type="button" aria-controls="cg-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="cg-i-menu" viewBox="0 0 512 512" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352"/></svg>
+          <svg class="cg-i-close" viewBox="0 0 512 512" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>
+        </button>
+      </nav>
+    </header>
+    <!-- header:end -->
+    <main id="main">
 
     <!-- Hero -->
     <section class="hero">
@@ -47,7 +170,7 @@
       <div class="hero-content">
         <div class="hero-eyebrow">02 — Our Portfolio</div>
         <h1>Work We're<br /><span class="highlight">Proud Of</span></h1>
-        <p>Real projects, real results, real partnerships</p>
+        <p>Projects we have shipped</p>
       </div>
     </section>
 
@@ -96,18 +219,7 @@
                 box-shadow: inset 0 0 0 10px #1e293b;
               "
             >
-              <iframe
-                src="https://www.goallinepayment.com"
-                style="
-                  width: 300%;
-                  height: 900px;
-                  border: none;
-                  transform: scale(0.333);
-                  transform-origin: 0 0;
-                  pointer-events: none;
-                  margin: -1px;
-                "
-              ></iframe>
+              <div style="width:100%;height:100%;min-height:260px;background:linear-gradient(135deg,#1e293b 0%,#312e81 100%)"></div>
               <div
                 style="
                   position: absolute;
@@ -134,12 +246,12 @@
                   margin-bottom: 1rem;
                 "
               >
-                PROJECT 01 • FINTECH
+                PROJECT 01 • COMPANY WEBSITE
               </div>
               <h2
                 style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2"
               >
-                GoalLine Payment
+                GoalLine Payments
               </h2>
               <p
                 style="
@@ -149,9 +261,7 @@
                   margin-bottom: 2rem;
                 "
               >
-                Secure payment processing platform designed specifically for
-                sports and recreation facilities. Handles ticketing,
-                memberships, and facility rentals with ease.
+                We designed and built the GoalLine Payments company website.
               </p>
               <div
                 style="
@@ -169,7 +279,7 @@
                     border-radius: 20px;
                     font-size: 0.9rem;
                   "
-                  >Payment Processing</span
+                  >Website</span
                 >
                 <span
                   style="
@@ -179,7 +289,7 @@
                     border-radius: 20px;
                     font-size: 0.9rem;
                   "
-                  >Web Platform</span
+                  >Design</span
                 >
                 <span
                   style="
@@ -189,7 +299,7 @@
                     border-radius: 20px;
                     font-size: 0.9rem;
                   "
-                  >React</span
+                  >Build</span
                 >
               </div>
               <a
@@ -248,7 +358,7 @@
                   margin-bottom: 1rem;
                 "
               >
-                PROJECT 02 • CONSTRUCTION
+                PROJECT 02 • DASHBOARD MODERNIZATION
               </div>
               <h2
                 style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2"
@@ -263,10 +373,7 @@
                   margin-bottom: 2rem;
                 "
               >
-                Custom-built platform with full admin backend for project
-                management and sales tracking. Features client portals, project
-                showcases, and real-time analytics for residential and
-                commercial construction.
+                We modernized the CakePHP business dashboard the Step and Rail team runs on every day.
               </p>
               <div
                 style="
@@ -284,7 +391,7 @@
                     border-radius: 20px;
                     font-size: 0.9rem;
                   "
-                  >Custom Backend</span
+                  >CakePHP</span
                 >
                 <span
                   style="
@@ -294,7 +401,7 @@
                     border-radius: 20px;
                     font-size: 0.9rem;
                   "
-                  >Sales Tracking</span
+                  >Modernization</span
                 >
                 <span
                   style="
@@ -304,7 +411,7 @@
                     border-radius: 20px;
                     font-size: 0.9rem;
                   "
-                  >Admin Portal</span
+                  >Dashboard</span
                 >
               </div>
               <a
@@ -330,18 +437,7 @@
                 box-shadow: inset 0 0 0 10px #1e293b;
               "
             >
-              <iframe
-                src="https://www.stepandrail.com"
-                style="
-                  width: 300%;
-                  height: 900px;
-                  border: none;
-                  transform: scale(0.333);
-                  transform-origin: 0 0;
-                  pointer-events: none;
-                  margin: -1px;
-                "
-              ></iframe>
+              <div style="width:100%;height:100%;min-height:260px;background:linear-gradient(135deg,#1e293b 0%,#312e81 100%)"></div>
               <div
                 style="
                   position: absolute;
@@ -357,158 +453,6 @@
                   pointer-events: none;
                 "
               ></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3: Zilis -->
-        <div
-          style="
-            background: rgba(15, 23, 42, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 4rem;
-            cursor: pointer;
-            transition: all 0.5s;
-          "
-          onclick="window.open('https://www.zilis.com', '_blank')"
-          onmouseover="
-            this.style.transform = 'translateY(-10px)';
-            this.style.borderColor = 'rgba(59, 130, 246, 0.3)';
-            this.style.boxShadow = '0 25px 70px rgba(59, 130, 246, 0.15)';
-          "
-          onmouseout="
-            this.style.transform = 'translateY(0)';
-            this.style.borderColor = 'rgba(255, 255, 255, 0.05)';
-            this.style.boxShadow = 'none';
-          "
-        >
-          <div
-            style="
-              display: grid;
-              grid-template-columns: 1fr 1.5fr;
-              gap: 4rem;
-              align-items: center;
-            "
-          >
-            <div
-              style="
-                background: #1e293b;
-                border-radius: 16px;
-                height: 300px;
-                overflow: hidden;
-                position: relative;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: inset 0 0 0 10px #1e293b;
-              "
-            >
-              <iframe
-                src="https://www.zilis.com"
-                style="
-                  width: 300%;
-                  height: 900px;
-                  border: none;
-                  transform: scale(0.333);
-                  transform-origin: 0 0;
-                  pointer-events: none;
-                  margin: -1px;
-                "
-              ></iframe>
-              <div
-                style="
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  background: linear-gradient(
-                    to bottom,
-                    transparent 0%,
-                    rgba(15, 23, 42, 0.3) 100%
-                  );
-                  pointer-events: none;
-                "
-              ></div>
-            </div>
-            <div>
-              <div
-                style="
-                  font-size: 0.85rem;
-                  color: #3b82f6;
-                  font-weight: 600;
-                  letter-spacing: 2px;
-                  margin-bottom: 1rem;
-                "
-              >
-                PROJECT 03 • E-COMMERCE
-              </div>
-              <h2
-                style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2"
-              >
-                Zilis
-              </h2>
-              <p
-                style="
-                  font-size: 1.2rem;
-                  color: #94a3b8;
-                  line-height: 1.8;
-                  margin-bottom: 2rem;
-                "
-              >
-                Premium hemp-based wellness products with a sophisticated
-                e-commerce platform featuring direct sales capabilities,
-                distributor management, and customer loyalty programs.
-              </p>
-              <div
-                style="
-                  display: flex;
-                  gap: 1rem;
-                  flex-wrap: wrap;
-                  margin-bottom: 2rem;
-                "
-              >
-                <span
-                  style="
-                    background: rgba(59, 130, 246, 0.1);
-                    color: #3b82f6;
-                    padding: 0.5rem 1rem;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                  "
-                  >E-commerce</span
-                >
-                <span
-                  style="
-                    background: rgba(59, 130, 246, 0.1);
-                    color: #3b82f6;
-                    padding: 0.5rem 1rem;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                  "
-                  >MLM Platform</span
-                >
-                <span
-                  style="
-                    background: rgba(59, 130, 246, 0.1);
-                    color: #3b82f6;
-                    padding: 0.5rem 1rem;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                  "
-                  >Custom Build</span
-                >
-              </div>
-              <a
-                href="https://www.zilis.com"
-                target="_blank"
-                style="
-                  color: #3b82f6;
-                  text-decoration: none;
-                  font-weight: 600;
-                  font-size: 1.1rem;
-                "
-                >View Live Site →</a
-              >
             </div>
           </div>
         </div>
@@ -526,7 +470,7 @@
           Ready to create something exceptional together?
         </p>
         <a
-          href="contact.html"
+          href="/contact"
           style="
             display: inline-block;
             background: #3b82f6;
@@ -543,56 +487,48 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-logo">
-          <div class="logo-icon" style="width: 30px; height: 30px">
-            <div
-              class="lock-outer"
-              style="width: 30px; height: 30px; border-width: 2px"
-            ></div>
-            <div class="lock-inner" style="width: 15px; height: 15px"></div>
-            <div class="lock-dot" style="width: 5px; height: 5px"></div>
-          </div>
-          <span style="font-size: 1.1rem; font-weight: 700">CodeGrity</span>
+    </main>
+    <!-- footer:start -->
+    <footer class="cg-footer">
+      <div class="cg-footer-grid">
+        <div class="cg-footer-about">
+          <a href="/" class="cg-brand" aria-label="Codegrity home">
+            <span class="cg-mark" aria-hidden="true"></span>
+            <span class="cg-wordmark">Code<span>grity</span></span>
+          </a>
+          <p>Senior software engineers in McKinney, Texas. We fix, connect and automate the systems small and mid-sized businesses run on.</p>
         </div>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="local.html">Local Businesses</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <div>
+          <h2>Services</h2>
+          <ul>
+            <li><a href="/services">All services</a></li>
+            <li><a href="/local">Local business websites</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="mailto:psojdei@codegrity.com">psojdei@codegrity.com</a></li>
+            <li><a href="tel:+19728387422">(972) 838-7422</a></li>
+            <li>McKinney, Texas</li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-copy">
-        &copy; 2026 CodeGrity. Engineering Excellence, Delivered with Integrity.
+      <div class="cg-footer-base">
+        <span>&copy; 2026 Codegrity LLC. McKinney, Texas.</span>
+        <span>Serving McKinney, Dallas-Fort Worth and clients nationwide.</span>
       </div>
     </footer>
-
-    <script src="js/main.js"></script>
-
-    <!-- Schema Markup for SEO -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "CodeGrity",
-        "description": "Custom software development company specializing in web applications, mobile apps, e-commerce platforms, and cloud solutions",
-        "url": "https://www.codegrity.com",
-        "logo": "https://www.codegrity.com/favicon.svg",
-        "image": "https://www.codegrity.com/assets/logos/codegrity-logo-horizontal.svg",
-        "telephone": "+1-972-838-7422",
-        "email": "psojdei@codegrity.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "McKinney",
-          "addressRegion": "TX",
-          "addressCountry": "US"
-        },
-        "priceRange": "$$",
-        "sameAs": ["https://www.linkedin.com/company/codegrity"]
-      }
-    </script>
+    <!-- footer:end -->
+    <script src="/js/site.js" defer></script>
   </body>
 </html>

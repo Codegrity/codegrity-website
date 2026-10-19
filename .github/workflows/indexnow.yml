@@ -1,0 +1,37 @@
+name: IndexNow
+
+# After a production deploy, tell Bing (and other IndexNow engines) which URLs changed.
+on:
+  push:
+    branches: [main]
+    paths: ["**.html", "sitemap.xml"]
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    permissions:
+      deployments: read
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for the Vercel production deploy of this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 30); do
+            id=$(gh api "repos/${{ github.repository }}/deployments?sha=${{ github.sha }}&environment=Production" --jq '.[0].id // empty')
+            if [ -n "$id" ]; then
+              state=$(gh api "repos/${{ github.repository }}/deployments/$id/statuses" --jq '.[0].state // empty')
+              echo "deploy state: $state"
+              [ "$state" = "success" ] && exit 0
+              [ "$state" = "failure" ] || [ "$state" = "error" ] && exit 1
+            fi
+            sleep 20
+          done
+          echo "Timed out waiting for deploy"; exit 1
+      - name: Submit sitemap URLs to IndexNow
+        run: |
+          KEY=07066f05e57a79cdde7e3a257f22d0e1
+          URLS=$(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed 's/<[^>]*>//g' | jq -R . | jq -s -c .)
+          BODY=$(jq -n --arg key "$KEY" --argjson urls "$URLS" '{host:"www.codegrity.com", key:$key, keyLocation:("https://www.codegrity.com/" + $key + ".txt"), urlList:$urls}')
+          curl -sS -o /dev/null -w "IndexNow HTTP %{http_code}\n" -H "Content-Type: application/json; charset=utf-8" -d "$BODY" https://api.indexnow.org/indexnow

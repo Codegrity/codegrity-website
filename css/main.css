@@ -1,10 +1,9 @@
-/* CodeGrity - Main Stylesheet */
+/* Codegrity - legacy page styles (pages not yet migrated) */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none !important;
 }
 
 body {
@@ -15,62 +14,6 @@ body {
   color: #f8fafc;
   overflow-x: hidden;
   line-height: 1.6;
-}
-
-/* ======================
-   CUSTOM CURSOR
-   ====================== */
-.cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #3b82f6;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transition: all 0.15s ease;
-  mix-blend-mode: difference;
-}
-
-.cursor-follower {
-  width: 8px;
-  height: 8px;
-  background: #3b82f6;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transition: all 0.3s ease;
-}
-
-/* ======================
-   SCROLL INDICATORS
-   ====================== */
-.scroll-indicator {
-  position: fixed;
-  bottom: 2rem;
-  left: 2rem;
-  z-index: 1000;
-  font-size: 3rem;
-  font-weight: 700;
-  color: rgba(59, 130, 246, 0.3);
-  font-variant-numeric: tabular-nums;
-  transition: color 0.3s;
-}
-
-.scroll-indicator.active {
-  color: rgba(59, 130, 246, 0.8);
-}
-
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 3px;
-  background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
-  z-index: 9999;
-  transition: width 0.1s ease;
 }
 
 /* ======================
@@ -351,7 +294,7 @@ nav.scrolled {
    BUTTONS
    ====================== */
 .btn-primary {
-  background: #3b82f6;
+  background: #2563eb;
   color: white;
   padding: 1.2rem 3rem;
   border-radius: 50px;

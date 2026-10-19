@@ -1,0 +1,101 @@
+{
+  "site": {
+    "origin": "https://www.codegrity.com",
+    "name": "Codegrity",
+    "legalName": "Codegrity LLC",
+    "defaultImage": "/images/og-default.png",
+    "phone": "+1-972-838-7422",
+    "phoneDisplay": "(972) 838-7422",
+    "email": "psojdei@codegrity.com"
+  },
+  "nav": [
+    { "href": "/services", "label": "Services" },
+    { "href": "/local", "label": "Local Businesses" },
+    { "href": "/work", "label": "Work" },
+    { "href": "/about", "label": "About" },
+    { "href": "/blog", "label": "Blog" },
+    { "href": "/contact", "label": "Contact" }
+  ],
+  "cta": { "href": "/contact", "label": "Book a call" },
+  "footer": {
+    "about": "Senior software engineers in McKinney, Texas. We fix, connect and automate the systems small and mid-sized businesses run on.",
+    "columns": [
+      {
+        "title": "Services",
+        "links": [
+          { "href": "/services", "label": "All services" },
+          { "href": "/local", "label": "Local business websites" }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          { "href": "/", "label": "Home" },
+          { "href": "/work", "label": "Work" },
+          { "href": "/about", "label": "About" },
+          { "href": "/blog", "label": "Blog" }
+        ]
+      }
+    ]
+  },
+  "pages": {
+    "index.html": {
+      "path": "/",
+      "title": "Codegrity | Senior Software Engineers in McKinney, TX",
+      "description": "Senior engineers for small and mid-sized businesses: integrations, legacy modernization, hard production bugs and practical AI automation. Based in McKinney, Texas.",
+      "crumb": null
+    },
+    "services.html": {
+      "path": "/services",
+      "title": "Software Development Services | Codegrity, McKinney TX",
+      "description": "Senior engineering help for small and mid-sized companies: backend and .NET, API integrations, legacy modernization, production bugs and project takeovers.",
+      "crumb": "Services"
+    },
+    "local.html": {
+      "path": "/local",
+      "title": "Website Design in McKinney, TX for Local Businesses | Codegrity",
+      "description": "Fast websites for McKinney, Allen, Frisco, Plano and Dallas businesses, kept current on Google and in AI search every month. Plans from $79/month.",
+      "crumb": "Local Businesses",
+      "image": "/images/og-local.png",
+      "imageAlt": "Codegrity: More calls from people nearby. Free website audit for McKinney and Dallas businesses."
+    },
+    "work.html": {
+      "path": "/work",
+      "title": "Our Work | Codegrity",
+      "description": "Projects Codegrity has shipped: the GoalLine Payments company website, the Step and Rail dashboard modernization, and our own products.",
+      "crumb": "Work"
+    },
+    "about.html": {
+      "path": "/about",
+      "title": "About Codegrity | Founder PJ Sojdei, McKinney TX",
+      "description": "Codegrity LLC is a three-developer software company in McKinney, Texas, founded by PJ Sojdei. The people you talk to are the people who build your project.",
+      "crumb": "About"
+    },
+    "contact.html": {
+      "path": "/contact",
+      "title": "Contact Codegrity | Book a Call",
+      "description": "Tell us what you need built, fixed or connected. Email psojdei@codegrity.com or call (972) 838-7422. Based in McKinney, Texas.",
+      "crumb": "Contact"
+    },
+    "blog/index.html": {
+      "path": "/blog",
+      "title": "Blog | Codegrity",
+      "description": "Practical writing on software development, modernization and automation for small and mid-sized businesses, from the Codegrity team in McKinney, Texas.",
+      "crumb": "Blog"
+    },
+    "blog/the-real-cost-of-cheap-development.html": {
+      "path": "/blog/the-real-cost-of-cheap-development",
+      "title": "The Real Cost of Cheap Development | Codegrity Blog",
+      "description": "A $15,000 build that ended up costing $115,000. What cutting corners on development really costs, and what to look for when you hire a developer.",
+      "crumb": "The Real Cost of Cheap Development",
+      "parentCrumb": { "name": "Blog", "path": "/blog" },
+      "type": "article"
+    },
+    "404.html": {
+      "path": null,
+      "title": "Page Not Found | Codegrity",
+      "description": "That page does not exist. Find our services, work and contact details here.",
+      "noindex": true
+    }
+  }
+}
