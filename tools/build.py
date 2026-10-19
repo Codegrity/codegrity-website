@@ -102,7 +102,6 @@ def schema_block(cfg):
                 {"@type": "Country", "name": "United States"},
             ],
             "priceRange": "$$",
-            "sameAs": ["https://www.linkedin.com/company/codegrity"],
         },
         {
             "@type": "Person",
@@ -121,6 +120,8 @@ def schema_block(cfg):
             "inLanguage": "en-US",
         },
     ]
+    if SITE.get("sameAs"):
+        graph[0]["sameAs"] = SITE["sameAs"]
     if cfg.get("path") and cfg.get("crumb"):
         items = [{"@type": "ListItem", "position": 1, "name": "Home", "item": ORIGIN + "/"}]
         parent = cfg.get("parentCrumb")
