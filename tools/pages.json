@@ -134,8 +134,8 @@
     },
     "integrations.html": {
       "path": "/integrations",
-      "title": "API Integration Services in Dallas-Fort Worth | Codegrity",
-      "description": "API and third-party integrations for growing businesses: CRM, payments, store, accounting and ERP syncs with logging, retries and alerts. Senior engineers in McKinney, TX.",
+      "title": "API Integration Services for Growing Businesses | Codegrity",
+      "description": "API and third-party integrations for growing US businesses: CRM, payments, store, accounting and ERP syncs with logging, retries and alerts, built by senior engineers.",
       "crumb": "Integrations",
       "parentCrumb": {
         "name": "Services",
@@ -145,8 +145,8 @@
     },
     "legacy-modernization.html": {
       "path": "/legacy-modernization",
-      "title": "Legacy .NET and PHP Modernization | Codegrity, McKinney TX",
-      "description": "Modernize older .NET Framework and PHP (including CakePHP) applications in stages while the business keeps running. Assessment, tests, upgrades and handover.",
+      "title": "Legacy .NET and PHP Modernization Services | Codegrity",
+      "description": "Modernize older .NET Framework and PHP (including CakePHP) applications in stages while the business keeps running. Assessment, tests, upgrades and handover, US-wide.",
       "crumb": "Legacy Modernization",
       "parentCrumb": {
         "name": "Services",
@@ -157,7 +157,7 @@
     "project-rescue.html": {
       "path": "/project-rescue",
       "title": "Software Project Rescue and Takeover | Codegrity",
-      "description": "Your developer left or the agency moved on? We take over software projects, secure your accounts, review the code in plain English and fix hard production bugs.",
+      "description": "Your developer left or the agency moved on? We take over software projects for US businesses, secure your accounts, review the code in plain English and fix hard production bugs.",
       "crumb": "Project Rescue",
       "parentCrumb": {
         "name": "Services",
