@@ -110,6 +110,7 @@ def schema_block(cfg):
             "jobTitle": "Founder",
             "worksFor": {"@id": ORG_ID},
             "url": ORIGIN + "/about",
+            "sameAs": ["https://www.linkedin.com/in/pj-sojdei/"],
         },
         {
             "@type": "WebSite",
