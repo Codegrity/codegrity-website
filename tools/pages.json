@@ -7,8 +7,11 @@
     "phone": "+1-972-838-7422",
     "phoneDisplay": "(972) 838-7422",
     "email": "psojdei@codegrity.com",
-    "sameAs": [],
-    "_sameAsNote": "Add verified profile URLs here (LinkedIn company page, Google Business Profile, Clutch). Each one is added to the Organization schema on every page."
+    "sameAs": [
+      "https://www.linkedin.com/company/144016447/"
+    ],
+    "_sameAsNote": "Add verified profile URLs here (LinkedIn company page, Google Business Profile, Clutch). Each one is added to the Organization schema on every page.",
+    "linkedin": "https://www.linkedin.com/company/144016447/"
   },
   "nav": [
     {

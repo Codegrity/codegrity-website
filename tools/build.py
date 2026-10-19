@@ -184,6 +184,7 @@ def footer_block():
           </ul>
         </div>"""
         )
+    linkedin = f'\n            <li><a href="{SITE["linkedin"]}" rel="noopener">LinkedIn</a></li>' if SITE.get("linkedin") else ""
     body = f"""    <footer class="cg-footer">
       <div class="cg-footer-grid">
         <div class="cg-footer-about">
@@ -199,7 +200,7 @@ def footer_block():
           <ul>
             <li><a href="mailto:{SITE["email"]}">{SITE["email"]}</a></li>
             <li><a href="tel:{SITE["phone"].replace("-", "")}">{SITE["phoneDisplay"]}</a></li>
-            <li>McKinney, Texas</li>
+            <li>McKinney, Texas</li>{linkedin}
           </ul>
         </div>
       </div>
