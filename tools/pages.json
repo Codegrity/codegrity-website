@@ -247,6 +247,42 @@
       "description": "Practical writing on software development, modernization and automation for small and mid-sized businesses, from the Codegrity team in McKinney, Texas.",
       "crumb": "Blog"
     },
+    "blog/ai-automation-cost-small-business.html": {
+      "path": "/blog/ai-automation-cost-small-business",
+      "title": "What AI Automation Costs a Small Business in 2026 | Codegrity",
+      "description": "Where the money goes in a small-business AI automation project, with dated 2026 prices for building, tools and AI usage, and how to keep the first project small.",
+      "crumb": "What AI Automation Costs",
+      "parentCrumb": {
+        "name": "Blog",
+        "path": "/blog"
+      },
+      "type": "article",
+      "priority": "0.7"
+    },
+    "blog/taking-over-a-software-project.html": {
+      "path": "/blog/taking-over-a-software-project",
+      "title": "Taking Over a Software Project From Another Developer: The First 30 Days",
+      "description": "A week-by-week plan for when your developer or agency leaves: secure access, take inventory, get an honest code review, then decide whether to fix, extend or rewrite.",
+      "crumb": "Taking Over a Software Project",
+      "parentCrumb": {
+        "name": "Blog",
+        "path": "/blog"
+      },
+      "type": "article",
+      "priority": "0.7"
+    },
+    "blog/dotnet-framework-migration-checklist.html": {
+      "path": "/blog/dotnet-framework-migration-checklist",
+      "title": ".NET Framework and .NET 8 Migration Checklist for Small Teams | Codegrity",
+      "description": ".NET 8 and .NET 9 reach end of support on November 10, 2026. A practical checklist for moving from .NET Framework or .NET 8 to .NET 10 in stages.",
+      "crumb": ".NET Migration Checklist",
+      "parentCrumb": {
+        "name": "Blog",
+        "path": "/blog"
+      },
+      "type": "article",
+      "priority": "0.7"
+    },
     "blog/the-real-cost-of-cheap-development.html": {
       "path": "/blog/the-real-cost-of-cheap-development",
       "title": "The Real Cost of Cheap Development | Codegrity Blog",

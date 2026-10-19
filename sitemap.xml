@@ -81,6 +81,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.codegrity.com/blog/ai-automation-cost-small-business</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.codegrity.com/blog/taking-over-a-software-project</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.codegrity.com/blog/dotnet-framework-migration-checklist</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.codegrity.com/blog/the-real-cost-of-cheap-development</loc>
     <lastmod>2026-10-19</lastmod>
     <priority>0.8</priority>

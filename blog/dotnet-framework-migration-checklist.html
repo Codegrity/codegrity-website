@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- seo:start -->
+    <title>.NET Framework and .NET 8 Migration Checklist for Small Teams | Codegrity</title>
+    <meta name="description" content=".NET 8 and .NET 9 reach end of support on November 10, 2026. A practical checklist for moving from .NET Framework or .NET 8 to .NET 10 in stages." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://www.codegrity.com/blog/dotnet-framework-migration-checklist" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Codegrity" />
+    <meta property="og:title" content=".NET Framework and .NET 8 Migration Checklist for Small Teams | Codegrity" />
+    <meta property="og:description" content=".NET 8 and .NET 9 reach end of support on November 10, 2026. A practical checklist for moving from .NET Framework or .NET 8 to .NET 10 in stages." />
+    <meta property="og:url" content="https://www.codegrity.com/blog/dotnet-framework-migration-checklist" />
+    <meta property="og:image" content="https://www.codegrity.com/images/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Codegrity: senior software engineers in McKinney, Texas" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content=".NET Framework and .NET 8 Migration Checklist for Small Teams | Codegrity" />
+    <meta name="twitter:description" content=".NET 8 and .NET 9 reach end of support on November 10, 2026. A practical checklist for moving from .NET Framework or .NET 8 to .NET 10 in stages." />
+    <meta name="twitter:image" content="https://www.codegrity.com/images/og-default.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <!-- seo:end -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/css/chrome.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQH3T0SR8M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XQH3T0SR8M");
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Moving Off .NET Framework (and .NET 8): A Migration Checklist for Small Teams",
+        "description": ".NET 8 and .NET 9 reach end of support on November 10, 2026. A practical checklist for small teams moving from .NET Framework or .NET 8 to .NET 10, in stages.",
+        "datePublished": "2026-10-19",
+        "dateModified": "2026-10-19",
+        "author": { "@type": "Person", "@id": "https://www.codegrity.com/about#pj-sojdei", "name": "PJ Sojdei", "url": "https://www.codegrity.com/about" },
+        "publisher": { "@id": "https://www.codegrity.com/#org" },
+        "mainEntityOfPage": "https://www.codegrity.com/blog/dotnet-framework-migration-checklist",
+        "image": "https://www.codegrity.com/images/og-default.png"
+      }
+    </script>
+    <!-- schema:start -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": [
+              "Organization",
+              "ProfessionalService"
+            ],
+            "@id": "https://www.codegrity.com/#org",
+            "name": "Codegrity",
+            "legalName": "Codegrity LLC",
+            "url": "https://www.codegrity.com/",
+            "logo": "https://www.codegrity.com/images/codegrity-logo-512.png",
+            "image": "https://www.codegrity.com/images/og-default.png",
+            "description": "Senior software engineers in McKinney, Texas. We fix, connect and automate the systems small and mid-sized businesses run on.",
+            "telephone": "+1-972-838-7422",
+            "email": "psojdei@codegrity.com",
+            "foundingDate": "2023",
+            "founder": {
+              "@id": "https://www.codegrity.com/about#pj-sojdei"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "McKinney",
+              "addressRegion": "TX",
+              "addressCountry": "US"
+            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "McKinney, TX"
+              },
+              {
+                "@type": "City",
+                "name": "Dallas, TX"
+              },
+              {
+                "@type": "Country",
+                "name": "United States"
+              }
+            ],
+            "priceRange": "$$"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.codegrity.com/about#pj-sojdei",
+            "name": "PJ Sojdei",
+            "jobTitle": "Founder",
+            "worksFor": {
+              "@id": "https://www.codegrity.com/#org"
+            },
+            "url": "https://www.codegrity.com/about"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.codegrity.com/#website",
+            "url": "https://www.codegrity.com/",
+            "name": "Codegrity",
+            "publisher": {
+              "@id": "https://www.codegrity.com/#org"
+            },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.codegrity.com/blog/dotnet-framework-migration-checklist#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.codegrity.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.codegrity.com/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": ".NET Migration Checklist",
+                "item": "https://www.codegrity.com/blog/dotnet-framework-migration-checklist"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <!-- schema:end -->
+  </head>
+  <body>
+    <!-- header:start -->
+    <a class="cg-skip" href="#main">Skip to content</a>
+    <header class="cg-header">
+      <nav class="cg-nav" aria-label="Main">
+        <a href="/" class="cg-brand" aria-label="Codegrity home">
+          <span class="cg-mark" aria-hidden="true"></span>
+          <span class="cg-wordmark">Code<span>grity</span></span>
+        </a>
+        <ul class="cg-menu" id="cg-menu">
+          <li><a href="/services">Services</a></li>
+          <li><a href="/ai-automation">AI Automation</a></li>
+          <li><a href="/local">Local Websites</a></li>
+          <li><a href="/work">Work</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/blog" aria-current="page">Blog</a></li>
+          <li class="cg-menu-cta"><a href="/contact" data-cta="nav-mobile">Book a call</a></li>
+        </ul>
+        <a href="/contact" class="cg-cta" data-cta="nav">Book a call</a>
+        <button class="cg-toggle" type="button" aria-controls="cg-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="cg-i-menu" viewBox="0 0 512 512" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352"/></svg>
+          <svg class="cg-i-close" viewBox="0 0 512 512" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>
+        </button>
+      </nav>
+    </header>
+    <!-- header:end -->
+    <main id="main">
+      <section class="page-hero" style="padding-bottom: 32px">
+        <div class="wrap narrow">
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog">Blog</a> / .NET Migration Checklist</nav>
+          <h1 style="max-width: 22ch">Moving Off .NET Framework (and .NET 8): A Migration Checklist for Small Teams</h1>
+          <p class="lede">.NET 8 and .NET 9 reach end of support on November 10, 2026. If your business runs on .NET, here is how to tell where you stand and how to move forward in stages, without stopping the business.</p>
+          <p class="byline">By <a href="/about" rel="author">PJ Sojdei</a>, founder of Codegrity. Published <time datetime="2026-10-19">October 19, 2026</time>. 8 minute read.</p>
+        </div>
+      </section>
+
+      <section class="sec-tight">
+        <div class="wrap narrow">
+          <article class="article">
+            <h2 style="margin-top: 0">First, which .NET are you on?</h2>
+            <p>"We're on .NET" can mean two very different things, and the deadline only applies to one of them.</p>
+            <table>
+              <thead><tr><th scope="col">What you run</th><th scope="col">Support status</th></tr></thead>
+              <tbody>
+                <tr><td>.NET 8 or .NET 9</td><td>Ends November 10, 2026</td></tr>
+                <tr><td>.NET 10 (LTS)</td><td>Supported to November 2028</td></tr>
+                <tr><td>.NET Framework 4.8 or 4.8.1</td><td>Supported with Windows</td></tr>
+                <tr><td>.NET Framework 4.6.1 or older</td><td>Out of support since 2022 or earlier</td></tr>
+              </tbody>
+            </table>
+            <p>
+              Microsoft announced that .NET 8 (a long-term support release) and .NET 9 (a standard-term release) both end
+              support on November 10, 2026, and recommends moving to .NET 10, which is supported until November 2028
+              (<a href="https://devblogs.microsoft.com/dotnet/dotnet-8-9-end-of-support/" rel="noopener">.NET Blog, June 2026</a>).
+              After that date there are no more security patches.
+            </p>
+            <p>
+              .NET Framework is different. Versions 4.8 and 4.8.1 are treated as part of Windows and stay supported as long as
+              the Windows version they run on is supported. Versions 4.5.2 through 4.6.1 reached end of support on April 26,
+              2022 (<a href="https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-framework" rel="noopener">Microsoft .NET Framework support policy</a>).
+              So a .NET Framework 4.8 application isn't facing a hard deadline. The problem is that it can't use anything new,
+              libraries are dropping support for it, and fewer developers want to work on it every year.
+            </p>
+            <p>
+              To check a project, open its <code>.csproj</code> file. <code>&lt;TargetFramework&gt;net8.0&lt;/TargetFramework&gt;</code>
+              means .NET 8. <code>&lt;TargetFrameworkVersion&gt;v4.8&lt;/TargetFrameworkVersion&gt;</code> means .NET Framework 4.8.
+            </p>
+
+            <h2>If you're on .NET 8 or 9: upgrade to .NET 10 now</h2>
+            <p>This is usually the easy case. Moving between modern .NET versions is mostly routine:</p>
+            <ol>
+              <li>Change the target framework to <code>net10.0</code> in each project, and update the SDK version in <code>global.json</code> if you have one.</li>
+              <li>Update NuGet packages, starting with Microsoft's own packages (ASP.NET Core, Entity Framework Core) to their version 10 releases.</li>
+              <li>Read Microsoft's breaking-change list for each version you are crossing and search your code for the affected APIs.</li>
+              <li>Update build agents, Docker base images and hosting (Azure App Service, IIS hosting bundle) to the .NET 10 runtime.</li>
+              <li>Run your tests, deploy to a staging environment, and watch logs closely after the production release.</li>
+            </ol>
+            <p>For a small, well-kept application this can be a matter of days. If it turns out to be harder, that is a sign of deeper problems worth knowing about.</p>
+
+            <h2>If you're on .NET Framework: modernize in stages</h2>
+            <p>
+              Moving from .NET Framework to modern .NET is a real project, not a version bump. Don't plan it as one big
+              rewrite. Plan it as a sequence of releases that each leave the application working.
+            </p>
+
+            <h3>1. Take inventory</h3>
+            <ul>
+              <li>List every project in the solution and what kind it is: web, Windows service, class library, desktop.</li>
+              <li>List every NuGet package and third-party DLL, and check whether each has a modern .NET version.</li>
+              <li>Find the hard blockers. The big ones are ASP.NET Web Forms (not available in modern .NET), WCF services (the server side lives on in the community-run CoreWCF project), and heavy use of <code>System.Web</code>.</li>
+              <li>Note anything Windows-specific: the registry, COM components, Windows authentication.</li>
+            </ul>
+
+            <h3>2. Build a safety net first</h3>
+            <ul>
+              <li>Put automated tests around the parts of the application that change most and matter most. Even a handful of end-to-end tests on key screens is worth it.</li>
+              <li>Make deploys repeatable. If releasing today is a manual, late-night process, fix that before migrating anything.</li>
+            </ul>
+
+            <h3>3. Move the shared code first</h3>
+            <p>
+              Class libraries with business logic are usually the easiest to move. Retarget them to .NET Standard 2.0 or
+              multi-target them, so both the old application and new code can use them during the transition.
+            </p>
+
+            <h3>4. Move the application in slices</h3>
+            <ul>
+              <li><strong>ASP.NET MVC and Web API</strong> projects move to ASP.NET Core with a reasonable amount of work, since the concepts carry over.</li>
+              <li><strong>Web Forms</strong> pages need rebuilding, usually in ASP.NET Core with Razor Pages or Blazor. Rebuild one area at a time and route traffic to the new version as each area is ready, so both run side by side.</li>
+              <li><strong>Windows services</strong> generally become .NET worker services.</li>
+              <li><strong>Data access</strong> on Entity Framework 6 can stay on EF6 for a while (it runs on modern .NET) before moving to EF Core later.</li>
+            </ul>
+
+            <h3>5. Use tooling, but check its work</h3>
+            <p>
+              Microsoft has deprecated its .NET Upgrade Assistant and now points developers to an AI-based tool, GitHub
+              Copilot app modernization, which requires a paid Copilot subscription
+              (<a href="https://www.gapvelocity.ai/blog/what-happened-to-the-.net-upgrade-assistant" rel="noopener">GAPVelocity, February 2026</a>).
+              Tools like this are good at the mechanical parts of an upgrade. Treat their output the way you would treat a
+              junior developer's pull request: useful, and in need of review and testing.
+            </p>
+
+            <h3>6. Release, measure, repeat</h3>
+            <p>
+              Each slice goes to production on its own, with monitoring. Because you are always running a working system, you
+              can pause the migration whenever the business needs the team for something else, and you can stop altogether
+              once the parts that matter are modern.
+            </p>
+
+            <h2>What it costs</h2>
+            <p>
+              A .NET 8 to .NET 10 upgrade on a small application is often a few days of senior time. A .NET Framework migration
+              depends on the size of the application and how many hard blockers it has, which is why the first step should be
+              an assessment that breaks the work into stages with a price for each. You can fund it one stage at a time.
+            </p>
+            <p>
+              We do this work at $100 to $125 an hour, or as fixed-price stages once the assessment is done. Read more on our
+              <a href="/legacy-modernization">legacy modernization page</a>.
+            </p>
+
+            <h2>Sources</h2>
+            <ul>
+              <li><a href="https://devblogs.microsoft.com/dotnet/dotnet-8-9-end-of-support/" rel="noopener">.NET 8 and .NET 9 end of support</a>, .NET Blog, Microsoft, June 29, 2026</li>
+              <li><a href="https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-framework" rel="noopener">.NET Framework support policy</a>, Microsoft, accessed October 2026</li>
+              <li><a href="https://www.gapvelocity.ai/blog/what-happened-to-the-.net-upgrade-assistant" rel="noopener">What happened to the .NET Upgrade Assistant?</a>, GAPVelocity, February 14, 2026</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="closer">
+        <div class="wrap">
+          <h2>Not sure what your upgrade involves?</h2>
+          <p>Tell us what the application does and what it runs on. We'll reply within one business day.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="/contact?service=modernization" data-cta="blog-dotnet-call">Book a call</a>
+            <a class="btn btn-quiet" href="/legacy-modernization" data-cta="blog-dotnet-mod">Legacy modernization</a>
+          </div>
+        </div>
+      </section>
+    </main>
+      <!-- footer:start -->
+    <footer class="cg-footer">
+      <div class="cg-footer-grid">
+        <div class="cg-footer-about">
+          <a href="/" class="cg-brand" aria-label="Codegrity home">
+            <span class="cg-mark" aria-hidden="true"></span>
+            <span class="cg-wordmark">Code<span>grity</span></span>
+          </a>
+          <p>Senior software engineers in McKinney, Texas. We fix, connect and automate the systems small and mid-sized businesses run on.</p>
+        </div>
+        <div>
+          <h2>Services</h2>
+          <ul>
+            <li><a href="/services">All services</a></li>
+            <li><a href="/integrations">Integrations</a></li>
+            <li><a href="/legacy-modernization">Legacy modernization</a></li>
+            <li><a href="/project-rescue">Project rescue</a></li>
+            <li><a href="/fractional-cto">Fractional CTO</a></li>
+            <li><a href="/ai-automation">AI automation</a></li>
+            <li><a href="/ai-opportunity-audit">AI Opportunity Audit</a></li>
+            <li><a href="/local">Local business websites</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <ul>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/work/dailyprimestore">DailyPrimeStore case study</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/how-we-use-ai">How we use AI</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="mailto:psojdei@codegrity.com">psojdei@codegrity.com</a></li>
+            <li><a href="tel:+19728387422">(972) 838-7422</a></li>
+            <li>McKinney, Texas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cg-footer-base">
+        <span>&copy; 2026 Codegrity LLC. McKinney, Texas.</span>
+        <span>Serving McKinney, Dallas-Fort Worth and clients nationwide.</span>
+      </div>
+    </footer>
+    <!-- footer:end -->
+    <script src="/js/site.js" defer></script>
+  </body>
+</html>

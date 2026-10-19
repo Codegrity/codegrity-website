@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- seo:start -->
+    <title>Taking Over a Software Project From Another Developer: The First 30 Days</title>
+    <meta name="description" content="A week-by-week plan for when your developer or agency leaves: secure access, take inventory, get an honest code review, then decide whether to fix, extend or rewrite." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://www.codegrity.com/blog/taking-over-a-software-project" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Codegrity" />
+    <meta property="og:title" content="Taking Over a Software Project From Another Developer: The First 30 Days" />
+    <meta property="og:description" content="A week-by-week plan for when your developer or agency leaves: secure access, take inventory, get an honest code review, then decide whether to fix, extend or rewrite." />
+    <meta property="og:url" content="https://www.codegrity.com/blog/taking-over-a-software-project" />
+    <meta property="og:image" content="https://www.codegrity.com/images/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Codegrity: senior software engineers in McKinney, Texas" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Taking Over a Software Project From Another Developer: The First 30 Days" />
+    <meta name="twitter:description" content="A week-by-week plan for when your developer or agency leaves: secure access, take inventory, get an honest code review, then decide whether to fix, extend or rewrite." />
+    <meta name="twitter:image" content="https://www.codegrity.com/images/og-default.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <!-- seo:end -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/css/chrome.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQH3T0SR8M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XQH3T0SR8M");
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Taking Over a Software Project From Another Developer: The First 30 Days",
+        "description": "A week-by-week plan for when your developer or agency leaves: secure access, take inventory, get an honest code review, and decide whether to fix, extend or rewrite.",
+        "datePublished": "2026-10-19",
+        "dateModified": "2026-10-19",
+        "author": { "@type": "Person", "@id": "https://www.codegrity.com/about#pj-sojdei", "name": "PJ Sojdei", "url": "https://www.codegrity.com/about" },
+        "publisher": { "@id": "https://www.codegrity.com/#org" },
+        "mainEntityOfPage": "https://www.codegrity.com/blog/taking-over-a-software-project",
+        "image": "https://www.codegrity.com/images/og-default.png"
+      }
+    </script>
+    <!-- schema:start -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": [
+              "Organization",
+              "ProfessionalService"
+            ],
+            "@id": "https://www.codegrity.com/#org",
+            "name": "Codegrity",
+            "legalName": "Codegrity LLC",
+            "url": "https://www.codegrity.com/",
+            "logo": "https://www.codegrity.com/images/codegrity-logo-512.png",
+            "image": "https://www.codegrity.com/images/og-default.png",
+            "description": "Senior software engineers in McKinney, Texas. We fix, connect and automate the systems small and mid-sized businesses run on.",
+            "telephone": "+1-972-838-7422",
+            "email": "psojdei@codegrity.com",
+            "foundingDate": "2023",
+            "founder": {
+              "@id": "https://www.codegrity.com/about#pj-sojdei"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "McKinney",
+              "addressRegion": "TX",
+              "addressCountry": "US"
+            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "McKinney, TX"
+              },
+              {
+                "@type": "City",
+                "name": "Dallas, TX"
+              },
+              {
+                "@type": "Country",
+                "name": "United States"
+              }
+            ],
+            "priceRange": "$$"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.codegrity.com/about#pj-sojdei",
+            "name": "PJ Sojdei",
+            "jobTitle": "Founder",
+            "worksFor": {
+              "@id": "https://www.codegrity.com/#org"
+            },
+            "url": "https://www.codegrity.com/about"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.codegrity.com/#website",
+            "url": "https://www.codegrity.com/",
+            "name": "Codegrity",
+            "publisher": {
+              "@id": "https://www.codegrity.com/#org"
+            },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.codegrity.com/blog/taking-over-a-software-project#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.codegrity.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.codegrity.com/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Taking Over a Software Project",
+                "item": "https://www.codegrity.com/blog/taking-over-a-software-project"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <!-- schema:end -->
+  </head>
+  <body>
+    <!-- header:start -->
+    <a class="cg-skip" href="#main">Skip to content</a>
+    <header class="cg-header">
+      <nav class="cg-nav" aria-label="Main">
+        <a href="/" class="cg-brand" aria-label="Codegrity home">
+          <span class="cg-mark" aria-hidden="true"></span>
+          <span class="cg-wordmark">Code<span>grity</span></span>
+        </a>
+        <ul class="cg-menu" id="cg-menu">
+          <li><a href="/services">Services</a></li>
+          <li><a href="/ai-automation">AI Automation</a></li>
+          <li><a href="/local">Local Websites</a></li>
+          <li><a href="/work">Work</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/blog" aria-current="page">Blog</a></li>
+          <li class="cg-menu-cta"><a href="/contact" data-cta="nav-mobile">Book a call</a></li>
+        </ul>
+        <a href="/contact" class="cg-cta" data-cta="nav">Book a call</a>
+        <button class="cg-toggle" type="button" aria-controls="cg-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="cg-i-menu" viewBox="0 0 512 512" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352"/></svg>
+          <svg class="cg-i-close" viewBox="0 0 512 512" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>
+        </button>
+      </nav>
+    </header>
+    <!-- header:end -->
+    <main id="main">
+      <section class="page-hero" style="padding-bottom: 32px">
+        <div class="wrap narrow">
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog">Blog</a> / Taking Over a Software Project</nav>
+          <h1 style="max-width: 22ch">Taking Over a Software Project From Another Developer: The First 30 Days</h1>
+          <p class="lede">Your developer left, or the agency stopped answering, and the software still runs part of your business. Here is the order to do things in, so you get control back before anyone changes a line of code.</p>
+          <p class="byline">By <a href="/about" rel="author">PJ Sojdei</a>, founder of Codegrity. Published <time datetime="2026-10-19">October 19, 2026</time>. 6 minute read.</p>
+        </div>
+      </section>
+
+      <section class="sec-tight">
+        <div class="wrap narrow">
+          <article class="article">
+            <p>
+              The instinct after a developer leaves is to find a new one and get back to building. Resist it for a couple of
+              weeks. The first job isn't writing code. It's making sure your company actually controls the software it paid
+              for, and finding out what shape it is really in. Everything after that goes faster and costs less.
+            </p>
+
+            <h2>Days 1 to 3: secure access</h2>
+            <p>
+              Before anything else, make sure your company, not a person, owns every account the software depends on. Make a
+              list and work through it:
+            </p>
+            <ul>
+              <li><strong>Source code.</strong> The repository on GitHub, GitLab or Bitbucket, owned by a company account with you as an owner.</li>
+              <li><strong>Hosting.</strong> The servers or cloud account the application runs on, and the billing for it.</li>
+              <li><strong>Domain and DNS.</strong> The registrar and DNS provider, with your company email on file.</li>
+              <li><strong>Databases and backups.</strong> Where the data lives, and proof that a recent backup exists and can be restored.</li>
+              <li><strong>Third-party services.</strong> Payment processors, email senders, app store accounts, analytics, any API the software calls.</li>
+              <li><strong>Secrets.</strong> API keys and passwords. Once you have them, plan to rotate them, because someone who has left still knows the old ones.</li>
+            </ul>
+            <div class="callout">
+              If the previous developer is cooperative, ask for transfers rather than shared passwords. If they are not, most
+              hosting, registrar and app store providers have an ownership recovery process for the business that pays the
+              bill. Start those early, because they can take days.
+            </div>
+
+            <h2>Week 1: take inventory</h2>
+            <p>
+              Now write down what actually exists. Not what the original proposal promised, but what is running today.
+            </p>
+            <ul>
+              <li>Every application, site, background job and scheduled task, and where each one runs.</li>
+              <li>What each part depends on: languages, frameworks and their versions, outside services.</li>
+              <li>What it all costs each month, and who is paying for it.</li>
+              <li>How code gets from the repository to production. If the answer is "the old developer did it from their laptop", that is your first fix.</li>
+              <li>Any documentation, however thin, and any open bugs or half-finished features.</li>
+            </ul>
+
+            <h2>Week 2: get an honest code review</h2>
+            <p>
+              A senior engineer should read the code and write you a plain-English report. It should answer a short list of
+              questions:
+            </p>
+            <ol>
+              <li><strong>Is anything about to break?</strong> Expiring certificates, unsupported framework versions, a disk that is nearly full, a dependency with a known security issue.</li>
+              <li><strong>Are there security problems?</strong> Passwords stored in plain text, missing input validation, admin pages without proper login.</li>
+              <li><strong>Can it be deployed safely?</strong> Is there a repeatable way to release a change and roll it back?</li>
+              <li><strong>Is it understandable?</strong> Could a competent developer who has never seen it make a change in a reasonable time?</li>
+              <li><strong>What would the next three changes you want actually cost?</strong></li>
+            </ol>
+            <p>
+              The report should be about the code, not about the person who wrote it. You need facts to make decisions, not a
+              critique of your last hire.
+            </p>
+
+            <h2>Weeks 3 and 4: stabilize, then decide</h2>
+            <p>
+              Fix the urgent items from the review first: security holes, anything about to break, and a safe deploy process.
+              Then you are in a position to make the real decision, with evidence instead of guesses.
+            </p>
+            <h3>Fix and extend, rewrite, or replace?</h3>
+            <ul>
+              <li><strong>Fix and extend</strong> when the code is understandable and the problems are local. This is often the right answer, and the cheapest.</li>
+              <li><strong>Rewrite in stages</strong> when the core is sound but parts are unmaintainable. Replace the worst parts one at a time while the rest keeps running.</li>
+              <li><strong>Replace</strong> with an off-the-shelf product when the custom software does something a mainstream tool now does well.</li>
+              <li><strong>Rewrite from scratch</strong> only when the existing code genuinely can't be moved forward. Be suspicious of anyone who recommends this before reading the code.</li>
+            </ul>
+
+            <h2>How to avoid doing this again</h2>
+            <ul>
+              <li>Keep every account in the company's name from day one, with at least two people who can get in.</li>
+              <li>Require a written deploy process and basic documentation as part of any engagement.</li>
+              <li>Ask for regular, small releases instead of long silences followed by a big launch.</li>
+              <li>Make sure the contract says the company owns the code.</li>
+            </ul>
+            <p>
+              If you are in this situation because a budget build went wrong, our post on
+              <a href="/blog/the-real-cost-of-cheap-development">the real cost of cheap development</a> covers the red flags to
+              watch for when you hire the next developer.
+            </p>
+
+            <h2>Where we come in</h2>
+            <p>
+              Taking over projects is one of the main things we do. We follow the order above: access first, then inventory,
+              then a written review, then a priority list with estimates, and only then new work. Read more on our
+              <a href="/project-rescue">project rescue page</a>, or tell us what was left behind.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="closer">
+        <div class="wrap">
+          <h2>Tell us what was left behind.</h2>
+          <p>What the project is, who built it and what's stuck. We'll reply within one business day.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="/contact?service=takeover" data-cta="blog-takeover-call">Book a call</a>
+            <a class="btn btn-quiet" href="/project-rescue" data-cta="blog-takeover-rescue">Project rescue</a>
+          </div>
+        </div>
+      </section>
+    </main>
+      <!-- footer:start -->
+    <footer class="cg-footer">
+      <div class="cg-footer-grid">
+        <div class="cg-footer-about">
+          <a href="/" class="cg-brand" aria-label="Codegrity home">
+            <span class="cg-mark" aria-hidden="true"></span>
+            <span class="cg-wordmark">Code<span>grity</span></span>
+          </a>
+          <p>Senior software engineers in McKinney, Texas. We fix, connect and automate the systems small and mid-sized businesses run on.</p>
+        </div>
+        <div>
+          <h2>Services</h2>
+          <ul>
+            <li><a href="/services">All services</a></li>
+            <li><a href="/integrations">Integrations</a></li>
+            <li><a href="/legacy-modernization">Legacy modernization</a></li>
+            <li><a href="/project-rescue">Project rescue</a></li>
+            <li><a href="/fractional-cto">Fractional CTO</a></li>
+            <li><a href="/ai-automation">AI automation</a></li>
+            <li><a href="/ai-opportunity-audit">AI Opportunity Audit</a></li>
+            <li><a href="/local">Local business websites</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <ul>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/work/dailyprimestore">DailyPrimeStore case study</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/how-we-use-ai">How we use AI</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="mailto:psojdei@codegrity.com">psojdei@codegrity.com</a></li>
+            <li><a href="tel:+19728387422">(972) 838-7422</a></li>
+            <li>McKinney, Texas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cg-footer-base">
+        <span>&copy; 2026 Codegrity LLC. McKinney, Texas.</span>
+        <span>Serving McKinney, Dallas-Fort Worth and clients nationwide.</span>
+      </div>
+    </footer>
+    <!-- footer:end -->
+    <script src="/js/site.js" defer></script>
+  </body>
+</html>
