@@ -52,7 +52,23 @@
         "links": [
           {
             "href": "/services",
-            "label": "Senior engineering"
+            "label": "All services"
+          },
+          {
+            "href": "/integrations",
+            "label": "Integrations"
+          },
+          {
+            "href": "/legacy-modernization",
+            "label": "Legacy modernization"
+          },
+          {
+            "href": "/project-rescue",
+            "label": "Project rescue"
+          },
+          {
+            "href": "/fractional-cto",
+            "label": "Fractional CTO"
           },
           {
             "href": "/ai-automation",
@@ -65,10 +81,6 @@
           {
             "href": "/local",
             "label": "Local business websites"
-          },
-          {
-            "href": "/pricing",
-            "label": "Pricing"
           }
         ]
       },
@@ -84,8 +96,16 @@
             "label": "DailyPrimeStore case study"
           },
           {
+            "href": "/pricing",
+            "label": "Pricing"
+          },
+          {
             "href": "/about",
             "label": "About"
+          },
+          {
+            "href": "/how-we-use-ai",
+            "label": "How we use AI"
           },
           {
             "href": "/blog",
@@ -112,6 +132,50 @@
       "description": "Senior engineering for companies with a small or overloaded dev team: API integrations, .NET and legacy modernization, production bugs, project takeovers, fractional CTO help.",
       "crumb": "Services"
     },
+    "integrations.html": {
+      "path": "/integrations",
+      "title": "API Integration Services in Dallas-Fort Worth | Codegrity",
+      "description": "API and third-party integrations for growing businesses: CRM, payments, store, accounting and ERP syncs with logging, retries and alerts. Senior engineers in McKinney, TX.",
+      "crumb": "Integrations",
+      "parentCrumb": {
+        "name": "Services",
+        "path": "/services"
+      },
+      "priority": "0.9"
+    },
+    "legacy-modernization.html": {
+      "path": "/legacy-modernization",
+      "title": "Legacy .NET and PHP Modernization | Codegrity, McKinney TX",
+      "description": "Modernize older .NET Framework and PHP (including CakePHP) applications in stages while the business keeps running. Assessment, tests, upgrades and handover.",
+      "crumb": "Legacy Modernization",
+      "parentCrumb": {
+        "name": "Services",
+        "path": "/services"
+      },
+      "priority": "0.9"
+    },
+    "project-rescue.html": {
+      "path": "/project-rescue",
+      "title": "Software Project Rescue and Takeover | Codegrity",
+      "description": "Your developer left or the agency moved on? We take over software projects, secure your accounts, review the code in plain English and fix hard production bugs.",
+      "crumb": "Project Rescue",
+      "parentCrumb": {
+        "name": "Services",
+        "path": "/services"
+      },
+      "priority": "0.9"
+    },
+    "fractional-cto.html": {
+      "path": "/fractional-cto",
+      "title": "Fractional CTO in Dallas-Fort Worth | Codegrity",
+      "description": "Part-time senior technical leadership for small and mid-sized companies: architecture, build-or-buy calls, code and vendor reviews, hiring and AI strategy. $100-125/hr.",
+      "crumb": "Fractional CTO",
+      "parentCrumb": {
+        "name": "Services",
+        "path": "/services"
+      },
+      "priority": "0.9"
+    },
     "ai-automation.html": {
       "path": "/ai-automation",
       "title": "AI Automation for Small Businesses in Dallas-Fort Worth | Codegrity",
@@ -136,7 +200,7 @@
       "path": "/local",
       "title": "Website Design in McKinney, TX for Local Businesses | Codegrity",
       "description": "Fast websites for McKinney, Allen, Frisco, Plano and Dallas businesses, kept current on Google and in AI search every month. Plans from $79/month.",
-      "crumb": "Local Businesses",
+      "crumb": "Local Websites",
       "image": "/images/og-local.png",
       "imageAlt": "Codegrity: More calls from people nearby. Free website audit for McKinney and Dallas businesses."
     },
@@ -163,6 +227,13 @@
       "title": "About Codegrity | PJ Sojdei and Team, McKinney TX",
       "description": "Codegrity LLC is a three-developer software company in McKinney, Texas, founded in 2023 by PJ Sojdei. You talk to the engineers who build your project.",
       "crumb": "About"
+    },
+    "how-we-use-ai.html": {
+      "path": "/how-we-use-ai",
+      "title": "How We Use AI and Handle Your Data | Codegrity",
+      "description": "The rules Codegrity follows when building AI automation for clients and using AI in our own work: approved tools, minimal data, human approval, logs and an off switch.",
+      "crumb": "How We Use AI",
+      "priority": "0.6"
     },
     "contact.html": {
       "path": "/contact",

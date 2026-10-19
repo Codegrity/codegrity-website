@@ -26,249 +26,14 @@
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <meta name="theme-color" content="#0a0a0a" />
     <!-- seo:end -->
-    <link rel="stylesheet" href="/css/main.css" />
-
-    <style>
-      /* Base styles — inline fallback so page renders correctly even if main.css path fails */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
-          Arial, sans-serif;
-        background: #0a0a0a;
-        color: #f8fafc;
-        overflow-x: hidden;
-      }
-
-      .cursor {
-        width: 20px;
-        height: 20px;
-        border: 2px solid #3b82f6;
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transition: all 0.15s ease;
-        mix-blend-mode: difference;
-      }
-      .cursor-follower {
-        width: 8px;
-        height: 8px;
-        background: #3b82f6;
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9998;
-        transition: all 0.3s ease;
-      }
-      .scroll-indicator {
-        position: fixed;
-        bottom: 2rem;
-        left: 2rem;
-        z-index: 1000;
-        font-size: 3rem;
-        font-weight: 700;
-        color: rgba(59, 130, 246, 0.3);
-        font-variant-numeric: tabular-nums;
-        transition: color 0.3s;
-      }
-      .scroll-indicator.active {
-        color: rgba(59, 130, 246, 0.8);
-      }
-      .scroll-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
-        z-index: 9999;
-        transition: width 0.1s ease;
-      }
-
-      nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(10, 10, 10, 0.8);
-        backdrop-filter: blur(20px);
-        padding: 1.5rem 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1000;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        transition: all 0.3s;
-      }
-      nav.scrolled {
-        padding: 1rem 5%;
-        background: rgba(10, 10, 10, 0.95);
-      }
-      .logo-nav {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        text-decoration: none;
-      }
-      .logo-icon {
-        width: 44px;
-        height: 44px;
-        position: relative;
-      }
-      .lock-outer {
-        position: absolute;
-        width: 40px;
-        height: 40px;
-        border: 2.5px solid #3b82f6;
-        border-radius: 7px;
-        transform: rotate(45deg);
-        top: 50%;
-        left: 50%;
-        margin-left: -20px;
-        margin-top: -20px;
-      }
-      .lock-inner {
-        position: absolute;
-        width: 22px;
-        height: 22px;
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        border-radius: 4px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(45deg);
-      }
-      .lock-dot {
-        position: absolute;
-        width: 7px;
-        height: 7px;
-        background: #fff;
-        border-radius: 50%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .logo-text {
-        font-size: 1.3rem;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-      }
-      .logo-text .code-part {
-        color: #3b82f6;
-      }
-      .logo-text .grity-part {
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      .nav-links {
-        display: flex;
-        gap: 3rem;
-        list-style: none;
-      }
-      .nav-links a {
-        color: #94a3b8;
-        text-decoration: none;
-        font-size: 0.95rem;
-        transition: all 0.3s;
-        font-weight: 500;
-        position: relative;
-      }
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #3b82f6;
-        transition: width 0.3s;
-      }
-      .nav-links a:hover,
-      .nav-links a.active {
-        color: #f8fafc;
-      }
-      .nav-links a:hover::after,
-      .nav-links a.active::after {
-        width: 100%;
-      }
-      .nav-number {
-        font-size: 0.7rem;
-        color: #64748b;
-        margin-left: 0.5rem;
-      }
-      .cta-button {
-        background: transparent;
-        color: #3b82f6;
-        padding: 0.75rem 1.5rem;
-        border: 2px solid #3b82f6;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s;
-        font-size: 0.95rem;
-      }
-      .cta-button:hover {
-        background: #3b82f6;
-        color: white;
-      }
-      footer {
-        background: #000;
-        padding: 4rem 5%;
-        border-top: 1px solid rgba(255, 255, 255, 0.03);
-      }
-      .footer-content {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .footer-logo {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: #f8fafc;
-      }
-      .footer-links {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-      }
-      .footer-links a {
-        color: #64748b;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: color 0.3s;
-      }
-      .footer-links a:hover {
-        color: #3b82f6;
-      }
-      .footer-copy {
-        margin-top: 3rem;
-        text-align: center;
-        color: #475569;
-        font-size: 0.85rem;
-      }
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-        }
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/css/chrome.css" />
+    <link rel="stylesheet" href="/css/site.css" />
 
     <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XQH3T0SR8M"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQH3T0SR8M"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -278,153 +43,27 @@
       gtag("config", "G-XQH3T0SR8M");
     </script>
 
-    <style>
-      .blog-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 12rem 2rem 6rem;
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Real Cost of Cheap Development: A $15k Build That Cost $115k",
+        "description": "A $15,000 build that ended up costing $115,000. What cutting corners on development really costs, and what to look for when you hire a developer.",
+        "datePublished": "2026-02-17",
+        "dateModified": "2026-10-19",
+        "author": {
+          "@type": "Person",
+          "@id": "https://www.codegrity.com/about#pj-sojdei",
+          "name": "PJ Sojdei",
+          "url": "https://www.codegrity.com/about"
+        },
+        "publisher": {
+          "@id": "https://www.codegrity.com/#org"
+        },
+        "mainEntityOfPage": "https://www.codegrity.com/blog/the-real-cost-of-cheap-development",
+        "image": "https://www.codegrity.com/images/og-default.png"
       }
-
-      .blog-header {
-        margin-bottom: 3rem;
-      }
-
-      .blog-meta {
-        color: #64748b;
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-      }
-
-      .blog-title {
-        font-size: 3.5rem;
-        line-height: 1.1;
-        margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .blog-subtitle {
-        font-size: 1.4rem;
-        color: #94a3b8;
-        line-height: 1.6;
-      }
-
-      .blog-content {
-        font-size: 1.15rem;
-        line-height: 1.8;
-        color: #cbd5e1;
-      }
-
-      .blog-content h2 {
-        font-size: 2.2rem;
-        margin: 3rem 0 1.5rem;
-        color: #f8fafc;
-      }
-
-      .blog-content h3 {
-        font-size: 1.6rem;
-        margin: 2rem 0 1rem;
-        color: #f8fafc;
-      }
-
-      .blog-content p {
-        margin-bottom: 1.5rem;
-      }
-
-      .blog-content ul,
-      .blog-content ol {
-        margin: 1.5rem 0;
-        padding-left: 2rem;
-      }
-
-      .blog-content li {
-        margin-bottom: 0.75rem;
-      }
-
-      .blog-content strong {
-        color: #f8fafc;
-        font-weight: 600;
-      }
-
-      .highlight-box {
-        background: rgba(59, 130, 246, 0.1);
-        border-left: 4px solid #3b82f6;
-        padding: 2rem;
-        margin: 2rem 0;
-        border-radius: 8px;
-      }
-
-      .cost-breakdown {
-        background: #1e293b;
-        padding: 2rem;
-        border-radius: 12px;
-        margin: 2rem 0;
-      }
-
-      .cost-item {
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .cost-item:last-child {
-        border-bottom: none;
-        font-weight: 700;
-        font-size: 1.3rem;
-        color: #ef4444;
-        padding-top: 1.5rem;
-        margin-top: 0.5rem;
-        border-top: 2px solid rgba(255, 255, 255, 0.2);
-      }
-
-      .cta-box {
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-        border: 2px solid #3b82f6;
-        border-radius: 16px;
-        padding: 3rem;
-        margin: 4rem 0;
-        text-align: center;
-      }
-
-      .cta-box h3 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-
-      .cta-box p {
-        margin-bottom: 2rem;
-        font-size: 1.1rem;
-      }
-
-      .cta-box .btn-primary {
-        display: inline-block;
-        background: #3b82f6;
-        color: white;
-        padding: 1rem 2.5rem;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s;
-      }
-
-      .cta-box .btn-primary:hover {
-        background: #2563eb;
-        transform: translateY(-2px);
-      }
-
-      @media (max-width: 768px) {
-        .blog-title {
-          font-size: 2.5rem;
-        }
-
-        .blog-container {
-          padding: 10rem 1.5rem 4rem;
-        }
-      }
-    </style>
+    </script>
     <!-- schema:start -->
     <script type="application/ld+json">
       {
@@ -518,28 +157,6 @@
       }
     </script>
     <!-- schema:end -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "The Real Cost of Cheap Development: A $15k Build That Cost $115k",
-        "description": "A $15,000 build that ended up costing $115,000. What cutting corners on development really costs, and what to look for when you hire a developer.",
-        "datePublished": "2026-02-17",
-        "dateModified": "2026-10-19",
-        "author": {
-          "@type": "Person",
-          "@id": "https://www.codegrity.com/about#pj-sojdei",
-          "name": "PJ Sojdei",
-          "url": "https://www.codegrity.com/about"
-        },
-        "publisher": {
-          "@id": "https://www.codegrity.com/#org"
-        },
-        "mainEntityOfPage": "https://www.codegrity.com/blog/the-real-cost-of-cheap-development",
-        "image": "https://www.codegrity.com/images/og-default.png"
-      }
-    </script>
-    <link rel="stylesheet" href="/css/chrome.css" />
   </head>
   <body>
     <!-- header:start -->
@@ -569,376 +186,298 @@
     </header>
     <!-- header:end -->
     <main id="main">
-
-    <!-- Navigation -->
-
-    <div class="blog-container">
-      <div class="blog-header">
-        <div class="blog-meta">By <a href="/about" rel="author" style="color:inherit">PJ Sojdei</a>, founder of Codegrity · <time datetime="2026-02-17">February 17, 2026</time> · 8 min read</div>
-        <h1 class="blog-title">
-          The Real Cost of Cheap Development: A $15k Build That Cost $115k
-        </h1>
-        <p class="blog-subtitle">
-          What happens when you hire the cheapest developer? A real story of how
-          cutting corners cost one company $115,000 and 8 months of lost time.
-        </p>
-      </div>
-
-      <div class="blog-content">
-        <p>
-          Last month, a potential client came to me with a problem. Actually, it
-          was more than a problem—it was a disaster.
-        </p>
-
-        <p>
-          They had paid a "budget-friendly" developer $15,000 to build their
-          custom order management platform. Six months later, they had a
-          half-working site riddled with bugs, security vulnerabilities, and
-          code so tangled that even fixing basic issues took days.
-        </p>
-
-        <p>Sound familiar?</p>
-
-        <h2>The Promise of Cheap Development</h2>
-
-        <p>
-          The pitch was compelling:
-          <strong>"Full custom platform for $15,000."</strong> Compare that to
-          my quote of $45,000, and it seemed like a no-brainer. They'd save
-          $30,000 and get the same thing, right?
-        </p>
-
-        <p>Wrong. So very wrong.</p>
-
-        <p>Here's what they actually got:</p>
-
-        <ul>
-          <li>
-            <strong>No documentation</strong> - When the developer disappeared,
-            they had zero understanding of how their own system worked
-          </li>
-          <li>
-            <strong>Copy-pasted code</strong> - Chunks of code from Stack
-            Overflow and GitHub, poorly integrated and barely functional
-          </li>
-          <li>
-            <strong>Security nightmares</strong> - SQL injection
-            vulnerabilities, plaintext passwords stored in the database, no
-            input validation
-          </li>
-          <li>
-            <strong>No testing</strong> - Features that worked in demo broke in
-            production. Every. Single. Time.
-          </li>
-          <li>
-            <strong>Technical debt everywhere</strong> - Quick fixes on top of
-            quick fixes, making the codebase increasingly fragile
-          </li>
-        </ul>
-
-        <div class="highlight-box">
-          <p>
-            <strong>The turning point:</strong> Three months after launch, their
-            system went down during their busiest sales period. They lost
-            $23,000 in orders in one weekend because payments weren't
-            processing.
-          </p>
-
-          <p>The cheap developer? Unresponsive. "I'll look at it Monday."</p>
-
-          <p>By Monday, the damage was done.</p>
+      <section class="page-hero" style="padding-bottom: 32px">
+        <div class="wrap narrow">
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog">Blog</a> / The Real Cost of Cheap Development</nav>
+          <h1 style="max-width: 22ch">The Real Cost of Cheap Development: A $15k Build That Cost $115k</h1>
+          <p class="lede">What happens when you hire the cheapest developer? How cutting corners cost one company $115,000 and 8 months of lost time.</p>
+          <p class="byline">By <a href="/about" rel="author">PJ Sojdei</a>, founder of Codegrity. Published <time datetime="2026-02-17">February 17, 2026</time>. 8 minute read.</p>
         </div>
+      </section>
 
-        <h2>The Real Cost Breakdown</h2>
+      <section class="sec-tight">
+        <div class="wrap narrow">
+          <article class="article">
+<p> 
+Last month, a potential client came to me with a problem. Actually, it 
+was more than a problem—it was a disaster. 
+</p> 
+<p> 
+They had paid a "budget-friendly" developer $15,000 to build their 
+custom order management platform. Six months later, they had a 
+half-working site riddled with bugs, security vulnerabilities, and 
+code so tangled that even fixing basic issues took days. 
+</p> 
+<p>Sound familiar?</p> 
+<h2>The Promise of Cheap Development</h2> 
+<p> 
+The pitch was compelling: 
+<strong>"Full custom platform for $15,000."</strong> Compare that to 
+my quote of $45,000, and it seemed like a no-brainer. They'd save 
+$30,000 and get the same thing, right? 
+</p> 
+<p>Wrong. So very wrong.</p> 
+<p>Here's what they actually got:</p> 
+<ul> 
+<li> 
+<strong>No documentation</strong> - When the developer disappeared, 
+they had zero understanding of how their own system worked 
+</li> 
+<li> 
+<strong>Copy-pasted code</strong> - Chunks of code from Stack 
+Overflow and GitHub, poorly integrated and barely functional 
+</li> 
+<li> 
+<strong>Security nightmares</strong> - SQL injection 
+vulnerabilities, plaintext passwords stored in the database, no 
+input validation 
+</li> 
+<li> 
+<strong>No testing</strong> - Features that worked in demo broke in 
+production. Every. Single. Time. 
+</li> 
+<li> 
+<strong>Technical debt everywhere</strong> - Quick fixes on top of 
+quick fixes, making the codebase increasingly fragile 
+</li> 
+</ul> 
+<div class="callout"> 
+<p> 
+<strong>The turning point:</strong> Three months after launch, their 
+system went down during their busiest sales period. They lost 
+$23,000 in orders in one weekend because payments weren't 
+processing. 
+</p> 
+<p>The cheap developer? Unresponsive. "I'll look at it Monday."</p> 
+<p>By Monday, the damage was done.</p> 
+</div> 
+<h2>The Real Cost Breakdown</h2> 
+<p> 
+Let's talk numbers. Here's what "saving money" actually cost them: 
+</p> 
+<table> 
+<thead><tr><th scope="col">Item</th><th scope="col">Cost</th></tr></thead> 
+<tbody> 
+<tr><td>Initial "cheap" developer</td><td>$15,000</td></tr> 
+<tr><td>Lost sales from downtime (conservative estimate)</td><td>$23,000</td></tr> 
+<tr><td>Emergency fixes &amp; band-aids (6 months)</td><td>$12,000</td></tr> 
+<tr><td>Opportunity cost (delayed features, missed growth)</td><td>$15,000+</td></tr> 
+<tr><td>Complete rebuild with proper development</td><td>$50,000</td></tr> 
+<tr class="total"><td>Total actual cost</td><td>$115,000</td></tr> 
+</tbody>
+</table><p> 
+They could have paid $45,000 and been done right. Instead, they paid 
+more than double and lost 8 months. 
+</p> 
+<h2>Why Cheap Development Fails</h2> 
+<p> 
+It's not that cheap developers are intentionally malicious. Most 
+aren't. But there are structural reasons why rock-bottom pricing leads 
+to rock-bottom results: 
+</p> 
+<h3>1. Speed Over Quality</h3> 
+<p> 
+At $15,000 for a 3-month project, the developer is making roughly 
+$5,000/month. After taxes and expenses, maybe $3,000. They can't 
+afford to spend time doing it right—they need to move fast and move on 
+to the next project. 
+</p> 
+<p> 
+Result? Copy-paste solutions, skipped testing, minimal documentation, 
+and shortcuts everywhere. 
+</p> 
+<h3>2. Junior Developers or Moonlighters</h3> 
+<p> 
+Senior developers with 10+ years of experience charge senior rates for 
+a reason. The cheap developer is usually either: 
+</p> 
+<ul> 
+<li>Fresh out of a bootcamp (lacks experience)</li> 
+<li>Working nights/weekends on the side (limited availability)</li> 
+<li> 
+Overseas with major communication barriers (time zones, language) 
+</li> 
+</ul> 
+<p>None of these scenarios set you up for success.</p> 
+<h3>3. No Post-Launch Support</h3> 
+<p> 
+When the cheap developer moves on to their next project, you're on 
+your own. Good developers include post-launch support, documentation, 
+and training. Cheap developers disappear. 
+</p> 
+<h3>4. No Accountability</h3> 
+<p> 
+Established development firms have reputations to protect. Cheap 
+freelancers? They can ghost you with zero consequences. And they often 
+do. 
+</p> 
+<h2>Red Flags to Watch For</h2> 
+<p> 
+Before you hire <em>any</em> developer, watch for these warning signs: 
+</p> 
+<ol> 
+<li> 
+<strong>"I can build anything"</strong> - No, you can't. Honest 
+developers know their limitations. 
+</li> 
+<li> 
+<strong>No portfolio or references</strong> - If they've done great 
+work, they'll show it proudly. 
+</li> 
+<li> 
+<strong>Vague timelines</strong> - "Should take a few weeks" is not 
+a project plan. 
+</li> 
+<li> 
+<strong>No contract or SOW</strong> - Professional developers 
+protect both parties with clear agreements. 
+</li> 
+<li> 
+<strong>Pressure to start immediately</strong> - Good developers are 
+usually booked 4-8 weeks out. 
+</li> 
+<li> 
+<strong>No questions about your business</strong> - If they're not 
+asking questions, they're not thinking strategically. 
+</li> 
+<li> 
+<strong>Price is WAY below market rate</strong> - If it seems too 
+good to be true, it definitely is. 
+</li> 
+</ol> 
+<h2>What Good Development Actually Looks Like</h2> 
+<p>When we rebuilt their platform, here's what changed:</p> 
+<ul> 
+<li> 
+<strong>Discovery phase first</strong> - We spent two weeks 
+understanding their business, not just building features 
+</li> 
+<li> 
+<strong>Architecture planning</strong> - We designed a scalable 
+system that could grow with them 
+</li> 
+<li> 
+<strong>Clean, documented code</strong> - Any developer could pick 
+this up and understand it 
+</li> 
+<li> 
+<strong>Automated testing</strong> - Catch bugs before customers do 
+</li> 
+<li> 
+<strong>Security from day one</strong> - Encrypted data, secure 
+authentication, regular security audits 
+</li> 
+<li> 
+<strong>Staging environment</strong> - Test changes safely before 
+pushing to production 
+</li> 
+<li> 
+<strong>Post-launch support</strong> - 30 days of included support, 
+then ongoing maintenance options 
+</li> 
+<li> 
+<strong>Training</strong> - Their team actually understands how to 
+use and maintain the system 
+</li> 
+</ul> 
+<div class="callout"> 
+<p> 
+<strong>The result?</strong> The new system has been running 
+flawlessly for 6 months. Zero downtime. Customer orders up 40%. 
+They're now scaling confidently instead of constantly firefighting. 
+</p> 
+<p> 
+Was it more expensive than the first attempt? Yes—$50,000 vs 
+$15,000. 
+</p> 
+<p> 
+Was it cheaper than the alternative? Absolutely—$50,000 vs $115,000. 
+</p> 
+</div> 
+<h2>How to Find a Good Developer</h2> 
+<p>If you're looking for development help, here's my honest advice:</p> 
+<h3>Look for These Green Flags:</h3> 
+<ul> 
+<li> 
+<strong>Portfolio with similar projects</strong> - Have they done 
+what you need before? 
+</li> 
+<li> 
+<strong>Client testimonials or case studies</strong> - What results 
+have they actually delivered? 
+</li> 
+<li> 
+<strong>Clear process explanation</strong> - Can they walk you 
+through how they work? 
+</li> 
+<li> 
+<strong>Realistic timelines and pricing</strong> - Based on scope, 
+not wishful thinking 
+</li> 
+<li> 
+<strong>Ask lots of questions</strong> - Good developers need to 
+understand your business 
+</li> 
+<li> 
+<strong>Offers multiple options</strong> - MVP vs full build, phased 
+approach, etc. 
+</li> 
+<li> 
+<strong>Transparent about risks</strong> - Every project has 
+challenges; good developers discuss them upfront 
+</li> 
+</ul> 
+<h3>Budget Realistically</h3> 
+<p>As a rough guide for custom development in 2026:</p> 
+<ul> 
+<li><strong>Simple website/landing page:</strong> $5,000-15,000</li> 
+<li> 
+<strong>Custom web application (basic):</strong> $25,000-50,000 
+</li> 
+<li> 
+<strong>Complex platform with integrations:</strong> $50,000-150,000 
+</li> 
+<li><strong>Enterprise-level system:</strong> $150,000+</li> 
+</ul> 
+<p> 
+If someone quotes significantly below these ranges, ask why. There 
+might be a good reason (using existing frameworks, simpler scope), but 
+more often it's a red flag. 
+</p> 
+<h2>The Bottom Line</h2> 
+<p> 
+Cheap development isn't cheap. It's expensive in ways you won't see 
+until it's too late: 
+</p> 
+<ul> 
+<li>Lost revenue from downtime</li> 
+<li>Wasted time managing problems</li> 
+<li>Damage to your reputation when things break</li> 
+<li>Cost to fix or rebuild</li> 
+<li>Opportunity cost of delayed growth</li> 
+</ul> 
+<p> 
+Yes, good development costs more upfront. But it actually costs 
+<em>less</em> when you factor in the total cost of ownership. 
+</p> 
+<p> 
+<strong>The company in this story learned that the hard way. You don't have 
+to.</strong> 
+</p>
+          </article>
+        </div>
+      </section>
 
-        <p>
-          Let's talk numbers. Here's what "saving money" actually cost them:
-        </p>
-
-        <div class="cost-breakdown">
-          <div class="cost-item">
-            <span>Initial "cheap" developer</span>
-            <span>$15,000</span>
-          </div>
-          <div class="cost-item">
-            <span>Lost sales from downtime (conservative estimate)</span>
-            <span>$23,000</span>
-          </div>
-          <div class="cost-item">
-            <span>Emergency fixes & band-aids (6 months)</span>
-            <span>$12,000</span>
-          </div>
-          <div class="cost-item">
-            <span>Opportunity cost (delayed features, missed growth)</span>
-            <span>$15,000+</span>
-          </div>
-          <div class="cost-item">
-            <span>Complete rebuild with proper development</span>
-            <span>$50,000</span>
-          </div>
-          <div class="cost-item">
-            <span><strong>TOTAL ACTUAL COST</strong></span>
-            <span><strong>$115,000</strong></span>
+      <section class="closer">
+        <div class="wrap">
+          <h2>Inherited a project like this?</h2>
+          <p>We take over projects other developers left behind and tell you plainly what shape they are in.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="/project-rescue" data-cta="blog-cheap-rescue">Project rescue</a>
+            <a class="btn btn-quiet" href="/contact" data-cta="blog-cheap-call">Book a call</a>
           </div>
         </div>
-
-        <p>
-          They could have paid $45,000 and been done right. Instead, they paid
-          more than double and lost 8 months.
-        </p>
-
-        <h2>Why Cheap Development Fails</h2>
-
-        <p>
-          It's not that cheap developers are intentionally malicious. Most
-          aren't. But there are structural reasons why rock-bottom pricing leads
-          to rock-bottom results:
-        </p>
-
-        <h3>1. Speed Over Quality</h3>
-        <p>
-          At $15,000 for a 3-month project, the developer is making roughly
-          $5,000/month. After taxes and expenses, maybe $3,000. They can't
-          afford to spend time doing it right—they need to move fast and move on
-          to the next project.
-        </p>
-
-        <p>
-          Result? Copy-paste solutions, skipped testing, minimal documentation,
-          and shortcuts everywhere.
-        </p>
-
-        <h3>2. Junior Developers or Moonlighters</h3>
-        <p>
-          Senior developers with 10+ years of experience charge senior rates for
-          a reason. The cheap developer is usually either:
-        </p>
-        <ul>
-          <li>Fresh out of a bootcamp (lacks experience)</li>
-          <li>Working nights/weekends on the side (limited availability)</li>
-          <li>
-            Overseas with major communication barriers (time zones, language)
-          </li>
-        </ul>
-
-        <p>None of these scenarios set you up for success.</p>
-
-        <h3>3. No Post-Launch Support</h3>
-        <p>
-          When the cheap developer moves on to their next project, you're on
-          your own. Good developers include post-launch support, documentation,
-          and training. Cheap developers disappear.
-        </p>
-
-        <h3>4. No Accountability</h3>
-        <p>
-          Established development firms have reputations to protect. Cheap
-          freelancers? They can ghost you with zero consequences. And they often
-          do.
-        </p>
-
-        <h2>Red Flags to Watch For</h2>
-
-        <p>
-          Before you hire <em>any</em> developer, watch for these warning signs:
-        </p>
-
-        <ol>
-          <li>
-            <strong>"I can build anything"</strong> - No, you can't. Honest
-            developers know their limitations.
-          </li>
-          <li>
-            <strong>No portfolio or references</strong> - If they've done great
-            work, they'll show it proudly.
-          </li>
-          <li>
-            <strong>Vague timelines</strong> - "Should take a few weeks" is not
-            a project plan.
-          </li>
-          <li>
-            <strong>No contract or SOW</strong> - Professional developers
-            protect both parties with clear agreements.
-          </li>
-          <li>
-            <strong>Pressure to start immediately</strong> - Good developers are
-            usually booked 4-8 weeks out.
-          </li>
-          <li>
-            <strong>No questions about your business</strong> - If they're not
-            asking questions, they're not thinking strategically.
-          </li>
-          <li>
-            <strong>Price is WAY below market rate</strong> - If it seems too
-            good to be true, it definitely is.
-          </li>
-        </ol>
-
-        <h2>What Good Development Actually Looks Like</h2>
-
-        <p>When we rebuilt their platform, here's what changed:</p>
-
-        <ul>
-          <li>
-            <strong>Discovery phase first</strong> - We spent two weeks
-            understanding their business, not just building features
-          </li>
-          <li>
-            <strong>Architecture planning</strong> - We designed a scalable
-            system that could grow with them
-          </li>
-          <li>
-            <strong>Clean, documented code</strong> - Any developer could pick
-            this up and understand it
-          </li>
-          <li>
-            <strong>Automated testing</strong> - Catch bugs before customers do
-          </li>
-          <li>
-            <strong>Security from day one</strong> - Encrypted data, secure
-            authentication, regular security audits
-          </li>
-          <li>
-            <strong>Staging environment</strong> - Test changes safely before
-            pushing to production
-          </li>
-          <li>
-            <strong>Post-launch support</strong> - 30 days of included support,
-            then ongoing maintenance options
-          </li>
-          <li>
-            <strong>Training</strong> - Their team actually understands how to
-            use and maintain the system
-          </li>
-        </ul>
-
-        <div class="highlight-box">
-          <p>
-            <strong>The result?</strong> The new system has been running
-            flawlessly for 6 months. Zero downtime. Customer orders up 40%.
-            They're now scaling confidently instead of constantly firefighting.
-          </p>
-
-          <p>
-            Was it more expensive than the first attempt? Yes—$50,000 vs
-            $15,000.
-          </p>
-
-          <p>
-            Was it cheaper than the alternative? Absolutely—$50,000 vs $115,000.
-          </p>
-        </div>
-
-        <h2>How to Find a Good Developer</h2>
-
-        <p>If you're looking for development help, here's my honest advice:</p>
-
-        <h3>Look for These Green Flags:</h3>
-        <ul>
-          <li>
-            <strong>Portfolio with similar projects</strong> - Have they done
-            what you need before?
-          </li>
-          <li>
-            <strong>Client testimonials or case studies</strong> - What results
-            have they actually delivered?
-          </li>
-          <li>
-            <strong>Clear process explanation</strong> - Can they walk you
-            through how they work?
-          </li>
-          <li>
-            <strong>Realistic timelines and pricing</strong> - Based on scope,
-            not wishful thinking
-          </li>
-          <li>
-            <strong>Ask lots of questions</strong> - Good developers need to
-            understand your business
-          </li>
-          <li>
-            <strong>Offers multiple options</strong> - MVP vs full build, phased
-            approach, etc.
-          </li>
-          <li>
-            <strong>Transparent about risks</strong> - Every project has
-            challenges; good developers discuss them upfront
-          </li>
-        </ul>
-
-        <h3>Budget Realistically</h3>
-        <p>As a rough guide for custom development in 2026:</p>
-        <ul>
-          <li><strong>Simple website/landing page:</strong> $5,000-15,000</li>
-          <li>
-            <strong>Custom web application (basic):</strong> $25,000-50,000
-          </li>
-          <li>
-            <strong>Complex platform with integrations:</strong> $50,000-150,000
-          </li>
-          <li><strong>Enterprise-level system:</strong> $150,000+</li>
-        </ul>
-
-        <p>
-          If someone quotes significantly below these ranges, ask why. There
-          might be a good reason (using existing frameworks, simpler scope), but
-          more often it's a red flag.
-        </p>
-
-        <h2>The Bottom Line</h2>
-
-        <p>
-          Cheap development isn't cheap. It's expensive in ways you won't see
-          until it's too late:
-        </p>
-
-        <ul>
-          <li>Lost revenue from downtime</li>
-          <li>Wasted time managing problems</li>
-          <li>Damage to your reputation when things break</li>
-          <li>Cost to fix or rebuild</li>
-          <li>Opportunity cost of delayed growth</li>
-        </ul>
-
-        <p>
-          Yes, good development costs more upfront. But it actually costs
-          <em>less</em> when you factor in the total cost of ownership.
-        </p>
-
-        <p>
-          <strong
-            >The company in this story learned that the hard way. You don't have
-            to.</strong
-          >
-        </p>
-
-        <div class="cta-box">
-          <h3>Building Something Important?</h3>
-          <p>
-            Don't leave it to chance. Let's discuss your project and create a
-            plan that actually works—the first time.
-          </p>
-          <a href="/contact" class="btn-primary"
-            >Schedule Free Consultation</a
-          >
-        </div>
-
-        <hr
-          style="
-            border: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin: 4rem 0;
-          "
-        />
-
-        <p style="color: #64748b; font-style: italic">
-          Have questions about your project? Email me at psojdei@codegrity.com
-          or call (972) 838-7422. We are happy to give honest feedback even if
-          we don't end up working together.
-        </p>
-      </div>
-    </div>
-
-    <!-- Footer -->
+      </section>
     </main>
     <!-- footer:start -->
     <footer class="cg-footer">
@@ -953,11 +492,14 @@
         <div>
           <h2>Services</h2>
           <ul>
-            <li><a href="/services">Senior engineering</a></li>
+            <li><a href="/services">All services</a></li>
+            <li><a href="/integrations">Integrations</a></li>
+            <li><a href="/legacy-modernization">Legacy modernization</a></li>
+            <li><a href="/project-rescue">Project rescue</a></li>
+            <li><a href="/fractional-cto">Fractional CTO</a></li>
             <li><a href="/ai-automation">AI automation</a></li>
             <li><a href="/ai-opportunity-audit">AI Opportunity Audit</a></li>
             <li><a href="/local">Local business websites</a></li>
-            <li><a href="/pricing">Pricing</a></li>
           </ul>
         </div>
         <div>
@@ -965,7 +507,9 @@
           <ul>
             <li><a href="/work">Work</a></li>
             <li><a href="/work/dailyprimestore">DailyPrimeStore case study</a></li>
+            <li><a href="/pricing">Pricing</a></li>
             <li><a href="/about">About</a></li>
+            <li><a href="/how-we-use-ai">How we use AI</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>
