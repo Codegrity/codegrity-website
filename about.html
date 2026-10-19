@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- seo:start -->
-    <title>About Codegrity | Founder PJ Sojdei, McKinney TX</title>
-    <meta name="description" content="Codegrity LLC is a three-developer software company in McKinney, Texas, founded by PJ Sojdei. The people you talk to are the people who build your project." />
+    <title>About Codegrity | PJ Sojdei and Team, McKinney TX</title>
+    <meta name="description" content="Codegrity LLC is a three-developer software company in McKinney, Texas, founded in 2023 by PJ Sojdei. You talk to the engineers who build your project." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://www.codegrity.com/about" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Codegrity" />
-    <meta property="og:title" content="About Codegrity | Founder PJ Sojdei, McKinney TX" />
-    <meta property="og:description" content="Codegrity LLC is a three-developer software company in McKinney, Texas, founded by PJ Sojdei. The people you talk to are the people who build your project." />
+    <meta property="og:title" content="About Codegrity | PJ Sojdei and Team, McKinney TX" />
+    <meta property="og:description" content="Codegrity LLC is a three-developer software company in McKinney, Texas, founded in 2023 by PJ Sojdei. You talk to the engineers who build your project." />
     <meta property="og:url" content="https://www.codegrity.com/about" />
     <meta property="og:image" content="https://www.codegrity.com/images/og-default.png" />
     <meta property="og:image:width" content="1200" />
@@ -19,19 +19,21 @@
     <meta property="og:image:alt" content="Codegrity: senior software engineers in McKinney, Texas" />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="About Codegrity | Founder PJ Sojdei, McKinney TX" />
-    <meta name="twitter:description" content="Codegrity LLC is a three-developer software company in McKinney, Texas, founded by PJ Sojdei. The people you talk to are the people who build your project." />
+    <meta name="twitter:title" content="About Codegrity | PJ Sojdei and Team, McKinney TX" />
+    <meta name="twitter:description" content="Codegrity LLC is a three-developer software company in McKinney, Texas, founded in 2023 by PJ Sojdei. You talk to the engineers who build your project." />
     <meta name="twitter:image" content="https://www.codegrity.com/images/og-default.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <meta name="theme-color" content="#0a0a0a" />
     <!-- seo:end -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/css/chrome.css" />
+    <link rel="stylesheet" href="/css/site.css" />
 
     <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XQH3T0SR8M"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQH3T0SR8M"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -41,591 +43,23 @@
       gtag("config", "G-XQH3T0SR8M");
     </script>
 
-    <link rel="stylesheet" href="/css/main.css" />
-    <style>
-      /* About page specific styles */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: #0a0a0a;
-        color: #f8fafc;
-        overflow-x: hidden;
-      }
-
-      /* Custom Cursor */
-      .cursor {
-        width: 20px;
-        height: 20px;
-        border: 2px solid #3b82f6;
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transition: all 0.15s ease;
-        mix-blend-mode: difference;
-      }
-
-      .cursor-follower {
-        width: 8px;
-        height: 8px;
-        background: #3b82f6;
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9998;
-        transition: all 0.3s ease;
-      }
-
-      /* Scroll Percentage */
-      .scroll-indicator {
-        position: fixed;
-        bottom: 2rem;
-        left: 2rem;
-        z-index: 1000;
-        font-size: 3rem;
-        font-weight: 700;
-        color: rgba(59, 130, 246, 0.3);
-        font-variant-numeric: tabular-nums;
-      }
-
-      .scroll-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
-        z-index: 9999;
-      }
-
-      /* Navigation */
-      nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(10, 10, 10, 0.8);
-        backdrop-filter: blur(20px);
-        padding: 1.5rem 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1000;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      }
-
-      .logo-nav {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        text-decoration: none;
-      }
-
-      .logo-icon {
-        width: 40px;
-        height: 40px;
-        position: relative;
-      }
-
-      .lock-outer {
-        position: absolute;
-        width: 40px;
-        height: 40px;
-        border: 2px solid #3b82f6;
-        border-radius: 6px;
-        transform: rotate(45deg);
-      }
-
-      .lock-inner {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        border-radius: 3px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(45deg);
-      }
-
-      .lock-dot {
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        background: #f8fafc;
-        border-radius: 50%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      .logo-text {
-        font-size: 1.3rem;
-        font-weight: 700;
-      }
-
-      .logo-text .code-part {
-        color: #3b82f6;
-      }
-
-      .logo-text .grity-part {
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 3rem;
-        list-style: none;
-      }
-
-      .nav-links a {
-        color: #94a3b8;
-        text-decoration: none;
-        font-size: 0.95rem;
-        transition: color 0.3s;
-        font-weight: 500;
-      }
-
-      .nav-links a:hover,
-      .nav-links a.active {
-        color: #f8fafc;
-      }
-
-      .nav-number {
-        font-size: 0.7rem;
-        color: #64748b;
-        margin-left: 0.5rem;
-      }
-
-      .cta-button {
-        background: transparent;
-        color: #3b82f6;
-        padding: 0.75rem 1.5rem;
-        border: 2px solid #3b82f6;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s;
-        font-size: 0.95rem;
-      }
-
-      .cta-button:hover {
-        background: #3b82f6;
-        color: white;
-      }
-
-      /* Hero */
-      .hero {
-        min-height: 70vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 8rem 5% 4rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .bg-element {
-        position: absolute;
-        border-radius: 50%;
-        opacity: 0.1;
-        animation: float 20s ease-in-out infinite;
-      }
-
-      .bg-element-1 {
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
-        top: -200px;
-        right: -200px;
-      }
-
-      .bg-element-2 {
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
-        bottom: -100px;
-        left: -100px;
-        animation-delay: 7s;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate(0, 0) scale(1);
-        }
-        33% {
-          transform: translate(50px, -50px) scale(1.1);
-        }
-        66% {
-          transform: translate(-50px, 50px) scale(0.9);
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "url": "https://www.codegrity.com/about",
+        "about": { "@id": "https://www.codegrity.com/#org" },
+        "mainEntity": {
+          "@type": "Person",
+          "@id": "https://www.codegrity.com/about#pj-sojdei",
+          "name": "PJ Sojdei",
+          "jobTitle": "Founder",
+          "worksFor": { "@id": "https://www.codegrity.com/#org" },
+          "homeLocation": { "@type": "Place", "name": "McKinney, Texas" },
+          "knowsAbout": [".NET", "API integration", "Legacy modernization", "Workflow automation", "Software architecture"]
         }
       }
-
-      .hero-content {
-        text-align: center;
-        max-width: 900px;
-        position: relative;
-        z-index: 1;
-      }
-
-      .hero-eyebrow {
-        color: #64748b;
-        font-size: 0.85rem;
-        font-weight: 600;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        margin-bottom: 2rem;
-      }
-
-      .hero h1 {
-        font-size: 5rem;
-        font-weight: 700;
-        line-height: 1.1;
-        margin-bottom: 2rem;
-      }
-
-      .hero h1 .highlight {
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .hero p {
-        font-size: 1.4rem;
-        color: #94a3b8;
-        line-height: 1.8;
-        max-width: 750px;
-        margin: 0 auto;
-      }
-
-      /* Stats Section */
-      .stats-section {
-        padding: 6rem 5%;
-        background: #0a0a0a;
-        border-top: 1px solid rgba(255, 255, 255, 0.03);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-      }
-
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 3rem;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .stat-item {
-        text-align: center;
-      }
-
-      .stat-number {
-        font-size: 4rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 0.5rem;
-      }
-
-      .stat-label {
-        font-size: 1.1rem;
-        color: #64748b;
-      }
-
-      /* Story Section */
-      .story-section {
-        padding: 10rem 5%;
-        background: #0a0a0a;
-      }
-
-      .section-header {
-        text-align: center;
-        margin-bottom: 6rem;
-      }
-
-      .section-number {
-        font-size: 1rem;
-        color: #3b82f6;
-        font-weight: 600;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        margin-bottom: 1rem;
-      }
-
-      .section-header h2 {
-        font-size: 4rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-      }
-
-      .section-header p {
-        font-size: 1.3rem;
-        color: #64748b;
-        max-width: 700px;
-        margin: 0 auto;
-      }
-
-      .story-content {
-        max-width: 900px;
-        margin: 0 auto;
-      }
-
-      .story-content p {
-        font-size: 1.2rem;
-        line-height: 1.9;
-        color: #cbd5e1;
-        margin-bottom: 2rem;
-      }
-
-      .story-content p:first-letter {
-        font-size: 3.5rem;
-        font-weight: 700;
-        float: left;
-        line-height: 1;
-        margin-right: 0.5rem;
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      /* Values Section */
-      .values-section {
-        padding: 10rem 5%;
-        background: #000000;
-      }
-
-      .values-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 3rem;
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-
-      .value-card {
-        background: rgba(15, 23, 42, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 20px;
-        padding: 3rem;
-        transition: all 0.5s;
-      }
-
-      .value-card:hover {
-        transform: translateY(-10px);
-        border-color: rgba(59, 130, 246, 0.3);
-        box-shadow: 0 25px 70px rgba(59, 130, 246, 0.15);
-      }
-
-      .value-icon {
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .value-card h3 {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-        color: #f8fafc;
-      }
-
-      .value-card p {
-        color: #94a3b8;
-        line-height: 1.8;
-        font-size: 1.05rem;
-      }
-
-      /* Team Section */
-      .team-section {
-        padding: 10rem 5%;
-        background: #0a0a0a;
-      }
-
-      .team-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 3rem;
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-
-      .team-card {
-        position: relative;
-        overflow: hidden;
-        border-radius: 20px;
-        background: #1e293b;
-        transition: all 0.5s;
-      }
-
-      .team-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
-      }
-
-      .team-photo {
-        width: 100%;
-        aspect-ratio: 1;
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      }
-
-      .team-info {
-        padding: 2rem;
-      }
-
-      .team-name {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-      }
-
-      .team-role {
-        color: #3b82f6;
-        font-size: 0.95rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 1rem;
-      }
-
-      .team-bio {
-        color: #94a3b8;
-        line-height: 1.7;
-        font-size: 0.95rem;
-      }
-
-      /* CTA Section */
-      .cta-section {
-        padding: 12rem 5%;
-        background: #0a0a0a;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .cta-section::before {
-        content: "";
-        position: absolute;
-        width: 1000px;
-        height: 1000px;
-        background: radial-gradient(
-          circle,
-          rgba(59, 130, 246, 0.1) 0%,
-          transparent 70%
-        );
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      .cta-content {
-        max-width: 700px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-      }
-
-      .cta-content h2 {
-        font-size: 4rem;
-        margin-bottom: 2rem;
-      }
-
-      .cta-content p {
-        font-size: 1.3rem;
-        color: #64748b;
-        margin-bottom: 3rem;
-      }
-
-      .btn-primary {
-        background: #3b82f6;
-        color: white;
-        padding: 1.2rem 3rem;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1.05rem;
-        transition: all 0.3s;
-        display: inline-block;
-      }
-
-      .btn-primary:hover {
-        background: #2563eb;
-        transform: translateY(-3px);
-        box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
-      }
-
-      /* Footer */
-      footer {
-        background: #000000;
-        padding: 4rem 5%;
-        border-top: 1px solid rgba(255, 255, 255, 0.03);
-      }
-
-      .footer-content {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .footer-logo {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
-
-      .footer-links {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-      }
-
-      .footer-links a {
-        color: #64748b;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: color 0.3s;
-      }
-
-      .footer-links a:hover {
-        color: #3b82f6;
-      }
-
-      .footer-copy {
-        margin-top: 3rem;
-        text-align: center;
-        color: #475569;
-        font-size: 0.85rem;
-      }
-
-      @media (max-width: 768px) {
-        .hero h1 {
-          font-size: 3rem;
-        }
-        .section-header h2 {
-          font-size: 2.5rem;
-        }
-        .nav-links {
-          display: none;
-        }
-        .stats-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-    </style>
+    </script>
     <!-- schema:start -->
     <script type="application/ld+json">
       {
@@ -716,7 +150,6 @@
       }
     </script>
     <!-- schema:end -->
-    <link rel="stylesheet" href="/css/chrome.css" />
   </head>
   <body>
     <!-- header:start -->
@@ -729,11 +162,12 @@
         </a>
         <ul class="cg-menu" id="cg-menu">
           <li><a href="/services">Services</a></li>
-          <li><a href="/local">Local Businesses</a></li>
+          <li><a href="/ai-automation">AI Automation</a></li>
+          <li><a href="/local">Local Websites</a></li>
           <li><a href="/work">Work</a></li>
+          <li><a href="/pricing">Pricing</a></li>
           <li><a href="/about" aria-current="page">About</a></li>
           <li><a href="/blog">Blog</a></li>
-          <li><a href="/contact">Contact</a></li>
           <li class="cg-menu-cta"><a href="/contact" data-cta="nav-mobile">Book a call</a></li>
         </ul>
         <a href="/contact" class="cg-cta" data-cta="nav">Book a call</a>
@@ -745,203 +179,98 @@
     </header>
     <!-- header:end -->
     <main id="main">
-
-    <!-- Hero -->
-    <section class="hero">
-      <div class="bg-element bg-element-1"></div>
-      <div class="bg-element bg-element-2"></div>
-
-      <div class="hero-content">
-        <div class="hero-eyebrow">03 — Who We Are</div>
-        <h1>Code. <span class="highlight">Integrity</span>. Excellence.</h1>
-        <p>
-          We're a team of passionate developers who believe that exceptional
-          software is built on a foundation of uncompromising quality and honest
-          partnership
-        </p>
-      </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="stats-section">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number">2023</div>
-          <div class="stat-label">Founded in McKinney, TX</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">3</div>
-          <div class="stat-label">Developers on the team</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">1 day</div>
-          <div class="stat-label">Reply time on business days</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Of your code and domain is yours</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Our Story -->
-    <section class="story-section">
-      <div class="section-header">
-        <div class="section-number">Our Story</div>
-        <h2>Built on Integrity,<br />Powered by Excellence</h2>
-      </div>
-
-      <div class="story-content">
-        <p>
-          Codegrity was born from a simple observation: too many companies
-          compromise on code quality to hit deadlines, leaving clients with
-          technical debt and maintenance nightmares. We knew there had to be a
-          better way.
-        </p>
-        <p>
-          Founded in 2023 in McKinney, Texas, we set out to prove that you
-          don't have to choose between fast delivery and exceptional quality.
-          We are a small team of developers who share a commitment to
-          craftsmanship, and the people you talk to are the people who build
-          your project.
-        </p>
-        <p>
-          Our name says it all: Code + Integrity. Every line of code we write,
-          every architectural decision we make, and every partnership we form is
-          guided by an unwavering commitment to doing things right. No
-          shortcuts. No compromises. Just exceptional software, delivered with
-          honesty and transparency.
-        </p>
-        <p>
-          Today, we're proud to partner with forward-thinking companies who
-          understand that quality is an investment, not an expense. From
-          startups building their first MVP to enterprises modernizing legacy
-          systems, we bring the same level of excellence to every project.
-        </p>
-      </div>
-    </section>
-
-    <!-- Our Values -->
-    <section class="values-section">
-      <div class="section-header">
-        <div class="section-number">Our Values</div>
-        <h2>What Drives Us<br />Every Day</h2>
-      </div>
-
-      <div class="values-grid">
-        <div class="value-card">
-          <div class="value-icon"><ion-icon name="lock-closed-outline" aria-hidden="true"></ion-icon></div>
-          <h3>Integrity First</h3>
-          <p>
-            We do what we say, every time. Transparent communication, honest
-            timelines, and upfront pricing. No surprises, no excuses.
+      <section class="page-hero">
+        <div class="wrap">
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / About</nav>
+          <h1>A small team of senior engineers in McKinney, Texas.</h1>
+          <p class="lede">
+            Codegrity LLC is three developers. We started it in 2023 to do careful, senior-level work for companies that
+            can't justify a large agency, and we've kept it small on purpose.
           </p>
         </div>
+      </section>
 
-        <div class="value-card">
-          <div class="value-icon"><ion-icon name="flash-outline" aria-hidden="true"></ion-icon></div>
-          <h3>Excellence</h3>
-          <p>
-            Premium quality in every line of code. We write software that's
-            maintainable, scalable, and built to last. No technical debt left
-            behind.
-          </p>
+      <section class="sec" aria-labelledby="h-founder">
+        <div class="wrap bio">
+          <div>
+            <h2 id="h-founder">PJ Sojdei</h2>
+            <p class="muted" style="margin-top: 0.5rem">Founder</p>
+          </div>
+          <div>
+            <p>
+              PJ has spent his career on the software that runs a business day to day. He was one of the first developers
+              hired at Nerium (now Neora) in 2014, and by 2017 he was leading a team of more than ten developers there.
+            </p>
+            <p>
+              In 2023 he founded Codegrity to work directly with the companies that need that experience most: ones with a
+              small or overloaded dev team, an older system that still runs everything, or a backlog nobody has time for.
+              He also builds Codegrity's own products, Gritfolio and DailyPrimeStore.
+            </p>
+            <ol class="timeline" style="margin-top: 2rem" aria-label="Career timeline">
+              <li><span class="when">2014</span><span>One of the first developers hired at Nerium, now Neora.</span></li>
+              <li><span class="when">2017</span><span>Leading a team of more than ten developers there.</span></li>
+              <li><span class="when">2023</span><span>Founded Codegrity LLC in McKinney, Texas.</span></li>
+              <li><span class="when">Today</span><span>Senior engineering, AI automation and local websites, with a team of three.</span></li>
+            </ol>
+          </div>
         </div>
+      </section>
 
-        <div class="value-card">
-          <div class="value-icon"><ion-icon name="people-outline" aria-hidden="true"></ion-icon></div>
-          <h3>True Partnership</h3>
-          <p>
-            Your success is our success. We're not just vendors—we're invested
-            in your long-term growth and committed to your vision.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon"><ion-icon name="rocket-outline" aria-hidden="true"></ion-icon></div>
-          <h3>Innovation</h3>
-          <p>
-            Modern solutions for modern challenges. We stay ahead of technology
-            trends to deliver cutting-edge solutions that give you a competitive
-            edge.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon"><ion-icon name="chatbubbles-outline" aria-hidden="true"></ion-icon></div>
-          <h3>Transparency</h3>
-          <p>
-            Clear communication at every step. You always know where your
-            project stands, what we're working on, and what's coming next.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon"><ion-icon name="locate-outline" aria-hidden="true"></ion-icon></div>
-          <h3>Results-Driven</h3>
-          <p>
-            We measure success by your outcomes, not our output. Every solution
-            is designed to deliver measurable business value.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team Section - HIDDEN until professional headshots available
-    <section class="team-section">
-        <div class="section-header">
-            <div class="section-number">Meet the Team</div>
-            <h2>The People Behind<br>the Code</h2>
-            <p>Senior developers with a passion for excellence</p>
-        </div>
-
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="team-photo"><ion-icon name="person-outline" aria-hidden="true"></ion-icon></div>
-                <div class="team-info">
-                    <div class="team-name">Your Name</div>
-                    <div class="team-role">Founder & CEO</div>
-                    <div class="team-bio">
-                        15+ years building scalable systems. Passionate about clean architecture and helping companies grow through technology.
-                    </div>
-                </div>
+      <section class="sec" aria-labelledby="h-how">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2 id="h-how">How we work</h2>
+          </div>
+          <div class="rows">
+            <div class="row">
+              <h3>You talk to the engineers</h3>
+              <p>No account managers or hand-offs. The people on your call are the people writing the code.</p>
+              <span></span>
             </div>
-
-            <div class="team-card">
-                <div class="team-photo"><ion-icon name="person-outline" aria-hidden="true"></ion-icon></div>
-                <div class="team-info">
-                    <div class="team-name">Team Member 2</div>
-                    <div class="team-role">Lead Developer</div>
-                    <div class="team-bio">
-                        Full-stack expert specializing in React, Node.js, and cloud architecture. Loves solving complex technical challenges.
-                    </div>
-                </div>
+            <div class="row">
+              <h3>Written estimates before work starts</h3>
+              <p>Hourly with a range or a fixed price, approved by you. Our rates are published on the <a href="/pricing">pricing page</a>.</p>
+              <span></span>
             </div>
-
-            <div class="team-card">
-                <div class="team-photo"><ion-icon name="person-outline" aria-hidden="true"></ion-icon></div>
-                <div class="team-info">
-                    <div class="team-name">Team Member 3</div>
-                    <div class="team-role">Senior Engineer</div>
-                    <div class="team-bio">
-                        Mobile development specialist with expertise in React Native and native iOS/Android development.
-                    </div>
-                </div>
+            <div class="row">
+              <h3>Your code, your accounts</h3>
+              <p>The code we write and the domains, repositories and hosting accounts belong to your company.</p>
+              <span></span>
             </div>
+            <div class="row">
+              <h3>A reply within one business day</h3>
+              <p>Email or call. If we're not the right fit for something, we will say so.</p>
+              <span></span>
+            </div>
+            <div class="row">
+              <h3>Notes you can keep</h3>
+              <p>Every engagement ends with documentation, so your team or the next developer can pick it up.</p>
+              <span></span>
+            </div>
+          </div>
         </div>
-    </section>
-    END Team Section Hidden -->
+      </section>
 
-    <!-- CTA -->
-    <section class="cta-section">
-      <div class="cta-content">
-        <h2>Work With a Team<br />You Can Trust</h2>
-        <p>Ready to build something exceptional together?</p>
-        <a href="/contact" class="btn-primary">Start Your Project →</a>
-      </div>
-    </section>
+      <section class="sec" aria-labelledby="h-where">
+        <div class="wrap cols-2">
+          <div>
+            <h2 id="h-where">Where we work</h2>
+          </div>
+          <div>
+            <p>We are based in McKinney, Texas. We meet clients in person around Dallas-Fort Worth, including Allen, Frisco, Plano and Dallas, and we work remotely with companies anywhere in the US.</p>
+          </div>
+        </div>
+      </section>
 
-    <!-- Footer -->
+      <section class="closer">
+        <div class="wrap">
+          <h2>Talk to an engineer, not a salesperson.</h2>
+          <div class="actions">
+            <a class="btn btn-primary" href="/contact" data-cta="about-closer">Book a call</a>
+            <a class="btn btn-quiet" href="/work">See our work</a>
+          </div>
+        </div>
+      </section>
     </main>
     <!-- footer:start -->
     <footer class="cg-footer">
@@ -956,17 +285,21 @@
         <div>
           <h2>Services</h2>
           <ul>
-            <li><a href="/services">All services</a></li>
+            <li><a href="/services">Senior engineering</a></li>
+            <li><a href="/ai-automation">AI automation</a></li>
+            <li><a href="/ai-opportunity-audit">AI Opportunity Audit</a></li>
             <li><a href="/local">Local business websites</a></li>
+            <li><a href="/pricing">Pricing</a></li>
           </ul>
         </div>
         <div>
           <h2>Company</h2>
           <ul>
-            <li><a href="/">Home</a></li>
             <li><a href="/work">Work</a></li>
+            <li><a href="/work/dailyprimestore">DailyPrimeStore case study</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div>

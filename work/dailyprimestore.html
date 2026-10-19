@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- seo:start -->
+    <title>Case Study: DailyPrimeStore, a Fully Automated AI Content Pipeline | Codegrity</title>
+    <meta name="description" content="How we built DailyPrimeStore: AI agents and scheduled jobs that research deals, verify prices, render images and video, post to several platforms and send a weekly email." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://www.codegrity.com/work/dailyprimestore" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Codegrity" />
+    <meta property="og:title" content="Case Study: DailyPrimeStore, a Fully Automated AI Content Pipeline | Codegrity" />
+    <meta property="og:description" content="How we built DailyPrimeStore: AI agents and scheduled jobs that research deals, verify prices, render images and video, post to several platforms and send a weekly email." />
+    <meta property="og:url" content="https://www.codegrity.com/work/dailyprimestore" />
+    <meta property="og:image" content="https://www.codegrity.com/images/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Codegrity: senior software engineers in McKinney, Texas" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Case Study: DailyPrimeStore, a Fully Automated AI Content Pipeline | Codegrity" />
+    <meta name="twitter:description" content="How we built DailyPrimeStore: AI agents and scheduled jobs that research deals, verify prices, render images and video, post to several platforms and send a weekly email." />
+    <meta name="twitter:image" content="https://www.codegrity.com/images/og-default.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <!-- seo:end -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/css/chrome.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQH3T0SR8M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XQH3T0SR8M");
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "DailyPrimeStore: a fully automated AI content and affiliate pipeline",
+        "description": "How Codegrity built DailyPrimeStore, where AI agents and scheduled jobs research deals, verify prices, render images and video, post to several platforms and send a weekly email.",
+        "datePublished": "2026-10-19",
+        "dateModified": "2026-10-19",
+        "author": { "@type": "Person", "@id": "https://www.codegrity.com/about#pj-sojdei", "name": "PJ Sojdei", "url": "https://www.codegrity.com/about" },
+        "publisher": { "@id": "https://www.codegrity.com/#org" },
+        "mainEntityOfPage": "https://www.codegrity.com/work/dailyprimestore",
+        "image": "https://www.codegrity.com/images/og-default.png",
+        "about": { "@type": "WebSite", "name": "DailyPrimeStore", "url": "https://dailyprimestore.com" }
+      }
+    </script>
+    <!-- schema:start -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": [
+              "Organization",
+              "ProfessionalService"
+            ],
+            "@id": "https://www.codegrity.com/#org",
+            "name": "Codegrity",
+            "legalName": "Codegrity LLC",
+            "url": "https://www.codegrity.com/",
+            "logo": "https://www.codegrity.com/images/codegrity-logo-512.png",
+            "image": "https://www.codegrity.com/images/og-default.png",
+            "description": "Senior software engineers in McKinney, Texas. We fix, connect and automate the systems small and mid-sized businesses run on.",
+            "telephone": "+1-972-838-7422",
+            "email": "psojdei@codegrity.com",
+            "foundingDate": "2023",
+            "founder": {
+              "@id": "https://www.codegrity.com/about#pj-sojdei"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "McKinney",
+              "addressRegion": "TX",
+              "addressCountry": "US"
+            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "McKinney, TX"
+              },
+              {
+                "@type": "City",
+                "name": "Dallas, TX"
+              },
+              {
+                "@type": "Country",
+                "name": "United States"
+              }
+            ],
+            "priceRange": "$$",
+            "sameAs": [
+              "https://www.linkedin.com/company/codegrity"
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.codegrity.com/about#pj-sojdei",
+            "name": "PJ Sojdei",
+            "jobTitle": "Founder",
+            "worksFor": {
+              "@id": "https://www.codegrity.com/#org"
+            },
+            "url": "https://www.codegrity.com/about"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.codegrity.com/#website",
+            "url": "https://www.codegrity.com/",
+            "name": "Codegrity",
+            "publisher": {
+              "@id": "https://www.codegrity.com/#org"
+            },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.codegrity.com/work/dailyprimestore#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.codegrity.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Work",
+                "item": "https://www.codegrity.com/work"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "DailyPrimeStore",
+                "item": "https://www.codegrity.com/work/dailyprimestore"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <!-- schema:end -->
+  </head>
+  <body>
+    <!-- header:start -->
+    <a class="cg-skip" href="#main">Skip to content</a>
+    <header class="cg-header">
+      <nav class="cg-nav" aria-label="Main">
+        <a href="/" class="cg-brand" aria-label="Codegrity home">
+          <span class="cg-mark" aria-hidden="true"></span>
+          <span class="cg-wordmark">Code<span>grity</span></span>
+        </a>
+        <ul class="cg-menu" id="cg-menu">
+          <li><a href="/services">Services</a></li>
+          <li><a href="/ai-automation">AI Automation</a></li>
+          <li><a href="/local">Local Websites</a></li>
+          <li><a href="/work" aria-current="page">Work</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li class="cg-menu-cta"><a href="/contact" data-cta="nav-mobile">Book a call</a></li>
+        </ul>
+        <a href="/contact" class="cg-cta" data-cta="nav">Book a call</a>
+        <button class="cg-toggle" type="button" aria-controls="cg-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="cg-i-menu" viewBox="0 0 512 512" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352"/></svg>
+          <svg class="cg-i-close" viewBox="0 0 512 512" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>
+        </button>
+      </nav>
+    </header>
+    <!-- header:end -->
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/work">Work</a> / DailyPrimeStore</nav>
+          <h1>DailyPrimeStore: a deals business that runs itself.</h1>
+          <p class="lede">
+            DailyPrimeStore is our own product. Software researches the deals, checks the prices, makes the images and
+            video, posts everywhere and sends the weekly email. We set the rules and keep an eye on the results.
+          </p>
+          <ul class="stack" aria-label="Built with">
+            <li>Astro</li>
+            <li>Cloudflare Pages</li>
+            <li>GitHub Actions</li>
+            <li>AI agents</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="wrap feature">
+          <article class="article">
+            <h2 style="margin-top: 0">The problem</h2>
+            <p>
+              A deals brand lives or dies on volume and trust. It needs fresh deals every day, posted in several places,
+              and every deal has to be real. DailyPrimeStore's promise is that it checks the price history so its followers don't fall for fake discounts.
+            </p>
+            <p>
+              Done by hand, that is hours of searching, checking, designing and posting, every day. We wanted to see how
+              much of it software could do well, and where a person still needed to look.
+            </p>
+
+            <h2>What we built</h2>
+            <p>A pipeline of scheduled jobs and AI agents, where each stage hands its output to the next:</p>
+            <ul>
+              <li><strong>Research.</strong> Agents look for products worth posting.</li>
+              <li><strong>Price checks.</strong> Each candidate is checked against its price history, and only real drops move forward.</li>
+              <li><strong>Image and video rendering.</strong> Post graphics and short videos are generated for each deal.</li>
+              <li><strong>Multi-platform posting.</strong> Deals publish to the website and to social platforms on a schedule.</li>
+              <li><strong>Weekly email.</strong> The best deals of the week are rolled into an email.</li>
+            </ul>
+            <p>
+              The website is built with Astro and served from Cloudflare Pages. GitHub Actions runs the scheduled jobs, so
+              every run is logged, repeatable and easy to rerun when something upstream fails.
+            </p>
+
+            <h2>What it shows about building automation</h2>
+            <p>
+              Running our own pipeline every day shapes how we build automation for clients:
+            </p>
+            <ul>
+              <li><strong>Verification beats generation.</strong> The valuable step is the check that throws out bad deals, not the step that writes the caption.</li>
+              <li><strong>Every run should leave a trail.</strong> When a source changes or a post fails, the logs show exactly where and why.</li>
+              <li><strong>People own the rules.</strong> What counts as a good deal is decided by a person; the repetitive work goes to software.</li>
+              <li><strong>Cheap, boring infrastructure wins.</strong> Static hosting and scheduled jobs keep the running cost and the failure surface small.</li>
+            </ul>
+
+            <div class="callout">
+              Want the same approach applied to your business? The <a href="/ai-opportunity-audit">AI Opportunity Audit</a>
+              finds the work worth automating and prices it, in 7 business days.
+            </div>
+
+            <p><a class="text-link" href="https://dailyprimestore.com" rel="noopener">Visit dailyprimestore.com</a></p>
+          </article>
+
+          <aside>
+            <div class="side-card">
+              <h2>At a glance</h2>
+              <ul>
+                <li><ion-icon name="cube-outline" aria-hidden="true"></ion-icon><span><strong>What:</strong> a deals brand with a website, social accounts and a weekly email</span></li>
+                <li><ion-icon name="person-outline" aria-hidden="true"></ion-icon><span><strong>Owner:</strong> Codegrity, our own product</span></li>
+                <li><ion-icon name="git-branch-outline" aria-hidden="true"></ion-icon><span><strong>Runs on:</strong> Astro, Cloudflare Pages, GitHub Actions, AI agents</span></li>
+                <li><ion-icon name="repeat-outline" aria-hidden="true"></ion-icon><span><strong>Cadence:</strong> daily research and posting, weekly email</span></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="closer">
+        <div class="wrap">
+          <h2>Let's find the work your team shouldn't be doing by hand.</h2>
+          <div class="actions">
+            <a class="btn btn-primary" href="/ai-opportunity-audit" data-cta="dps-closer-audit">See the audit</a>
+            <a class="btn btn-quiet" href="/contact" data-cta="dps-closer-call">Book a call</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- footer:start -->
+    <footer class="cg-footer">
+      <div class="cg-footer-grid">
+        <div class="cg-footer-about">
+          <a href="/" class="cg-brand" aria-label="Codegrity home">
+            <span class="cg-mark" aria-hidden="true"></span>
+            <span class="cg-wordmark">Code<span>grity</span></span>
+          </a>
+          <p>Senior software engineers in McKinney, Texas. We fix, connect and automate the systems small and mid-sized businesses run on.</p>
+        </div>
+        <div>
+          <h2>Services</h2>
+          <ul>
+            <li><a href="/services">Senior engineering</a></li>
+            <li><a href="/ai-automation">AI automation</a></li>
+            <li><a href="/ai-opportunity-audit">AI Opportunity Audit</a></li>
+            <li><a href="/local">Local business websites</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <ul>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/work/dailyprimestore">DailyPrimeStore case study</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="mailto:psojdei@codegrity.com">psojdei@codegrity.com</a></li>
+            <li><a href="tel:+19728387422">(972) 838-7422</a></li>
+            <li>McKinney, Texas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cg-footer-base">
+        <span>&copy; 2026 Codegrity LLC. McKinney, Texas.</span>
+        <span>Serving McKinney, Dallas-Fort Worth and clients nationwide.</span>
+      </div>
+    </footer>
+    <!-- footer:end -->
+    <script src="/js/site.js" defer></script>
+  </body>
+</html>

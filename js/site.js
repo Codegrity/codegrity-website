@@ -71,6 +71,56 @@
         track("generate_lead", { form: form.getAttribute("data-form"), page: location.pathname });
       });
     });
+
+    // Preselect a service from ?service=<value> (used by "Book the audit" links)
+    var wanted = new URLSearchParams(location.search).get("service");
+    if (wanted) {
+      var sel = document.querySelector('form[data-ajax] select[name="service"]');
+      if (sel && sel.querySelector('option[value="' + wanted.replace(/"/g, "") + '"]')) sel.value = wanted;
+    }
+
+    // Forms posted to Formspree without leaving the page
+    document.querySelectorAll("form[data-ajax]").forEach(function (form) {
+      var status = form.querySelector(".form-status");
+      var button = form.querySelector('button[type="submit"]');
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (button) {
+          button.disabled = true;
+          button.dataset.label = button.textContent;
+          button.textContent = "Sending...";
+        }
+        if (status) {
+          status.className = "form-status";
+          status.textContent = "";
+        }
+        fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        })
+          .then(function (res) {
+            if (!res.ok) throw new Error("bad status");
+            form.reset();
+            if (status) {
+              status.className = "form-status ok";
+              status.textContent = form.getAttribute("data-success") || "Sent. We will reply within one business day.";
+            }
+          })
+          .catch(function () {
+            if (status) {
+              status.className = "form-status err";
+              status.textContent = "That did not send. Email psojdei@codegrity.com or call (972) 838-7422 instead.";
+            }
+          })
+          .then(function () {
+            if (button) {
+              button.disabled = false;
+              button.textContent = button.dataset.label || "Send";
+            }
+          });
+      });
+    });
   }
 
   if (document.readyState === "loading") {

@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- seo:start -->
     <title>Codegrity | Senior Software Engineers in McKinney, TX</title>
-    <meta name="description" content="Senior engineers for small and mid-sized businesses: integrations, legacy modernization, hard production bugs and practical AI automation. Based in McKinney, Texas." />
+    <meta name="description" content="Senior engineers for small and mid-sized businesses: integrations, legacy modernization, hard production bugs and practical AI automation. McKinney, Texas." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://www.codegrity.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Codegrity" />
     <meta property="og:title" content="Codegrity | Senior Software Engineers in McKinney, TX" />
-    <meta property="og:description" content="Senior engineers for small and mid-sized businesses: integrations, legacy modernization, hard production bugs and practical AI automation. Based in McKinney, Texas." />
+    <meta property="og:description" content="Senior engineers for small and mid-sized businesses: integrations, legacy modernization, hard production bugs and practical AI automation. McKinney, Texas." />
     <meta property="og:url" content="https://www.codegrity.com/" />
     <meta property="og:image" content="https://www.codegrity.com/images/og-default.png" />
     <meta property="og:image:width" content="1200" />
@@ -20,18 +20,20 @@
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Codegrity | Senior Software Engineers in McKinney, TX" />
-    <meta name="twitter:description" content="Senior engineers for small and mid-sized businesses: integrations, legacy modernization, hard production bugs and practical AI automation. Based in McKinney, Texas." />
+    <meta name="twitter:description" content="Senior engineers for small and mid-sized businesses: integrations, legacy modernization, hard production bugs and practical AI automation. McKinney, Texas." />
     <meta name="twitter:image" content="https://www.codegrity.com/images/og-default.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <meta name="theme-color" content="#0a0a0a" />
     <!-- seo:end -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/css/chrome.css" />
+    <link rel="stylesheet" href="/css/site.css" />
 
     <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XQH3T0SR8M"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQH3T0SR8M"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -41,910 +43,38 @@
       gtag("config", "G-XQH3T0SR8M");
     </script>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
-          Arial, sans-serif;
-        background: #0a0a0a;
-        color: #f8fafc;
-        overflow-x: hidden;
-      }
-
-      /* Custom Cursor */
-      .cursor {
-        width: 20px;
-        height: 20px;
-        border: 2px solid #3b82f6;
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transition: all 0.15s ease;
-        mix-blend-mode: difference;
-      }
-
-      .cursor-follower {
-        width: 8px;
-        height: 8px;
-        background: #3b82f6;
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9998;
-        transition: all 0.3s ease;
-      }
-
-      /* Scroll Percentage Indicator */
-      .scroll-indicator {
-        position: fixed;
-        bottom: 2rem;
-        left: 2rem;
-        z-index: 1000;
-        font-size: 3rem;
-        font-weight: 700;
-        color: rgba(59, 130, 246, 0.3);
-        font-variant-numeric: tabular-nums;
-        transition: color 0.3s;
-      }
-
-      .scroll-indicator.active {
-        color: rgba(59, 130, 246, 0.8);
-      }
-
-      /* Scroll Progress Bar */
-      .scroll-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
-        z-index: 9999;
-        transition: width 0.1s ease;
-      }
-
-      /* Navigation */
-      nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(10, 10, 10, 0.8);
-        backdrop-filter: blur(20px);
-        padding: 1.5rem 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1000;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        transition: all 0.3s;
-      }
-
-      nav.scrolled {
-        padding: 1rem 5%;
-        background: rgba(10, 10, 10, 0.95);
-      }
-
-      .logo-nav {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        text-decoration: none;
-      }
-
-      .logo-icon {
-        width: 50px;
-        height: 50px;
-        position: relative;
-      }
-
-      .lock-outer {
-        position: absolute;
-        width: 44px;
-        height: 44px;
-        border: 3px solid #3b82f6;
-        border-radius: 8px;
-        transform: rotate(45deg);
-        top: 50%;
-        left: 50%;
-        margin-left: -22px;
-        margin-top: -22px;
-      }
-
-      .lock-inner {
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        border-radius: 4px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(45deg);
-      }
-
-      .lock-dot {
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        background: #ffffff;
-        border-radius: 50%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: rotate(45deg) scale(1);
-        }
-        50% {
-          transform: rotate(45deg) scale(1.05);
-        }
-      }
-
-      .logo-text {
-        font-size: 1.3rem;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-      }
-
-      .logo-text .code-part {
-        color: #3b82f6;
-      }
-
-      .logo-text .grity-part {
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .logo-link {
-        display: block;
-        text-decoration: none;
-      }
-
-      .logo-img {
-        height: 50px;
-        width: auto;
-        transition: all 0.3s;
-      }
-
-      .logo-img:hover {
-        transform: scale(1.05);
-      }
-
-      .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #f8fafc;
-        letter-spacing: -0.5px;
-        position: relative;
-      }
-
-      .logo::before {
-        content: "";
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        background: #3b82f6;
-        border-radius: 50%;
-        left: -15px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 3rem;
-        list-style: none;
-      }
-
-      .nav-links a {
-        color: #94a3b8;
-        text-decoration: none;
-        font-size: 0.95rem;
-        transition: all 0.3s;
-        font-weight: 500;
-        position: relative;
-      }
-
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #3b82f6;
-        transition: width 0.3s;
-      }
-
-      .nav-links a:hover {
-        color: #f8fafc;
-      }
-
-      .nav-links a:hover::after {
-        width: 100%;
-      }
-
-      .nav-number {
-        font-size: 0.7rem;
-        color: #64748b;
-        margin-left: 0.5rem;
-      }
-
-      .cta-button {
-        background: transparent;
-        color: #3b82f6;
-        padding: 0.75rem 1.5rem;
-        border: 2px solid #3b82f6;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s;
-        font-size: 0.95rem;
-      }
-
-      .cta-button:hover {
-        background: #3b82f6;
-        color: white;
-        transform: scale(1.05);
-      }
-
-      /* Hero Section */
-      .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        padding: 0 5%;
-        background: #0a0a0a;
-        overflow: hidden;
-      }
-
-      /* Animated Background Elements */
-      .bg-element {
-        position: absolute;
-        border-radius: 50%;
-        opacity: 0.1;
-        animation: float 20s ease-in-out infinite;
-      }
-
-      .bg-element-1 {
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
-        top: -200px;
-        right: -200px;
-        animation-delay: 0s;
-      }
-
-      .bg-element-2 {
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
-        bottom: -100px;
-        left: -100px;
-        animation-delay: 7s;
-      }
-
-      .bg-element-3 {
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(circle, #10b981 0%, transparent 70%);
-        top: 50%;
-        left: 20%;
-        animation-delay: 14s;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate(0, 0) scale(1);
-        }
-        33% {
-          transform: translate(50px, -50px) scale(1.1);
-        }
-        66% {
-          transform: translate(-50px, 50px) scale(0.9);
-        }
-      }
-
-      .hero-content {
-        text-align: center;
-        max-width: 1000px;
-        position: relative;
-        z-index: 1;
-      }
-
-      .hero-eyebrow {
-        color: #64748b;
-        font-size: 0.85rem;
-        font-weight: 600;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        margin-bottom: 2rem;
-        opacity: 0;
-        animation: fadeInDown 0.8s ease-out 0.2s forwards;
-      }
-
-      .hero h1 {
-        font-size: 5.5rem;
-        font-weight: 700;
-        line-height: 1.1;
-        margin-bottom: 2rem;
-        color: #f8fafc;
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out 0.4s forwards;
-      }
-
-      .hero h1 .highlight {
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .hero p {
-        font-size: 1.4rem;
-        color: #94a3b8;
-        line-height: 1.8;
-        margin-bottom: 3rem;
-        max-width: 750px;
-        margin-left: auto;
-        margin-right: auto;
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out 0.6s forwards;
-      }
-
-      .hero-buttons {
-        display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out 0.8s forwards;
-      }
-
-      .btn-primary {
-        background: #3b82f6;
-        color: white;
-        padding: 1.2rem 3rem;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1.05rem;
-        transition: all 0.3s;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-        border: 2px solid #3b82f6;
-      }
-
-      .btn-primary:hover {
-        background: transparent;
-        transform: translateY(-3px);
-        box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
-      }
-
-      .btn-secondary {
-        background: transparent;
-        color: #f8fafc;
-        padding: 1.2rem 3rem;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1.05rem;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-        transition: all 0.3s;
-      }
-
-      .btn-secondary:hover {
-        border-color: #8b5cf6;
-        background: rgba(139, 92, 246, 0.1);
-        transform: translateY(-3px);
-      }
-
-      .scroll-indicator-hero {
-        position: absolute;
-        bottom: 3rem;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 0.8rem;
-        color: #64748b;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        animation: bounce 2s ease-in-out infinite;
-      }
-
-      .scroll-line {
-        width: 2px;
-        height: 50px;
-        background: linear-gradient(to bottom, #3b82f6, transparent);
-      }
-
-      @keyframes bounce {
-        0%,
-        100% {
-          transform: translateX(-50%) translateY(0);
-        }
-        50% {
-          transform: translateX(-50%) translateY(10px);
-        }
-      }
-
-      @keyframes fadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Clients Section */
-      .clients {
-        background: #0a0a0a;
-        padding: 4rem 5%;
-        border-top: 1px solid rgba(255, 255, 255, 0.03);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-      }
-
-      .clients-label {
-        text-align: center;
-        color: #475569;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        margin-bottom: 2.5rem;
-      }
-
-      .logo-marquee {
-        display: flex;
-        gap: 5rem;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-
-      .client-logo {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #334155;
-        transition: all 0.3s;
-        letter-spacing: 1px;
-      }
-
-      .client-logo:hover {
-        color: #3b82f6;
-        transform: translateY(-3px);
-      }
-
-      /* Services Section */
-      .services {
-        padding: 10rem 5%;
-        background: #0a0a0a;
-        position: relative;
-      }
-
-      .section-header {
-        text-align: center;
-        margin-bottom: 6rem;
-      }
-
-      .section-number {
-        font-size: 1rem;
-        color: #3b82f6;
-        font-weight: 600;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        margin-bottom: 1rem;
-      }
-
-      .section-header h2 {
-        font-size: 4rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        line-height: 1.1;
-      }
-
-      .section-header p {
-        font-size: 1.3rem;
-        color: #64748b;
-        max-width: 700px;
-        margin: 0 auto;
-        line-height: 1.7;
-      }
-
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2.5rem;
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-
-      .service-card {
-        background: rgba(15, 23, 42, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 20px;
-        padding: 3rem;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .service-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          135deg,
-          rgba(59, 130, 246, 0.05) 0%,
-          rgba(139, 92, 246, 0.05) 100%
-        );
-        opacity: 0;
-        transition: opacity 0.5s;
-      }
-
-      .service-card:hover {
-        transform: translateY(-10px);
-        border-color: rgba(59, 130, 246, 0.3);
-        box-shadow: 0 25px 70px rgba(59, 130, 246, 0.15);
-      }
-
-      .service-card:hover::before {
-        opacity: 1;
-      }
-
-      .service-number {
-        font-size: 0.8rem;
-        color: #475569;
-        font-weight: 600;
-        letter-spacing: 2px;
-        margin-bottom: 1.5rem;
-      }
-
-      .service-icon {
-        width: 70px;
-        height: 70px;
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 2rem;
-        position: relative;
-        z-index: 1;
-        font-size: 2rem;
-        transition: all 0.5s;
-      }
-
-      .service-card:hover .service-icon {
-        transform: scale(1.1) rotate(5deg);
-      }
-
-      .service-card h3 {
-        font-size: 1.6rem;
-        margin-bottom: 1rem;
-        position: relative;
-        z-index: 1;
-        transition: color 0.3s;
-      }
-
-      .service-card:hover h3 {
-        color: #3b82f6;
-      }
-
-      .service-card p {
-        color: #94a3b8;
-        line-height: 1.8;
-        margin-bottom: 2rem;
-        position: relative;
-        z-index: 1;
-      }
-
-      .service-link {
-        color: #64748b;
-        text-decoration: none;
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        position: relative;
-        z-index: 1;
-        transition: all 0.3s;
-        font-size: 0.95rem;
-      }
-
-      .service-link::after {
-        content: "→";
-        transition: transform 0.3s;
-      }
-
-      .service-card:hover .service-link {
-        color: #3b82f6;
-        gap: 1rem;
-      }
-
-      .service-card:hover .service-link::after {
-        transform: translateX(5px);
-      }
-
-      /* Featured Work */
-      .featured-work {
-        padding: 10rem 5%;
-        background: #000000;
-      }
-
-      .work-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-        gap: 3rem;
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-
-      .work-card {
-        position: relative;
-        border-radius: 24px;
-        overflow: hidden;
-        aspect-ratio: 16 / 11;
-        cursor: pointer;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-      }
-
-      .work-card:hover {
-        transform: translateY(-15px) scale(1.02);
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-      }
-
-      .work-image {
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 4rem;
-        transition: all 0.5s;
-        position: relative;
-      }
-
-      .work-image::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          135deg,
-          rgba(59, 130, 246, 0.2) 0%,
-          rgba(139, 92, 246, 0.2) 100%
-        );
-        opacity: 0;
-        transition: opacity 0.5s;
-      }
-
-      .work-card:hover .work-image::before {
-        opacity: 1;
-      }
-
-      .work-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 3rem;
-        background: linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.95) 0%,
-          transparent 100%
-        );
-        transform: translateY(30px);
-        opacity: 0;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .work-card:hover .work-overlay {
-        transform: translateY(0);
-        opacity: 1;
-      }
-
-      .work-number {
-        font-size: 0.75rem;
-        color: #475569;
-        font-weight: 600;
-        letter-spacing: 2px;
-        margin-bottom: 0.5rem;
-      }
-
-      .work-category {
-        color: #3b82f6;
-        font-size: 0.85rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        margin-bottom: 1rem;
-      }
-
-      .work-card h3 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .work-card p {
-        color: #cbd5e1;
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-
-      /* CTA Section */
-      .cta-section {
-        padding: 12rem 5%;
-        background: #0a0a0a;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .cta-section::before {
-        content: "";
-        position: absolute;
-        width: 1000px;
-        height: 1000px;
-        background: radial-gradient(
-          circle,
-          rgba(59, 130, 246, 0.1) 0%,
-          transparent 70%
-        );
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        animation: pulse 4s ease-in-out infinite;
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: translate(-50%, -50%) scale(1);
-        }
-        50% {
-          transform: translate(-50%, -50%) scale(1.1);
-        }
-      }
-
-      .cta-content {
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-      }
-
-      .cta-content h2 {
-        font-size: 4rem;
-        margin-bottom: 2rem;
-        line-height: 1.2;
-      }
-
-      .cta-content p {
-        font-size: 1.3rem;
-        color: #64748b;
-        margin-bottom: 3rem;
-        line-height: 1.7;
-      }
-
-      /* Footer */
-      footer {
-        background: #000000;
-        padding: 4rem 5%;
-        border-top: 1px solid rgba(255, 255, 255, 0.03);
-      }
-
-      .footer-content {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .footer-logo {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: #f8fafc;
-      }
-
-      .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem 2rem;
-        list-style: none;
-      }
-
-      .footer-links a {
-        white-space: nowrap;
-      }
-
-      .footer-links a {
-        color: #64748b;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: color 0.3s;
-      }
-
-      .footer-links a:hover {
-        color: #3b82f6;
-      }
-
-      .footer-copy {
-        margin-top: 3rem;
-        text-align: center;
-        color: #475569;
-        font-size: 0.85rem;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .hero h1 {
-          font-size: 3rem;
-        }
-
-        .section-header h2 {
-          font-size: 2.5rem;
-        }
-
-        .cta-content h2 {
-          font-size: 2.5rem;
-        }
-
-        .nav-links {
-          display: none;
-        }
-
-        .services-grid,
-        .work-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .scroll-indicator {
-          font-size: 2rem;
-          bottom: 1rem;
-          left: 1rem;
-        }
-      }
-    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Where is Codegrity located?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Codegrity LLC is based in McKinney, Texas. We meet clients in person around Dallas-Fort Worth and work remotely with companies anywhere in the US."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does Codegrity charge?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Senior engineering is $100 to $125 per hour. When the scope is clear we quote a fixed price. The AI Opportunity Audit is $1,500, and local business website plans start at $79 per month plus a $750 build."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What kind of work does Codegrity take on?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Backend and .NET work, API and third-party integrations, legacy modernization, hard production bugs, database and data problems, taking over projects from another developer, fractional CTO-level help, practical AI automation, and fast websites for local businesses."
+            }
+          }
+        ]
+      }
+    </script>
     <!-- schema:start -->
     <script type="application/ld+json">
       {
@@ -1017,7 +147,6 @@
       }
     </script>
     <!-- schema:end -->
-    <link rel="stylesheet" href="/css/chrome.css" />
   </head>
   <body>
     <!-- header:start -->
@@ -1030,11 +159,12 @@
         </a>
         <ul class="cg-menu" id="cg-menu">
           <li><a href="/services">Services</a></li>
-          <li><a href="/local">Local Businesses</a></li>
+          <li><a href="/ai-automation">AI Automation</a></li>
+          <li><a href="/local">Local Websites</a></li>
           <li><a href="/work">Work</a></li>
+          <li><a href="/pricing">Pricing</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/blog">Blog</a></li>
-          <li><a href="/contact">Contact</a></li>
           <li class="cg-menu-cta"><a href="/contact" data-cta="nav-mobile">Book a call</a></li>
         </ul>
         <a href="/contact" class="cg-cta" data-cta="nav">Book a call</a>
@@ -1046,250 +176,224 @@
     </header>
     <!-- header:end -->
     <main id="main">
-    <!-- Custom Cursor -->
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="kicker">Codegrity, McKinney, Texas</p>
+            <h1>Senior engineers for the software your business runs on.</h1>
+            <p class="lede">
+              We are a three-developer team that takes on the work a small or stretched dev team can't get to:
+              integrations, legacy modernization, hard production bugs and practical AI automation.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="/contact" data-cta="home-hero">Book a call</a>
+              <a class="btn btn-quiet" href="/ai-opportunity-audit" data-cta="home-hero-audit">See the AI Opportunity Audit</a>
+            </div>
+            <ul class="hero-facts">
+              <li><ion-icon name="location-outline" aria-hidden="true"></ion-icon>Based in McKinney, TX</li>
+              <li><ion-icon name="cash-outline" aria-hidden="true"></ion-icon>$100-125/hr, fixed quotes when scope is clear</li>
+              <li><ion-icon name="people-outline" aria-hidden="true"></ion-icon>You talk to the engineers who build it</li>
+            </ul>
+          </div>
 
-    <!-- Scroll Progress Bar -->
+          <svg class="schematic" viewBox="0 0 600 440" role="img" aria-labelledby="schematic-title schematic-desc">
+            <title id="schematic-title">How we connect a business's systems</title>
+            <desc id="schematic-desc">A CRM, an accounting system and an online store on the left connect through an integration layer of APIs, scheduled jobs and AI agents to a legacy app and reports on the right.</desc>
+            <path class="wire" d="M160 52 C 195 52, 190 196, 220 200" />
+            <path class="wire" d="M160 220 H 220" />
+            <path class="wire" d="M160 388 C 195 388, 190 244, 220 240" />
+            <path class="wire" d="M380 205 C 410 200, 410 112, 440 112" />
+            <path class="wire" d="M380 235 C 410 240, 410 328, 440 328" />
+            <path class="wire-live" d="M160 52 C 195 52, 190 196, 220 200" />
+            <path class="wire-live" d="M380 235 C 410 240, 410 328, 440 328" />
 
-    <!-- Scroll Percentage Indicator -->
+            <g class="node"><rect x="0" y="20" width="160" height="64" rx="10" /><text x="16" y="48">CRM</text><text class="sub" x="16" y="68">Leads and customers</text></g>
+            <g class="node"><rect x="0" y="188" width="160" height="64" rx="10" /><text x="16" y="216">Accounting</text><text class="sub" x="16" y="236">Invoices and payments</text></g>
+            <g class="node"><rect x="0" y="356" width="160" height="64" rx="10" /><text x="16" y="384">Online store</text><text class="sub" x="16" y="404">Orders and stock</text></g>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="bg-element bg-element-1"></div>
-      <div class="bg-element bg-element-2"></div>
-      <div class="bg-element bg-element-3"></div>
+            <g class="node hub"><rect x="220" y="168" width="160" height="104" rx="12" /><text x="236" y="210">Integration</text><text x="236" y="230">layer</text><text class="sub" x="236" y="254">APIs, jobs, AI agents</text></g>
 
-      <div class="hero-content">
-        <div class="hero-eyebrow">Your sidekick for exceptional software</div>
-        <h1>
-          Engineering <span class="highlight">Excellence</span>,<br />
-          Delivered with Integrity
-        </h1>
-        <p>
-          We build exceptional web and mobile solutions for companies that
-          refuse to compromise on quality
-        </p>
-        <div class="hero-buttons">
-          <a href="#contact" class="btn-primary">Start Your Project →</a>
-          <a href="#work" class="btn-secondary">View Our Work</a>
+            <g class="node"><rect x="440" y="80" width="160" height="64" rx="10" /><text x="456" y="108">Legacy app</text><text class="sub" x="456" y="128">.NET or PHP</text></g>
+            <g class="node"><rect x="440" y="296" width="160" height="64" rx="10" /><text x="456" y="324">Reports</text><text class="sub" x="456" y="344">Numbers you can trust</text></g>
+
+            <circle class="dot" cx="160" cy="52" r="4" />
+            <circle class="dot" cx="160" cy="220" r="4" />
+            <circle class="dot" cx="160" cy="388" r="4" />
+            <circle class="dot" cx="440" cy="112" r="4" />
+            <circle class="dot" cx="440" cy="328" r="4" />
+          </svg>
         </div>
-      </div>
+      </section>
 
-      <div class="scroll-indicator-hero">
-        <span>Scroll to Explore</span>
-        <div class="scroll-line"></div>
-      </div>
-    </section>
-
-    <!-- Clients -->
-    <section class="clients">
-      <p class="clients-label">Companies we have built for</p>
-      <div class="logo-marquee">
-        <div class="client-logo">GOALLINE PAYMENTS</div>
-        <div class="client-logo">STEP AND RAIL</div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-      <div class="section-header">
-        <div class="section-number">01 — What We Build</div>
-        <h2>Expertise Across<br />the Full Stack</h2>
-        <p>
-          From concept to deployment, we deliver solutions that drive real
-          business results
-        </p>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-number">SERVICE 01</div>
-          <div class="service-icon"><ion-icon name="desktop-outline" aria-hidden="true"></ion-icon></div>
-          <h3>Web Development</h3>
-          <p>
-            Modern, scalable web applications built with React, Next.js, and
-            cutting-edge technologies that perform flawlessly
-          </p>
-          <a href="/services" class="service-link">Explore Service</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-number">SERVICE 02</div>
-          <div class="service-icon"><ion-icon name="phone-portrait-outline" aria-hidden="true"></ion-icon></div>
-          <h3>Mobile Development</h3>
-          <p>
-            Native and cross-platform mobile apps for iOS and Android that users
-            love and engage with daily
-          </p>
-          <a href="/services" class="service-link">Explore Service</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-number">SERVICE 03</div>
-          <div class="service-icon"><ion-icon name="cart-outline" aria-hidden="true"></ion-icon></div>
-          <h3>E-commerce Solutions</h3>
-          <p>
-            Custom shopping experiences that convert visitors into customers and
-            drive measurable revenue growth
-          </p>
-          <a href="/services" class="service-link">Explore Service</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-number">SERVICE 04</div>
-          <div class="service-icon"><ion-icon name="git-network-outline" aria-hidden="true"></ion-icon></div>
-          <h3>API Development</h3>
-          <p>
-            RESTful and GraphQL APIs with seamless third-party integrations that
-            power your digital ecosystem
-          </p>
-          <a href="/services" class="service-link">Explore Service</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-number">SERVICE 05</div>
-          <div class="service-icon"><ion-icon name="cloud-outline" aria-hidden="true"></ion-icon></div>
-          <h3>Cloud Solutions</h3>
-          <p>
-            Scalable, secure infrastructure on AWS, Azure, and Google Cloud that
-            grows with your business
-          </p>
-          <a href="/services" class="service-link">Explore Service</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-number">SERVICE 06</div>
-          <div class="service-icon"><ion-icon name="bulb-outline" aria-hidden="true"></ion-icon></div>
-          <h3>Consulting & Strategy</h3>
-          <p>
-            Technical strategy, comprehensive code audits, and architectural
-            planning that sets you up for success
-          </p>
-          <a href="/services" class="service-link">Explore Service</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Work -->
-    <section class="featured-work" id="work">
-      <div class="section-header">
-        <div class="section-number">02 — Success Stories</div>
-        <h2>Work We're<br />Proud Of</h2>
-        <p>Projects we have shipped</p>
-      </div>
-
-      <div class="work-grid">
-        <div
-          class="work-card"
-          onclick="window.open('https://www.goallinepayment.com', '_blank')"
-        >
-          <div
-            class="work-image"
-            style="
-              overflow: hidden;
-              padding: 0;
-              display: block;
-              background: #1e293b;
-            "
-          >
-            <div
-              style="
-                position: relative;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-              "
-            >
-              <div style="width:100%;height:100%;min-height:220px;background:linear-gradient(135deg,#1e293b 0%,#312e81 100%)"></div>
-              <div
-                style="
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  background: linear-gradient(
-                    to bottom,
-                    transparent 60%,
-                    rgba(0, 0, 0, 0.4) 100%
-                  );
-                  pointer-events: none;
-                "
-              ></div>
+      <section class="sec" aria-labelledby="called-in">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2 id="called-in">What we get called in for</h2>
+            <p>Most of our work starts with one of these. If yours isn't on the list, ask anyway.</p>
+          </div>
+          <div class="rows">
+            <div class="row">
+              <h3>Systems that don't talk to each other</h3>
+              <p>Your CRM, store, payment processor and accounting system each hold part of the picture, so someone retypes data every week. We connect them with APIs and scheduled jobs that log every run.</p>
+              <a class="row-link" href="/services#integrations">Integrations</a>
+            </div>
+            <div class="row">
+              <h3>An older app nobody wants to touch</h3>
+              <p>A .NET or PHP application still runs the business but is slow to change and risky to deploy. We modernize it in stages while it keeps running.</p>
+              <a class="row-link" href="/services#modernization">Modernization</a>
+            </div>
+            <div class="row">
+              <h3>A bug that keeps coming back</h3>
+              <p>Intermittent failures, slow pages, data that doesn't add up. We find the cause, fix it and write down what happened so it stays fixed.</p>
+              <a class="row-link" href="/services#production-bugs">Production bugs</a>
+            </div>
+            <div class="row">
+              <h3>A project someone else left behind</h3>
+              <p>Your developer moved on or the agency stopped answering. We read the code, tell you plainly what shape it's in, and keep it moving.</p>
+              <a class="row-link" href="/services#takeover">Project takeovers</a>
+            </div>
+            <div class="row">
+              <h3>Repetitive work a person shouldn't be doing</h3>
+              <p>Research, data entry, reports and posting moved into software, with AI where it earns its place and a person approving the steps that matter.</p>
+              <a class="row-link" href="/ai-automation">AI automation</a>
+            </div>
+            <div class="row">
+              <h3>Technical decisions with no one senior to make them</h3>
+              <p>Architecture, vendors, hiring and a plan you can follow, without a full-time executive salary.</p>
+              <a class="row-link" href="/services#fractional-cto">Fractional CTO help</a>
             </div>
           </div>
-          <div class="work-overlay">
-            <div class="work-number">PROJECT 01</div>
-            <div class="work-category">Company website</div>
-            <h3>GoalLine Payments</h3>
-            <p>Designed and built the company website.</p>
-          </div>
         </div>
+      </section>
 
-        <div
-          class="work-card"
-          onclick="window.open('https://www.stepandrail.com', '_blank')"
-        >
-          <div
-            class="work-image"
-            style="
-              overflow: hidden;
-              padding: 0;
-              display: block;
-              background: #1e293b;
-            "
-          >
-            <div
-              style="
-                position: relative;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-              "
-            >
-              <div style="width:100%;height:100%;min-height:220px;background:linear-gradient(135deg,#1e293b 0%,#312e81 100%)"></div>
-              <div
-                style="
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  background: linear-gradient(
-                    to bottom,
-                    transparent 60%,
-                    rgba(0, 0, 0, 0.4) 100%
-                  );
-                  pointer-events: none;
-                "
-              ></div>
+      <section class="sec" aria-labelledby="proof">
+        <div class="wrap feature">
+          <div>
+            <h2 id="proof">We run our own AI automation in production.</h2>
+            <p class="lede" style="margin-top: 1.25rem">
+              DailyPrimeStore is our own deals business, and software runs it. Before we build automation for you, we have
+              already found out what breaks, what it costs and where a person still needs to look.
+            </p>
+            <ul class="stack" aria-label="Built with">
+              <li>Astro</li>
+              <li>Cloudflare Pages</li>
+              <li>GitHub Actions</li>
+              <li>AI agents</li>
+            </ul>
+            <div class="actions">
+              <a class="btn btn-quiet" href="/work/dailyprimestore" data-cta="home-case-study">Read the case study</a>
             </div>
           </div>
-          <div class="work-overlay">
-            <div class="work-number">PROJECT 02</div>
-            <div class="work-category">Dashboard modernization</div>
-            <h3>Step and Rail</h3>
-            <p>Modernized the CakePHP business dashboard the team runs on every day.</p>
+          <ol class="pipeline" aria-label="What the DailyPrimeStore pipeline does every day">
+            <li><strong>Research</strong><span>Agents find products worth posting.</span></li>
+            <li><strong>Price checks</strong><span>Prices are checked against their history so only real drops go out.</span></li>
+            <li><strong>Image and video rendering</strong><span>Post graphics and short videos are generated for each deal.</span></li>
+            <li><strong>Multi-platform posting</strong><span>Deals publish to the website and social platforms on a schedule.</span></li>
+            <li><strong>Weekly email</strong><span>The best deals are rolled into a weekly email.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="sec" aria-labelledby="two-ways">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2 id="two-ways">Two ways to work with us</h2>
+          </div>
+          <div class="paths">
+            <div class="path">
+              <h3>Growing companies</h3>
+              <p>Senior engineering for companies with a small or overloaded dev team, by the hour or by fixed quote. We fit into your tools, your repo and your release process.</p>
+              <p class="price">$100-125 per hour</p>
+              <a class="btn btn-primary" href="/contact" data-cta="home-path-engineering">Book a call</a>
+            </div>
+            <div class="path">
+              <h3>Local businesses</h3>
+              <p>Fast websites for McKinney and Dallas-area businesses, with a monthly care plan that keeps you current on Google and in AI search.</p>
+              <p class="price">From $79/month plus a $750 build</p>
+              <a class="btn btn-quiet" href="/local" data-cta="home-path-local">See local plans</a>
+            </div>
           </div>
         </div>
+      </section>
 
-      </div>
-    </section>
+      <section class="sec" aria-labelledby="shipped">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2 id="shipped">Work we have shipped</h2>
+          </div>
+          <div class="work-list">
+            <div class="work-item">
+              <div><h3>Step and Rail</h3><div class="who">Client project</div></div>
+              <p>Modernized the CakePHP business dashboard the Step and Rail team runs on every day.</p>
+            </div>
+            <div class="work-item">
+              <div><h3>GoalLine Payments</h3><div class="who">Client project</div></div>
+              <p>Designed and built the company website.</p>
+            </div>
+            <div class="work-item">
+              <div><h3>Gritfolio</h3><div class="who">Our product</div></div>
+              <p>A private portfolio platform for youth athletes and performers: a mobile app, an API, subscriptions and a marketing site.</p>
+            </div>
+            <div class="work-item">
+              <div><h3>DailyPrimeStore</h3><div class="who">Our product</div></div>
+              <p>A fully automated AI content and affiliate pipeline, from daily research to a weekly email.</p>
+            </div>
+          </div>
+          <div class="actions">
+            <a class="text-link" href="/work">See all our work</a>
+          </div>
+        </div>
+      </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-      <div class="cta-content">
-        <h2>Ready to Build<br />Something Exceptional?</h2>
-        <p>
-          Let's discuss your project and create a custom plan that delivers
-          measurable results
-        </p>
-        <a href="/contact" class="btn-primary"
-          >Schedule Free Consultation →</a
-        >
-      </div>
-    </section>
+      <section class="sec" aria-labelledby="who">
+        <div class="wrap cols-2">
+          <div>
+            <h2 id="who">Who you'll work with</h2>
+          </div>
+          <div>
+            <p>
+              Codegrity was founded in 2023 by PJ Sojdei. PJ was one of the first developers hired at Nerium (now Neora)
+              in 2014 and was leading a team of more than ten developers there by 2017.
+            </p>
+            <p>
+              Today Codegrity is three developers. There are no account managers between you and the code: the people on
+              your call are the people doing the work, and your code and domain are always yours.
+            </p>
+            <p><a class="text-link" href="/about">More about us</a></p>
+          </div>
+        </div>
+      </section>
 
-    <!-- Footer -->
+      <section class="sec" aria-labelledby="faq-home">
+        <div class="wrap">
+          <div class="sec-head"><h2 id="faq-home">Common questions</h2></div>
+          <div class="faq">
+            <details>
+              <summary>Where are you located?</summary>
+              <div class="answer">Codegrity LLC is based in McKinney, Texas. We meet clients in person around Dallas-Fort Worth and work remotely with companies anywhere in the US.</div>
+            </details>
+            <details>
+              <summary>How much do you charge?</summary>
+              <div class="answer">Senior engineering is $100 to $125 per hour. When the scope is clear we quote a fixed price. The AI Opportunity Audit is $1,500, and local business website plans start at $79 per month plus a $750 build. Everything is on the <a href="/pricing">pricing page</a>.</div>
+            </details>
+            <details>
+              <summary>What kind of work do you take on?</summary>
+              <div class="answer">Backend and .NET work, API and third-party integrations, legacy modernization, hard production bugs, database and data problems, taking over projects from another developer, fractional CTO-level help, practical AI automation, and fast websites for local businesses.</div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="closer">
+        <div class="wrap">
+          <h2>Tell us what's stuck.</h2>
+          <p>A 30-minute call with an engineer. You'll get a straight answer on whether we're the right fit and what it would take.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="/contact" data-cta="home-closer">Book a call</a>
+            <a class="btn btn-quiet" href="tel:+19728387422">Call (972) 838-7422</a>
+          </div>
+        </div>
+      </section>
     </main>
     <!-- footer:start -->
     <footer class="cg-footer">
@@ -1304,17 +408,21 @@
         <div>
           <h2>Services</h2>
           <ul>
-            <li><a href="/services">All services</a></li>
+            <li><a href="/services">Senior engineering</a></li>
+            <li><a href="/ai-automation">AI automation</a></li>
+            <li><a href="/ai-opportunity-audit">AI Opportunity Audit</a></li>
             <li><a href="/local">Local business websites</a></li>
+            <li><a href="/pricing">Pricing</a></li>
           </ul>
         </div>
         <div>
           <h2>Company</h2>
           <ul>
-            <li><a href="/">Home</a></li>
             <li><a href="/work">Work</a></li>
+            <li><a href="/work/dailyprimestore">DailyPrimeStore case study</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div>

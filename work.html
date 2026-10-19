@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- seo:start -->
-    <title>Our Work | Codegrity</title>
-    <meta name="description" content="Projects Codegrity has shipped: the GoalLine Payments company website, the Step and Rail dashboard modernization, and our own products." />
+    <title>Our Work: Websites, Modernization and AI Automation | Codegrity</title>
+    <meta name="description" content="What Codegrity has shipped: the GoalLine Payments website, a CakePHP dashboard modernization for Step and Rail, Gritfolio, and the DailyPrimeStore AI pipeline." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://www.codegrity.com/work" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Codegrity" />
-    <meta property="og:title" content="Our Work | Codegrity" />
-    <meta property="og:description" content="Projects Codegrity has shipped: the GoalLine Payments company website, the Step and Rail dashboard modernization, and our own products." />
+    <meta property="og:title" content="Our Work: Websites, Modernization and AI Automation | Codegrity" />
+    <meta property="og:description" content="What Codegrity has shipped: the GoalLine Payments website, a CakePHP dashboard modernization for Step and Rail, Gritfolio, and the DailyPrimeStore AI pipeline." />
     <meta property="og:url" content="https://www.codegrity.com/work" />
     <meta property="og:image" content="https://www.codegrity.com/images/og-default.png" />
     <meta property="og:image:width" content="1200" />
@@ -19,19 +19,21 @@
     <meta property="og:image:alt" content="Codegrity: senior software engineers in McKinney, Texas" />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Our Work | Codegrity" />
-    <meta name="twitter:description" content="Projects Codegrity has shipped: the GoalLine Payments company website, the Step and Rail dashboard modernization, and our own products." />
+    <meta name="twitter:title" content="Our Work: Websites, Modernization and AI Automation | Codegrity" />
+    <meta name="twitter:description" content="What Codegrity has shipped: the GoalLine Payments website, a CakePHP dashboard modernization for Step and Rail, Gritfolio, and the DailyPrimeStore AI pipeline." />
     <meta name="twitter:image" content="https://www.codegrity.com/images/og-default.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <meta name="theme-color" content="#0a0a0a" />
     <!-- seo:end -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/css/chrome.css" />
+    <link rel="stylesheet" href="/css/site.css" />
 
     <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XQH3T0SR8M"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQH3T0SR8M"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -40,8 +42,6 @@
       gtag("js", new Date());
       gtag("config", "G-XQH3T0SR8M");
     </script>
-
-    <link rel="stylesheet" href="/css/main.css" />
     <!-- schema:start -->
     <script type="application/ld+json">
       {
@@ -132,7 +132,6 @@
       }
     </script>
     <!-- schema:end -->
-    <link rel="stylesheet" href="/css/chrome.css" />
   </head>
   <body>
     <!-- header:start -->
@@ -145,11 +144,12 @@
         </a>
         <ul class="cg-menu" id="cg-menu">
           <li><a href="/services">Services</a></li>
-          <li><a href="/local">Local Businesses</a></li>
+          <li><a href="/ai-automation">AI Automation</a></li>
+          <li><a href="/local">Local Websites</a></li>
           <li><a href="/work" aria-current="page">Work</a></li>
+          <li><a href="/pricing">Pricing</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/blog">Blog</a></li>
-          <li><a href="/contact">Contact</a></li>
           <li class="cg-menu-cta"><a href="/contact" data-cta="nav-mobile">Book a call</a></li>
         </ul>
         <a href="/contact" class="cg-cta" data-cta="nav">Book a call</a>
@@ -161,332 +161,89 @@
     </header>
     <!-- header:end -->
     <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / Work</nav>
+          <h1>What we have shipped.</h1>
+          <p class="lede">
+            Client projects and our own products. We only list work we did and describe it the way it happened.
+          </p>
+        </div>
+      </section>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="bg-element bg-element-1"></div>
-      <div class="bg-element bg-element-2"></div>
-
-      <div class="hero-content">
-        <div class="hero-eyebrow">02 — Our Portfolio</div>
-        <h1>Work We're<br /><span class="highlight">Proud Of</span></h1>
-        <p>Projects we have shipped</p>
-      </div>
-    </section>
-
-    <!-- Portfolio Grid -->
-    <section style="padding: 10rem 5%; background: #0a0a0a">
-      <div style="max-width: 1400px; margin: 0 auto">
-        <!-- Project 1: GoalLine Payment -->
-        <div
-          style="
-            background: rgba(15, 23, 42, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 4rem;
-            margin-bottom: 3rem;
-            cursor: pointer;
-            transition: all 0.5s;
-          "
-          onclick="window.open('https://www.goallinepayment.com', '_blank')"
-          onmouseover="
-            this.style.transform = 'translateY(-10px)';
-            this.style.borderColor = 'rgba(59, 130, 246, 0.3)';
-            this.style.boxShadow = '0 25px 70px rgba(59, 130, 246, 0.15)';
-          "
-          onmouseout="
-            this.style.transform = 'translateY(0)';
-            this.style.borderColor = 'rgba(255, 255, 255, 0.05)';
-            this.style.boxShadow = 'none';
-          "
-        >
-          <div
-            style="
-              display: grid;
-              grid-template-columns: 1fr 1.5fr;
-              gap: 4rem;
-              align-items: center;
-            "
-          >
-            <div
-              style="
-                background: #1e293b;
-                border-radius: 16px;
-                height: 300px;
-                overflow: hidden;
-                position: relative;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: inset 0 0 0 10px #1e293b;
-              "
-            >
-              <div style="width:100%;height:100%;min-height:260px;background:linear-gradient(135deg,#1e293b 0%,#312e81 100%)"></div>
-              <div
-                style="
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  background: linear-gradient(
-                    to bottom,
-                    transparent 0%,
-                    rgba(15, 23, 42, 0.3) 100%
-                  );
-                  pointer-events: none;
-                "
-              ></div>
+      <section class="sec" aria-labelledby="h-products">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2 id="h-products">Our own products</h2>
+            <p>We build and run these ourselves, which is where we test the tools and patterns we bring to client work.</p>
+          </div>
+          <div class="work-list">
+            <div class="work-item">
+              <div>
+                <h3>DailyPrimeStore</h3>
+                <div class="who">AI automation, our product</div>
+              </div>
+              <div>
+                <p>A fully automated AI content and affiliate pipeline. Every day it researches products, checks prices against their history, renders images and video, posts to the website and social platforms, and once a week sends an email roundup. Built on Astro, Cloudflare Pages, GitHub Actions and AI agents.</p>
+                <p><a class="text-link" href="/work/dailyprimestore" data-cta="work-dps">Read the case study</a></p>
+              </div>
             </div>
-            <div>
-              <div
-                style="
-                  font-size: 0.85rem;
-                  color: #3b82f6;
-                  font-weight: 600;
-                  letter-spacing: 2px;
-                  margin-bottom: 1rem;
-                "
-              >
-                PROJECT 01 • COMPANY WEBSITE
+            <div class="work-item">
+              <div>
+                <h3>Gritfolio</h3>
+                <div class="who">Mobile and web platform, our product</div>
               </div>
-              <h2
-                style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2"
-              >
-                GoalLine Payments
-              </h2>
-              <p
-                style="
-                  font-size: 1.2rem;
-                  color: #94a3b8;
-                  line-height: 1.8;
-                  margin-bottom: 2rem;
-                "
-              >
-                We designed and built the GoalLine Payments company website.
-              </p>
-              <div
-                style="
-                  display: flex;
-                  gap: 1rem;
-                  flex-wrap: wrap;
-                  margin-bottom: 2rem;
-                "
-              >
-                <span
-                  style="
-                    background: rgba(59, 130, 246, 0.1);
-                    color: #3b82f6;
-                    padding: 0.5rem 1rem;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                  "
-                  >Website</span
-                >
-                <span
-                  style="
-                    background: rgba(59, 130, 246, 0.1);
-                    color: #3b82f6;
-                    padding: 0.5rem 1rem;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                  "
-                  >Design</span
-                >
-                <span
-                  style="
-                    background: rgba(59, 130, 246, 0.1);
-                    color: #3b82f6;
-                    padding: 0.5rem 1rem;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                  "
-                  >Build</span
-                >
+              <div>
+                <p>A private portfolio platform for youth athletes and performers. Parents manage their children's portfolios and coaches and trainers can be discovered, while children never create accounts. We built the React Native mobile app, a TypeScript API on PostgreSQL, subscription billing through Stripe and Apple in-app purchases, and the marketing site.</p>
+                <p><a class="text-link" href="https://gritfolio.com" rel="noopener">gritfolio.com</a></p>
               </div>
-              <a
-                href="https://www.goallinepayment.com"
-                target="_blank"
-                style="
-                  color: #3b82f6;
-                  text-decoration: none;
-                  font-weight: 600;
-                  font-size: 1.1rem;
-                "
-                >View Live Site →</a
-              >
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- Project 2: Step and Rail -->
-        <div
-          style="
-            background: rgba(15, 23, 42, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 4rem;
-            margin-bottom: 3rem;
-            cursor: pointer;
-            transition: all 0.5s;
-          "
-          onclick="window.open('https://www.stepandrail.com', '_blank')"
-          onmouseover="
-            this.style.transform = 'translateY(-10px)';
-            this.style.borderColor = 'rgba(59, 130, 246, 0.3)';
-            this.style.boxShadow = '0 25px 70px rgba(59, 130, 246, 0.15)';
-          "
-          onmouseout="
-            this.style.transform = 'translateY(0)';
-            this.style.borderColor = 'rgba(255, 255, 255, 0.05)';
-            this.style.boxShadow = 'none';
-          "
-        >
-          <div
-            style="
-              display: grid;
-              grid-template-columns: 1.5fr 1fr;
-              gap: 4rem;
-              align-items: center;
-            "
-          >
-            <div>
-              <div
-                style="
-                  font-size: 0.85rem;
-                  color: #3b82f6;
-                  font-weight: 600;
-                  letter-spacing: 2px;
-                  margin-bottom: 1rem;
-                "
-              >
-                PROJECT 02 • DASHBOARD MODERNIZATION
+      <section class="sec" aria-labelledby="h-clients">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2 id="h-clients">Client projects</h2>
+          </div>
+          <div class="work-list">
+            <div class="work-item">
+              <div>
+                <h3>Step and Rail</h3>
+                <div class="who">Legacy modernization</div>
               </div>
-              <h2
-                style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2"
-              >
-                Step and Rail
-              </h2>
-              <p
-                style="
-                  font-size: 1.2rem;
-                  color: #94a3b8;
-                  line-height: 1.8;
-                  margin-bottom: 2rem;
-                "
-              >
-                We modernized the CakePHP business dashboard the Step and Rail team runs on every day.
-              </p>
-              <div
-                style="
-                  display: flex;
-                  gap: 1rem;
-                  flex-wrap: wrap;
-                  margin-bottom: 2rem;
-                "
-              >
-                <span
-                  style="
-                    background: rgba(59, 130, 246, 0.1);
-                    color: #3b82f6;
-                    padding: 0.5rem 1rem;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                  "
-                  >CakePHP</span
-                >
-                <span
-                  style="
-                    background: rgba(59, 130, 246, 0.1);
-                    color: #3b82f6;
-                    padding: 0.5rem 1rem;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                  "
-                  >Modernization</span
-                >
-                <span
-                  style="
-                    background: rgba(59, 130, 246, 0.1);
-                    color: #3b82f6;
-                    padding: 0.5rem 1rem;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                  "
-                  >Dashboard</span
-                >
-              </div>
-              <a
-                href="https://www.stepandrail.com"
-                target="_blank"
-                style="
-                  color: #3b82f6;
-                  text-decoration: none;
-                  font-weight: 600;
-                  font-size: 1.1rem;
-                "
-                >View Live Site →</a
-              >
+              <p>Modernized the CakePHP business dashboard the Step and Rail team runs on every day.</p>
             </div>
-            <div
-              style="
-                background: #1e293b;
-                border-radius: 16px;
-                height: 300px;
-                overflow: hidden;
-                position: relative;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: inset 0 0 0 10px #1e293b;
-              "
-            >
-              <div style="width:100%;height:100%;min-height:260px;background:linear-gradient(135deg,#1e293b 0%,#312e81 100%)"></div>
-              <div
-                style="
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  background: linear-gradient(
-                    to bottom,
-                    transparent 0%,
-                    rgba(15, 23, 42, 0.3) 100%
-                  );
-                  pointer-events: none;
-                "
-              ></div>
+            <div class="work-item">
+              <div>
+                <h3>GoalLine Payments</h3>
+                <div class="who">Company website</div>
+              </div>
+              <p>Designed and built the GoalLine Payments company website.</p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+      <section class="sec" aria-labelledby="h-before">
+        <div class="wrap cols-2">
+          <div>
+            <h2 id="h-before">Before Codegrity</h2>
+          </div>
+          <div>
+            <p>Our founder, PJ Sojdei, was one of the first developers hired at Nerium (now Neora) in 2014 and was leading a team of more than ten developers there by 2017. <a href="/about">More about the team</a>.</p>
+          </div>
+        </div>
+      </section>
 
-    <!-- CTA -->
-    <section style="padding: 12rem 5%; background: #0a0a0a; text-align: center">
-      <div style="max-width: 700px; margin: 0 auto">
-        <h2 style="font-size: 4rem; margin-bottom: 2rem">
-          Let's Build Your<br />Success Story
-        </h2>
-        <p style="font-size: 1.3rem; color: #64748b; margin-bottom: 3rem">
-          Ready to create something exceptional together?
-        </p>
-        <a
-          href="/contact"
-          style="
-            display: inline-block;
-            background: #3b82f6;
-            color: white;
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-          "
-          >Start Your Project →</a
-        >
-      </div>
-    </section>
-
-    <!-- Footer -->
+      <section class="closer">
+        <div class="wrap">
+          <h2>Your project could be the next one here.</h2>
+          <p>Tell us what you need built, fixed or connected.</p>
+          <div class="actions"><a class="btn btn-primary" href="/contact" data-cta="work-closer">Book a call</a></div>
+        </div>
+      </section>
     </main>
     <!-- footer:start -->
     <footer class="cg-footer">
@@ -501,17 +258,21 @@
         <div>
           <h2>Services</h2>
           <ul>
-            <li><a href="/services">All services</a></li>
+            <li><a href="/services">Senior engineering</a></li>
+            <li><a href="/ai-automation">AI automation</a></li>
+            <li><a href="/ai-opportunity-audit">AI Opportunity Audit</a></li>
             <li><a href="/local">Local business websites</a></li>
+            <li><a href="/pricing">Pricing</a></li>
           </ul>
         </div>
         <div>
           <h2>Company</h2>
           <ul>
-            <li><a href="/">Home</a></li>
             <li><a href="/work">Work</a></li>
+            <li><a href="/work/dailyprimestore">DailyPrimeStore case study</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div>

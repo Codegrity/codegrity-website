@@ -307,10 +307,8 @@ textarea:focus-visible {
 }
 
 .cg-footer h2 {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--cg-text);
   margin: 0 0 1rem;
 }

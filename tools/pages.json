@@ -9,31 +9,90 @@
     "email": "psojdei@codegrity.com"
   },
   "nav": [
-    { "href": "/services", "label": "Services" },
-    { "href": "/local", "label": "Local Businesses" },
-    { "href": "/work", "label": "Work" },
-    { "href": "/about", "label": "About" },
-    { "href": "/blog", "label": "Blog" },
-    { "href": "/contact", "label": "Contact" }
+    {
+      "href": "/services",
+      "label": "Services"
+    },
+    {
+      "href": "/ai-automation",
+      "label": "AI Automation"
+    },
+    {
+      "href": "/local",
+      "label": "Local Websites"
+    },
+    {
+      "href": "/work",
+      "label": "Work"
+    },
+    {
+      "href": "/pricing",
+      "label": "Pricing"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/blog",
+      "label": "Blog"
+    }
   ],
-  "cta": { "href": "/contact", "label": "Book a call" },
+  "cta": {
+    "href": "/contact",
+    "label": "Book a call"
+  },
   "footer": {
     "about": "Senior software engineers in McKinney, Texas. We fix, connect and automate the systems small and mid-sized businesses run on.",
     "columns": [
       {
         "title": "Services",
         "links": [
-          { "href": "/services", "label": "All services" },
-          { "href": "/local", "label": "Local business websites" }
+          {
+            "href": "/services",
+            "label": "Senior engineering"
+          },
+          {
+            "href": "/ai-automation",
+            "label": "AI automation"
+          },
+          {
+            "href": "/ai-opportunity-audit",
+            "label": "AI Opportunity Audit"
+          },
+          {
+            "href": "/local",
+            "label": "Local business websites"
+          },
+          {
+            "href": "/pricing",
+            "label": "Pricing"
+          }
         ]
       },
       {
         "title": "Company",
         "links": [
-          { "href": "/", "label": "Home" },
-          { "href": "/work", "label": "Work" },
-          { "href": "/about", "label": "About" },
-          { "href": "/blog", "label": "Blog" }
+          {
+            "href": "/work",
+            "label": "Work"
+          },
+          {
+            "href": "/work/dailyprimestore",
+            "label": "DailyPrimeStore case study"
+          },
+          {
+            "href": "/about",
+            "label": "About"
+          },
+          {
+            "href": "/blog",
+            "label": "Blog"
+          },
+          {
+            "href": "/contact",
+            "label": "Contact"
+          }
         ]
       }
     ]
@@ -42,14 +101,34 @@
     "index.html": {
       "path": "/",
       "title": "Codegrity | Senior Software Engineers in McKinney, TX",
-      "description": "Senior engineers for small and mid-sized businesses: integrations, legacy modernization, hard production bugs and practical AI automation. Based in McKinney, Texas.",
+      "description": "Senior engineers for small and mid-sized businesses: integrations, legacy modernization, hard production bugs and practical AI automation. McKinney, Texas.",
       "crumb": null
     },
     "services.html": {
       "path": "/services",
-      "title": "Software Development Services | Codegrity, McKinney TX",
-      "description": "Senior engineering help for small and mid-sized companies: backend and .NET, API integrations, legacy modernization, production bugs and project takeovers.",
+      "title": "Software Development Services in Dallas-Fort Worth | Codegrity",
+      "description": "Senior engineering for companies with a small or overloaded dev team: API integrations, .NET and legacy modernization, production bugs, project takeovers, fractional CTO help.",
       "crumb": "Services"
+    },
+    "ai-automation.html": {
+      "path": "/ai-automation",
+      "title": "AI Automation for Small Businesses in Dallas-Fort Worth | Codegrity",
+      "description": "AI automation that runs in production: workflow automation, AI agents and integrations for small and mid-sized businesses, built by senior engineers in McKinney, TX.",
+      "crumb": "AI Automation",
+      "priority": "0.9"
+    },
+    "ai-opportunity-audit.html": {
+      "path": "/ai-opportunity-audit",
+      "title": "AI Opportunity Audit for Small Businesses | $1,500 Fixed Price | Codegrity",
+      "description": "A fixed-price AI readiness assessment: we review your workflows and systems, rank the automations worth building, and hand you costs and a 90-day plan in 7 business days.",
+      "crumb": "AI Opportunity Audit",
+      "priority": "0.9"
+    },
+    "pricing.html": {
+      "path": "/pricing",
+      "title": "Pricing | Software Development Rates and Plans | Codegrity",
+      "description": "Codegrity pricing in one place: senior engineering at $100-125 per hour, the AI Opportunity Audit from $1,500, and local website plans from $79 per month.",
+      "crumb": "Pricing"
     },
     "local.html": {
       "path": "/local",
@@ -61,20 +140,32 @@
     },
     "work.html": {
       "path": "/work",
-      "title": "Our Work | Codegrity",
-      "description": "Projects Codegrity has shipped: the GoalLine Payments company website, the Step and Rail dashboard modernization, and our own products.",
+      "title": "Our Work: Websites, Modernization and AI Automation | Codegrity",
+      "description": "What Codegrity has shipped: the GoalLine Payments website, a CakePHP dashboard modernization for Step and Rail, Gritfolio, and the DailyPrimeStore AI pipeline.",
       "crumb": "Work"
+    },
+    "work/dailyprimestore.html": {
+      "path": "/work/dailyprimestore",
+      "title": "Case Study: DailyPrimeStore, a Fully Automated AI Content Pipeline | Codegrity",
+      "description": "How we built DailyPrimeStore: AI agents and scheduled jobs that research deals, verify prices, render images and video, post to several platforms and send a weekly email.",
+      "crumb": "DailyPrimeStore",
+      "parentCrumb": {
+        "name": "Work",
+        "path": "/work"
+      },
+      "type": "article",
+      "priority": "0.8"
     },
     "about.html": {
       "path": "/about",
-      "title": "About Codegrity | Founder PJ Sojdei, McKinney TX",
-      "description": "Codegrity LLC is a three-developer software company in McKinney, Texas, founded by PJ Sojdei. The people you talk to are the people who build your project.",
+      "title": "About Codegrity | PJ Sojdei and Team, McKinney TX",
+      "description": "Codegrity LLC is a three-developer software company in McKinney, Texas, founded in 2023 by PJ Sojdei. You talk to the engineers who build your project.",
       "crumb": "About"
     },
     "contact.html": {
       "path": "/contact",
-      "title": "Contact Codegrity | Book a Call",
-      "description": "Tell us what you need built, fixed or connected. Email psojdei@codegrity.com or call (972) 838-7422. Based in McKinney, Texas.",
+      "title": "Book a Call | Codegrity, McKinney TX",
+      "description": "Tell us what you need built, fixed, connected or automated. A senior engineer replies within one business day. Email psojdei@codegrity.com or call (972) 838-7422.",
       "crumb": "Contact"
     },
     "blog/index.html": {
@@ -88,7 +179,10 @@
       "title": "The Real Cost of Cheap Development | Codegrity Blog",
       "description": "A $15,000 build that ended up costing $115,000. What cutting corners on development really costs, and what to look for when you hire a developer.",
       "crumb": "The Real Cost of Cheap Development",
-      "parentCrumb": { "name": "Blog", "path": "/blog" },
+      "parentCrumb": {
+        "name": "Blog",
+        "path": "/blog"
+      },
       "type": "article"
     },
     "404.html": {
