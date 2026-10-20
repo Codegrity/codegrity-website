@@ -123,6 +123,8 @@ def schema_block(cfg):
     ]
     if SITE.get("sameAs"):
         graph[0]["sameAs"] = SITE["sameAs"]
+    if SITE.get("googleBusinessProfile"):
+        graph[0]["hasMap"] = SITE["googleBusinessProfile"]
     if cfg.get("path") and cfg.get("crumb"):
         items = [{"@type": "ListItem", "position": 1, "name": "Home", "item": ORIGIN + "/"}]
         parent = cfg.get("parentCrumb")
