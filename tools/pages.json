@@ -44,7 +44,7 @@
     }
   ],
   "cta": {
-    "href": "/contact",
+    "href": "/contact#book",
     "label": "Book a call"
   },
   "footer": {

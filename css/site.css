@@ -1129,3 +1129,23 @@ strong {
   border-radius: 5px;
   padding: 0.1em 0.35em;
 }
+
+/* ---------- Booking calendar ---------- */
+.cal-wrap {
+  min-width: 0;
+}
+
+.cal-embed {
+  width: 100%;
+  min-height: 640px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--ink-2);
+  overflow: hidden;
+}
+
+.cal-fallback {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--faint);
+}

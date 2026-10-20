@@ -162,9 +162,9 @@
           <li><a href="/pricing">Pricing</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/blog">Blog</a></li>
-          <li class="cg-menu-cta"><a href="/contact" data-cta="nav-mobile">Book a call</a></li>
+          <li class="cg-menu-cta"><a href="/contact#book" data-cta="nav-mobile">Book a call</a></li>
         </ul>
-        <a href="/contact" class="cg-cta" data-cta="nav">Book a call</a>
+        <a href="/contact#book" class="cg-cta" data-cta="nav">Book a call</a>
         <button class="cg-toggle" type="button" aria-controls="cg-menu" aria-expanded="false" aria-label="Open menu">
           <svg class="cg-i-menu" viewBox="0 0 512 512" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352"/></svg>
           <svg class="cg-i-close" viewBox="0 0 512 512" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>
@@ -178,14 +178,46 @@
           <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / Contact</nav>
           <h1>Book a call with an engineer.</h1>
           <p class="lede">
-            Tell us what you need built, fixed, connected or automated. A senior engineer reads every message and replies
-            within one business day to set up a 30-minute call.
+            Pick a 30-minute time with an engineer. Tell us what you need built, fixed, connected or automated, and you'll
+            get a straight answer on fit and next steps. Prefer to write first? <a href="#write">Send a message</a> instead.
           </p>
         </div>
       </section>
 
       <section class="sec-tight" id="book">
         <div class="wrap contact-grid">
+          <div class="cal-wrap">
+            <div id="cal-intro" class="cal-embed" aria-label="Booking calendar"></div>
+            <p class="cal-fallback">Calendar not loading? <a href="https://cal.com/codegrity/intro" rel="noopener" data-cta="contact-cal-direct">Open the booking page</a>.</p>
+          </div>
+          <aside>
+            <div class="side-card">
+              <h2>Prefer to reach us directly?</h2>
+              <ul>
+                <li><ion-icon name="mail-outline" aria-hidden="true"></ion-icon><span><a href="mailto:psojdei@codegrity.com">psojdei@codegrity.com</a></span></li>
+                <li><ion-icon name="call-outline" aria-hidden="true"></ion-icon><span><a href="tel:+19728387422">(972) 838-7422</a></span></li>
+                <li><ion-icon name="time-outline" aria-hidden="true"></ion-icon><span>Monday to Friday, 9am to 6pm Central.</span></li>
+                <li><ion-icon name="location-outline" aria-hidden="true"></ion-icon><span>McKinney, Texas. In person around Dallas-Fort Worth, remote anywhere in the US.</span></li>
+              </ul>
+            </div>
+            <div class="side-card" style="margin-top: 1.25rem">
+              <h2>What happens next</h2>
+              <ol class="steps" style="grid-template-columns: 1fr; gap: 1.25rem">
+                <li><h3>Pick a time</h3><p>Choose any open 30-minute slot. You get a calendar invite with a video link.</p></li>
+                <li><h3>30-minute call</h3><p>We talk through the problem, your stack and your deadline.</p></li>
+                <li><h3>Written estimate</h3><p>You get a price or a range before any work starts.</p></li>
+              </ol>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="sec" id="write" aria-labelledby="h-write">
+        <div class="wrap contact-grid">
+          <div>
+            <h2 id="h-write">Prefer to write?</h2>
+            <p class="muted" style="margin-top: 1rem">Send the details and a senior engineer will reply within one business day.</p>
+          </div>
           <form
             class="form"
             action="https://formspree.io/f/xbdaygkq"
@@ -251,26 +283,6 @@
             </div>
             <p class="form-status" role="status" aria-live="polite"></p>
           </form>
-
-          <aside>
-            <div class="side-card">
-              <h2>Prefer to reach us directly?</h2>
-              <ul>
-                <li><ion-icon name="mail-outline" aria-hidden="true"></ion-icon><span><a href="mailto:psojdei@codegrity.com">psojdei@codegrity.com</a></span></li>
-                <li><ion-icon name="call-outline" aria-hidden="true"></ion-icon><span><a href="tel:+19728387422">(972) 838-7422</a></span></li>
-                <li><ion-icon name="time-outline" aria-hidden="true"></ion-icon><span>Monday to Friday, 9am to 6pm Central. Saturday by appointment.</span></li>
-                <li><ion-icon name="location-outline" aria-hidden="true"></ion-icon><span>McKinney, Texas. In person around Dallas-Fort Worth, remote anywhere in the US.</span></li>
-              </ul>
-            </div>
-            <div class="side-card" style="margin-top: 1.25rem">
-              <h2>What happens next</h2>
-              <ol class="steps" style="grid-template-columns: 1fr; gap: 1.25rem">
-                <li><h3>We reply</h3><p>Within one business day, with a few times for a call.</p></li>
-                <li><h3>30-minute call</h3><p>We talk through the problem with an engineer.</p></li>
-                <li><h3>Written estimate</h3><p>You get a price or a range before any work starts.</p></li>
-              </ol>
-            </div>
-          </aside>
         </div>
       </section>
 
@@ -293,6 +305,45 @@
           </div>
         </div>
       </section>
+    <script>
+      (function (C, A, L) {
+        var p = function (a, ar) { a.q.push(ar); };
+        var d = C.document;
+        C.Cal = C.Cal || function () {
+          var cal = C.Cal; var ar = arguments;
+          if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+          if (ar[0] === L) {
+            var api = function () { p(api, arguments); };
+            var namespace = ar[1]; api.q = api.q || [];
+            if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); }
+            else p(cal, ar);
+            return;
+          }
+          p(cal, ar);
+        };
+      })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "intro", { origin: "https://cal.com" });
+      Cal.ns.intro("inline", {
+        elementOrSelector: "#cal-intro",
+        calLink: "codegrity/intro",
+        config: { layout: "month_view", theme: "dark" }
+      });
+      Cal.ns.intro("ui", {
+        theme: "dark",
+        layout: "month_view",
+        hideEventTypeDetails: false,
+        cssVarsPerTheme: { dark: { "cal-brand": "#2563eb" } }
+      });
+      (function () {
+        var sent = false;
+        function booked() {
+          if (sent) return; sent = true;
+          if (typeof window.gtag === "function") window.gtag("event", "generate_lead", { form: "cal-booking", page: location.pathname });
+        }
+        Cal.ns.intro("on", { action: "bookingSuccessfulV2", callback: booked });
+        Cal.ns.intro("on", { action: "bookingSuccessful", callback: booked });
+      })();
+    </script>
     </main>
     <!-- footer:start -->
     <footer class="cg-footer">
