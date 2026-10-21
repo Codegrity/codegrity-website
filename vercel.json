@@ -5,26 +5,105 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "codegrity-website.vercel.app" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "codegrity-website.vercel.app"
+        }
+      ],
       "destination": "https://www.codegrity.com/:path*",
       "permanent": true
     },
-    { "source": "/blog/index", "destination": "/blog", "permanent": true }
+    {
+      "source": "/blog/index",
+      "destination": "/blog",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
       ]
     },
     {
       "source": "/(css|js|images|assets)/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/demos/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/YouAreNotAlone",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/youarenotalone",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/YouAreNOTAlone",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/YouAreNotAlone",
+      "destination": "/demos/you-are-not-alone/index.html"
+    },
+    {
+      "source": "/youarenotalone",
+      "destination": "/demos/you-are-not-alone/index.html"
+    },
+    {
+      "source": "/YouAreNOTAlone",
+      "destination": "/demos/you-are-not-alone/index.html"
     }
   ]
 }

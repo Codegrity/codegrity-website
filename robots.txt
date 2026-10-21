@@ -4,6 +4,9 @@
 User-agent: *
 Allow: /
 Disallow: /tools/
+Disallow: /demos/
+Disallow: /YouAreNotAlone
+Disallow: /youarenotalone
 
 # AI search and answer engines (named so intent is explicit)
 User-agent: OAI-SearchBot

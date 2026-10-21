@@ -1,0 +1,896 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>You Are NOT Alone | Care baskets for moms and teens</title>
+    <meta name="description" content="A faith-based community project that sends personalized care baskets to moms and teens going through a hard season. Nominate someone, give toward a basket, or get a shirt." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#16121f" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" />
+    <style>
+      :root {
+        --ink: #16121f;
+        --ink-soft: #2a2236;
+        --plum: #4b2a7a;
+        --plum-deep: #35195c;
+        --lavender: #c9b3f0;
+        --lavender-soft: #f3eefc;
+        --muted: #5b5468;
+        --paper: #ffffff;
+        --line: #e6def3;
+        --hand: "Permanent Marker", "Bricolage Grotesque", system-ui, sans-serif;
+        --display: "Bricolage Grotesque", system-ui, sans-serif;
+        --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--body);
+        font-size: 1.0625rem;
+        line-height: 1.65;
+      }
+
+      a {
+        color: var(--plum);
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--lavender);
+        outline-offset: 3px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        line-height: 1.1;
+        color: var(--ink);
+        text-wrap: balance;
+      }
+
+      h2,
+      h3 {
+        font-family: var(--display);
+        font-weight: 800;
+        letter-spacing: -0.015em;
+      }
+
+      p {
+        margin: 0 0 1rem;
+        max-width: 62ch;
+      }
+
+      .wrap {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      ion-icon {
+        vertical-align: middle;
+      }
+
+      .cross {
+        display: inline-block;
+        width: 0.5em;
+        height: 0.72em;
+        position: relative;
+        vertical-align: -0.04em;
+      }
+
+      .cross::before,
+      .cross::after {
+        content: "";
+        position: absolute;
+        background: currentColor;
+        border-radius: 2px;
+      }
+
+      .cross::before {
+        left: 50%;
+        top: 0;
+        width: 22%;
+        height: 100%;
+        transform: translateX(-50%);
+      }
+
+      .cross::after {
+        left: 0;
+        top: 24%;
+        width: 100%;
+        height: 18%;
+      }
+
+      /* Demo notice */
+      .demo-bar {
+        background: var(--ink);
+        color: #d9cff0;
+        font-size: 0.9rem;
+        text-align: center;
+        padding: 0.55rem 1rem;
+      }
+
+      .demo-bar a {
+        color: #fff;
+        font-weight: 700;
+      }
+
+      /* Header */
+      .top {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .top .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        min-height: 70px;
+      }
+
+      .mark {
+        font-family: var(--hand);
+        font-size: 1.35rem;
+        color: var(--ink);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        white-space: nowrap;
+      }
+
+      .top nav {
+        display: flex;
+        gap: 1.4rem;
+        align-items: center;
+      }
+
+      .top nav a {
+        text-decoration: none;
+        font-weight: 700;
+        color: var(--muted);
+      }
+
+      .top nav a:hover {
+        color: var(--plum);
+      }
+
+      @media (max-width: 760px) {
+        .top nav .hide-sm {
+          display: none;
+        }
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        min-height: 52px;
+        padding: 0.8rem 1.5rem;
+        border-radius: 999px;
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 1.05rem;
+        text-decoration: none;
+        border: 2px solid transparent;
+        transition: background 0.15s ease;
+      }
+
+      .btn-main {
+        background: var(--plum);
+        color: #fff;
+      }
+
+      .btn-main:hover {
+        background: var(--plum-deep);
+        color: #fff;
+      }
+
+      .btn-soft {
+        background: var(--lavender);
+        color: var(--ink);
+      }
+
+      .btn-soft:hover {
+        background: #b99ee9;
+      }
+
+      .btn-line {
+        border-color: var(--ink);
+        color: var(--ink);
+      }
+
+      .btn-line:hover {
+        background: var(--lavender-soft);
+      }
+
+      .btn-small {
+        min-height: 42px;
+        padding: 0.45rem 1.1rem;
+        font-size: 0.98rem;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 72px 0 80px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+        gap: 48px;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-family: var(--hand);
+        font-weight: 400;
+        font-size: clamp(3.4rem, 9vw, 7.2rem);
+        line-height: 0.98;
+        letter-spacing: 0;
+        transform: rotate(-2deg);
+        transform-origin: left center;
+      }
+
+      .hero h1 .not {
+        display: inline-block;
+        position: relative;
+        z-index: 0;
+      }
+
+      .hero h1 .not::after {
+        content: "";
+        position: absolute;
+        left: -4%;
+        right: -4%;
+        bottom: 0.08em;
+        height: 0.34em;
+        background: var(--lavender);
+        z-index: -1;
+        border-radius: 4px;
+      }
+
+      .hero .lede {
+        font-size: clamp(1.15rem, 2vw, 1.35rem);
+        color: var(--muted);
+        margin-top: 2rem;
+        max-width: 44ch;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 2rem;
+      }
+
+      .verse {
+        border-left: 4px solid var(--lavender);
+        padding: 0.25rem 0 0.25rem 1.25rem;
+      }
+
+      .verse p {
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+        line-height: 1.3;
+        color: var(--ink);
+        margin: 0;
+      }
+
+      .verse cite {
+        display: block;
+        margin-top: 0.75rem;
+        font-style: normal;
+        font-weight: 700;
+        color: var(--plum);
+      }
+
+      /* Sections */
+      section.block {
+        padding: 84px 0;
+      }
+
+      .block h2 {
+        font-size: clamp(2rem, 4.2vw, 3rem);
+        margin-bottom: 1rem;
+      }
+
+      .block .intro {
+        font-size: 1.15rem;
+        color: var(--muted);
+        margin-bottom: 2.5rem;
+      }
+
+      .tint {
+        background: var(--lavender-soft);
+      }
+
+      /* Why */
+      .why {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        gap: 56px;
+        align-items: start;
+      }
+
+      .why blockquote {
+        margin: 0;
+        font-family: var(--hand);
+        font-size: clamp(1.6rem, 3.4vw, 2.5rem);
+        line-height: 1.25;
+        color: var(--ink);
+      }
+
+      .why .who-signed {
+        margin-top: 1.25rem;
+        font-weight: 700;
+        color: var(--plum);
+      }
+
+      .struggles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0 0;
+      }
+
+      .struggles li {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0.4rem 0.95rem;
+        font-weight: 700;
+        color: var(--plum);
+        font-size: 0.98rem;
+      }
+
+      /* Who */
+      .who {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+
+      .who-card {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 1.75rem;
+        background: #fff;
+      }
+
+      .who-card ion-icon {
+        font-size: 2rem;
+        color: var(--plum);
+      }
+
+      .who-card h3 {
+        font-size: 1.5rem;
+        margin: 0.75rem 0 0.4rem;
+      }
+
+      .who-card p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      /* Steps */
+      .steps {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+        counter-reset: s;
+      }
+
+      .steps li {
+        counter-increment: s;
+        position: relative;
+        padding-top: 4rem;
+      }
+
+      .steps li::before {
+        content: counter(s);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background: var(--ink);
+        color: #fff;
+        font-family: var(--hand);
+        font-size: 1.4rem;
+        display: grid;
+        place-items: center;
+      }
+
+      .steps h3 {
+        font-size: 1.35rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .steps p {
+        color: var(--muted);
+      }
+
+      /* Photos placeholder */
+      .photos {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+
+      .photo {
+        aspect-ratio: 4 / 5;
+        border-radius: 16px;
+        background: linear-gradient(160deg, #efe7fb 0%, #ddd0f4 100%);
+        display: grid;
+        place-items: center;
+        text-align: center;
+        color: var(--plum);
+        font-weight: 700;
+        font-size: 0.92rem;
+        padding: 1rem;
+      }
+
+      .photo ion-icon {
+        display: block;
+        font-size: 2rem;
+        margin: 0 auto 0.4rem;
+      }
+
+      /* Give */
+      .give {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 48px;
+        align-items: center;
+      }
+
+      .pay {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .pay-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 1rem 1.25rem;
+        background: #fff;
+      }
+
+      .pay-row strong {
+        display: block;
+        font-family: var(--display);
+        font-size: 1.15rem;
+      }
+
+      .pay-row span {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .pay-row ion-icon {
+        font-size: 1.6rem;
+        color: var(--plum);
+      }
+
+      /* Shirts */
+      .shirts {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 56px;
+        align-items: center;
+      }
+
+      .tees {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .tee {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 1rem 0.75rem 0.85rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .tee svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .sizes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 1.75rem;
+      }
+
+      .sizes li {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--plum);
+        background: #fff;
+      }
+
+      .fine {
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+
+      /* Closer */
+      .closer {
+        background: var(--ink);
+        color: #e6def3;
+        padding: 92px 0;
+        text-align: center;
+      }
+
+      .closer h2 {
+        font-family: var(--hand);
+        font-weight: 400;
+        color: #fff;
+        font-size: clamp(2.4rem, 6vw, 4.2rem);
+        margin: 0 auto 1rem;
+        max-width: 16ch;
+        letter-spacing: 0;
+      }
+
+      .closer p {
+        margin: 0 auto 2rem;
+        font-size: 1.15rem;
+      }
+
+      .closer .actions {
+        justify-content: center;
+        margin-top: 0;
+      }
+
+      .closer .btn-line {
+        border-color: #fff;
+        color: #fff;
+      }
+
+      .closer .btn-line:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      /* Footer */
+      footer {
+        background: #0e0b14;
+        color: #bfb3d6;
+        padding: 40px 0;
+        font-size: 0.95rem;
+      }
+
+      footer .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1.5rem;
+      }
+
+      footer a {
+        color: #fff;
+      }
+
+      .help {
+        max-width: 540px;
+      }
+
+      .help strong {
+        color: #fff;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .why,
+        .give,
+        .shirts {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .who,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .photos {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        section.block {
+          padding: 64px 0;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .tees {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .tees .tee:last-child {
+          display: none;
+        }
+
+        .mark {
+          font-size: 1.15rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo-bar">
+      Website mockup made by <a href="https://www.codegrity.com/local">Codegrity</a> to show what this project's site could look like.
+    </div>
+
+    <header class="top">
+      <div class="wrap">
+        <a class="mark" href="#top">You Are NOT Alone <span class="cross" aria-hidden="true"></span></a>
+        <nav aria-label="Main">
+          <a class="hide-sm" href="#why">My why</a>
+          <a class="hide-sm" href="#give">Give</a>
+          <a class="hide-sm" href="#shirts">Shirts</a>
+          <a class="btn btn-main btn-small" href="https://docs.google.com/forms/d/e/1FAIpQLSfWbEB0wbAhqsH8SiXu0IKBtUjHANNp6mH2974hGNMxpVUisw/viewform" rel="noopener">Nominate</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <h1>You Are <span class="not">NOT</span> Alone</h1>
+            <p class="lede">
+              We send personalized care baskets to moms and teens going through a hard season, so they know they are seen,
+              loved and never alone.
+            </p>
+            <div class="actions">
+              <a class="btn btn-main" href="https://docs.google.com/forms/d/e/1FAIpQLSfWbEB0wbAhqsH8SiXu0IKBtUjHANNp6mH2974hGNMxpVUisw/viewform" rel="noopener"><ion-icon name="gift-outline" aria-hidden="true"></ion-icon>Nominate someone</a>
+              <a class="btn btn-soft" href="#give"><ion-icon name="heart-outline" aria-hidden="true"></ion-icon>Help fund a basket</a>
+            </div>
+          </div>
+          <figure class="verse" style="margin: 0">
+            <p>"I will not leave you comfortless: I will come to you."</p>
+            <cite>John 14:18</cite>
+          </figure>
+        </div>
+      </section>
+
+      <section class="block tint" id="why" aria-labelledby="h-why">
+        <div class="wrap why">
+          <div>
+            <h2 id="h-why">My why</h2>
+            <blockquote>"I've felt all alone even when I was surrounded by people. I don't want anybody to feel that."</blockquote>
+            <p class="who-signed">Brecka Shipley, founder</p>
+          </div>
+          <div>
+            <p class="intro" style="margin-bottom: 1rem">
+              Hard times happen to everybody, and often we feel like we're the only one. Whatever the struggle is, big or
+              small, it's real and it's hard.
+            </p>
+            <p class="intro" style="margin-bottom: 0">
+              You Are NOT Alone is a simple way to show the people around us that we love them, one basket at a time.
+            </p>
+            <ul class="struggles" aria-label="The kind of things people are going through">
+              <li>Stress at work</li>
+              <li>Raising kids</li>
+              <li>Marriage</li>
+              <li>Friendships</li>
+              <li>School</li>
+              <li>Sports</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="h-who">
+        <div class="wrap">
+          <h2 id="h-who">Who the baskets are for</h2>
+          <p class="intro">You can nominate a friend or family member in one of three groups.</p>
+          <div class="who">
+            <div class="who-card">
+              <ion-icon name="flower-outline" aria-hidden="true"></ion-icon>
+              <h3>Moms</h3>
+              <p>Carrying everyone else and running on empty.</p>
+            </div>
+            <div class="who-card">
+              <ion-icon name="basketball-outline" aria-hidden="true"></ion-icon>
+              <h3>Boys, 11 to 17</h3>
+              <p>Dealing with school, friends, sports or something they haven't said out loud yet.</p>
+            </div>
+            <div class="who-card">
+              <ion-icon name="sparkles-outline" aria-hidden="true"></ion-icon>
+              <h3>Girls, 11 to 17</h3>
+              <p>Going through a hard stretch and needing to know someone noticed.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block tint" id="how" aria-labelledby="h-how">
+        <div class="wrap">
+          <h2 id="h-how">How it works</h2>
+          <p class="intro">Nominating someone takes about two minutes.</p>
+          <ol class="steps">
+            <li>
+              <h3>Tell us about them</h3>
+              <p>Their name, which group they're in, their shirt size and a few of their favorite things.</p>
+            </li>
+            <li>
+              <h3>We build their basket</h3>
+              <p>Each basket is put together around the hobbies and interests you share.</p>
+            </li>
+            <li>
+              <h3>We let you know</h3>
+              <p>If your friend is chosen, we reach out to you first so the basket can be a surprise.</p>
+            </li>
+          </ol>
+          <div class="actions">
+            <a class="btn btn-main" href="https://docs.google.com/forms/d/e/1FAIpQLSfWbEB0wbAhqsH8SiXu0IKBtUjHANNp6mH2974hGNMxpVUisw/viewform" rel="noopener"><ion-icon name="gift-outline" aria-hidden="true"></ion-icon>Nominate someone</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="h-baskets">
+        <div class="wrap">
+          <h2 id="h-baskets">Baskets we've delivered</h2>
+          <p class="intro">Photos of real baskets would go here, pulled from Instagram.</p>
+          <div class="photos">
+            <div class="photo"><div><ion-icon name="image-outline" aria-hidden="true"></ion-icon>Basket photo</div></div>
+            <div class="photo"><div><ion-icon name="image-outline" aria-hidden="true"></ion-icon>Basket photo</div></div>
+            <div class="photo"><div><ion-icon name="image-outline" aria-hidden="true"></ion-icon>Basket photo</div></div>
+            <div class="photo"><div><ion-icon name="image-outline" aria-hidden="true"></ion-icon>Basket photo</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block tint" id="give" aria-labelledby="h-give">
+        <div class="wrap give">
+          <div>
+            <h2 id="h-give">Help fund a basket</h2>
+            <p class="intro" style="margin-bottom: 0">
+              Every basket is paid for by people who want someone else to feel loved. Any amount helps fill the next one.
+            </p>
+          </div>
+          <div class="pay" aria-label="Ways to give">
+            <div class="pay-row">
+              <div><strong>Venmo</strong><span>@handle goes here</span></div>
+              <ion-icon name="phone-portrait-outline" aria-hidden="true"></ion-icon>
+            </div>
+            <div class="pay-row">
+              <div><strong>Zelle</strong><span>Email or phone goes here</span></div>
+              <ion-icon name="swap-horizontal-outline" aria-hidden="true"></ion-icon>
+            </div>
+            <div class="pay-row">
+              <div><strong>Apple Pay</strong><span>Phone number goes here</span></div>
+              <ion-icon name="logo-apple" aria-hidden="true"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="shirts" aria-labelledby="h-shirts">
+        <div class="wrap shirts">
+          <div>
+            <h2 id="h-shirts">Wear it so someone sees it.</h2>
+            <p class="intro" style="margin-bottom: 0">
+              A You Are NOT Alone shirt is a quiet reminder to everyone who passes you today. Ten designs, youth and adult
+              sizes.
+            </p>
+            <ul class="sizes" aria-label="Sizes available">
+              <li>Youth XS</li>
+              <li>Youth S</li>
+              <li>Youth M</li>
+              <li>Youth L</li>
+              <li>Youth XL</li>
+              <li>Adult XS</li>
+              <li>Adult S</li>
+              <li>Adult M</li>
+              <li>Adult L</li>
+              <li>Adult XL</li>
+              <li>Adult XXL</li>
+            </ul>
+            <a class="btn btn-main" href="https://docs.google.com/forms/d/e/1FAIpQLSeObp7o0zZer7F9j_HFXILAQZropBRsc49pWYwJGF-vA0AZ4Q/viewform" rel="noopener"><ion-icon name="shirt-outline" aria-hidden="true"></ion-icon>Order a shirt</a>
+            <p class="fine" style="margin-top: 1rem">Need another size? Add it on the order form.</p>
+          </div>
+          <div class="tees" aria-label="Sample shirt designs">
+            <div class="tee">
+              <svg viewBox="0 0 120 120" role="img" aria-label="White shirt sample">
+                <path d="M38 18 L22 26 L10 44 L24 52 L30 46 L30 106 L90 106 L90 46 L96 52 L110 44 L98 26 L82 18 C 78 26, 70 30, 60 30 C 50 30, 42 26, 38 18 Z" fill="#ffffff" stroke="#e6def3" stroke-width="2" />
+                <text x="54" y="58" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="9" fill="#16121f">YOU</text>
+                <text x="54" y="69" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="9" fill="#16121f">ARE NOT</text>
+                <text x="54" y="80" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="9" fill="#16121f">ALONE</text>
+                <rect x="76" y="52" width="4" height="30" fill="#16121f" />
+                <rect x="70" y="59" width="16" height="4" fill="#16121f" />
+              </svg>
+              Sample design
+            </div>
+            <div class="tee">
+              <svg viewBox="0 0 120 120" role="img" aria-label="Black shirt sample">
+                <path d="M38 18 L22 26 L10 44 L24 52 L30 46 L30 106 L90 106 L90 46 L96 52 L110 44 L98 26 L82 18 C 78 26, 70 30, 60 30 C 50 30, 42 26, 38 18 Z" fill="#16121f" />
+                <text x="60" y="64" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="8" fill="#ffffff">You Are</text>
+                <text x="60" y="78" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="12" fill="#c9b3f0">NOT</text>
+                <text x="60" y="90" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="8" fill="#ffffff">Alone</text>
+              </svg>
+              Sample design
+            </div>
+            <div class="tee">
+              <svg viewBox="0 0 120 120" role="img" aria-label="Lavender shirt sample">
+                <path d="M38 18 L22 26 L10 44 L24 52 L30 46 L30 106 L90 106 L90 46 L96 52 L110 44 L98 26 L82 18 C 78 26, 70 30, 60 30 C 50 30, 42 26, 38 18 Z" fill="#c9b3f0" />
+                <rect x="58" y="48" width="4" height="22" fill="#16121f" />
+                <rect x="52" y="54" width="16" height="4" fill="#16121f" />
+                <text x="60" y="86" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="7" fill="#16121f">JOHN 14:18</text>
+              </svg>
+              Sample design
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="closer" aria-labelledby="h-close">
+        <div class="wrap">
+          <h2 id="h-close">Know someone who needs a reminder?</h2>
+          <p>Nominate them today. It might be exactly what they needed to hear.</p>
+          <div class="actions">
+            <a class="btn btn-soft" href="https://docs.google.com/forms/d/e/1FAIpQLSfWbEB0wbAhqsH8SiXu0IKBtUjHANNp6mH2974hGNMxpVUisw/viewform" rel="noopener"><ion-icon name="gift-outline" aria-hidden="true"></ion-icon>Nominate someone</a>
+            <a class="btn btn-line" href="https://www.instagram.com/youarenotalonejohn14_18/" rel="noopener"><ion-icon name="logo-instagram" aria-hidden="true"></ion-icon>Follow on Instagram</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="help">
+          <strong>If someone is in crisis right now,</strong> call or text <a href="tel:988">988</a>, the Suicide &amp; Crisis
+          Lifeline, any time, day or night.
+        </div>
+        <div>You Are NOT Alone. <a href="https://www.instagram.com/youarenotalonejohn14_18/" rel="noopener">@youarenotalonejohn14_18</a></div>
+      </div>
+    </footer>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@8.1.0/dist/ionicons/ionicons.esm.js"></script>
+  </body>
+</html>

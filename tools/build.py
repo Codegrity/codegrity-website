@@ -366,7 +366,7 @@ def main():
     missing = [rel for rel in CONFIG["pages"] if not (ROOT / rel).exists()]
     if missing:
         sys.exit("Missing pages listed in tools/pages.json: " + ", ".join(missing))
-    on_disk = {p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*.html") if "tools" not in p.parts and "node_modules" not in p.parts}
+    on_disk = {p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*.html") if "tools" not in p.parts and "node_modules" not in p.parts and "demos" not in p.parts}
     unlisted = sorted(on_disk - set(CONFIG["pages"]))
     if unlisted:
         sys.exit("Pages not listed in tools/pages.json: " + ", ".join(unlisted))
