@@ -50,7 +50,7 @@
     "label": "Book a call"
   },
   "footer": {
-    "about": "Senior software engineers in McKinney, Texas. We fix, connect and automate the systems small and mid-sized businesses run on.",
+    "about": "Senior software engineering from McKinney, Texas. We fix, connect and automate the systems small and mid-sized businesses run on.",
     "columns": [
       {
         "title": "Services",
@@ -230,7 +230,7 @@
     "about.html": {
       "path": "/about",
       "title": "About Codegrity | PJ Sojdei and Team, McKinney TX",
-      "description": "Codegrity LLC is a three-developer software company in McKinney, Texas, founded in 2023 by PJ Sojdei. You talk to the engineers who build your project.",
+      "description": "Codegrity LLC is a senior-engineer-led software company in McKinney, Texas, founded in 2023 by PJ Sojdei, with trusted developers on call. You talk to the engineer doing the work.",
       "crumb": "About"
     },
     "how-we-use-ai.html": {
