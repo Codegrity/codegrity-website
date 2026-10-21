@@ -270,7 +270,8 @@
         right: -4%;
         bottom: 0.08em;
         height: 0.34em;
-        background: var(--lavender);
+        background: linear-gradient(90deg, #f6c445, #f08a5d, #e85d9c, #8b6fe8, #4fb3e8);
+        opacity: 0.85;
         z-index: -1;
         border-radius: 4px;
       }
@@ -280,6 +281,24 @@
         color: var(--muted);
         margin-top: 2rem;
         max-width: 44ch;
+      }
+
+      .hero-voice {
+        font-family: var(--hand);
+        font-size: 1.25rem;
+        line-height: 1.4;
+        color: var(--ink);
+        margin-top: 1.5rem;
+        max-width: 40ch;
+      }
+
+      .hero-voice span {
+        display: block;
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--plum);
+        margin-top: 0.4rem;
       }
 
       .actions {
@@ -469,6 +488,14 @@
         margin: 0 auto 0.4rem;
       }
 
+      .ig {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem 3rem;
+      }
+
       /* Give */
       .give {
         display: grid;
@@ -561,6 +588,48 @@
       .fine {
         font-size: 0.92rem;
         color: var(--muted);
+      }
+
+      .shirts-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1.5rem 3rem;
+        margin-bottom: 2rem;
+      }
+
+      .designs {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .design {
+        margin: 0;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 0.6rem;
+      }
+
+      .design img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+      }
+
+      .design figcaption {
+        font-size: 0.9rem;
+        color: var(--muted);
+        padding: 0.5rem 0.25rem 0.1rem;
+      }
+
+      @media (max-width: 900px) {
+        .designs {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
 
       /* Closer */
@@ -674,7 +743,7 @@
       <div class="wrap">
         <a class="mark" href="#top">You Are NOT Alone <span class="cross" aria-hidden="true"></span></a>
         <nav aria-label="Main">
-          <a class="hide-sm" href="#why">My why</a>
+          <a class="hide-sm" href="#why">Why</a>
           <a class="hide-sm" href="#give">Give</a>
           <a class="hide-sm" href="#shirts">Shirts</a>
           <a class="btn btn-main btn-small" href="https://docs.google.com/forms/d/e/1FAIpQLSfWbEB0wbAhqsH8SiXu0IKBtUjHANNp6mH2974hGNMxpVUisw/viewform" rel="noopener">Nominate</a>
@@ -691,6 +760,7 @@
               We send personalized care baskets to moms and teens going through a hard season, so they know they are seen,
               loved and never alone.
             </p>
+            <p class="hero-voice">"I've felt all alone even when I was surrounded by people. I don't want anybody to feel that." <span>Brecka Shipley, founder</span></p>
             <div class="actions">
               <a class="btn btn-main" href="https://docs.google.com/forms/d/e/1FAIpQLSfWbEB0wbAhqsH8SiXu0IKBtUjHANNp6mH2974hGNMxpVUisw/viewform" rel="noopener"><ion-icon name="gift-outline" aria-hidden="true"></ion-icon>Nominate someone</a>
               <a class="btn btn-soft" href="#give"><ion-icon name="heart-outline" aria-hidden="true"></ion-icon>Help fund a basket</a>
@@ -706,9 +776,9 @@
       <section class="block tint" id="why" aria-labelledby="h-why">
         <div class="wrap why">
           <div>
-            <h2 id="h-why">My why</h2>
-            <blockquote>"I've felt all alone even when I was surrounded by people. I don't want anybody to feel that."</blockquote>
-            <p class="who-signed">Brecka Shipley, founder</p>
+            <h2 id="h-why">Why this exists</h2>
+            <blockquote>You are loved. We are His hands.</blockquote>
+            <p class="who-signed">Be the light for someone this week.</p>
           </div>
           <div>
             <p class="intro" style="margin-bottom: 1rem">
@@ -779,24 +849,21 @@
       </section>
 
       <section class="block" aria-labelledby="h-baskets">
-        <div class="wrap">
-          <h2 id="h-baskets">Baskets we've delivered</h2>
-          <p class="intro">Photos of real baskets would go here, pulled from Instagram.</p>
-          <div class="photos">
-            <div class="photo"><div><ion-icon name="image-outline" aria-hidden="true"></ion-icon>Basket photo</div></div>
-            <div class="photo"><div><ion-icon name="image-outline" aria-hidden="true"></ion-icon>Basket photo</div></div>
-            <div class="photo"><div><ion-icon name="image-outline" aria-hidden="true"></ion-icon>Basket photo</div></div>
-            <div class="photo"><div><ion-icon name="image-outline" aria-hidden="true"></ion-icon>Basket photo</div></div>
+        <div class="wrap ig">
+          <div>
+            <h2 id="h-baskets">See the baskets</h2>
+            <p class="intro" style="margin-bottom: 0">Every basket, every delivery and every story is shared on Instagram first.</p>
           </div>
+          <a class="btn btn-main" href="https://www.instagram.com/youarenotalonejohn14_18/" rel="noopener"><ion-icon name="logo-instagram" aria-hidden="true"></ion-icon>@youarenotalonejohn14_18</a>
         </div>
       </section>
 
       <section class="block tint" id="give" aria-labelledby="h-give">
         <div class="wrap give">
           <div>
-            <h2 id="h-give">Help fund a basket</h2>
+            <h2 id="h-give">We are His hands.</h2>
             <p class="intro" style="margin-bottom: 0">
-              Every basket is paid for by people who want someone else to feel loved. Any amount helps fill the next one.
+              Every basket is funded by people who want someone else to feel loved. Any amount helps fill the next one.
             </p>
           </div>
           <div class="pay" aria-label="Ways to give">
@@ -817,60 +884,41 @@
       </section>
 
       <section class="block" id="shirts" aria-labelledby="h-shirts">
-        <div class="wrap shirts">
-          <div>
-            <h2 id="h-shirts">Wear it so someone sees it.</h2>
-            <p class="intro" style="margin-bottom: 0">
-              A You Are NOT Alone shirt is a quiet reminder to everyone who passes you today. Ten designs, youth and adult
-              sizes.
-            </p>
-            <ul class="sizes" aria-label="Sizes available">
-              <li>Youth XS</li>
-              <li>Youth S</li>
-              <li>Youth M</li>
-              <li>Youth L</li>
-              <li>Youth XL</li>
-              <li>Adult XS</li>
-              <li>Adult S</li>
-              <li>Adult M</li>
-              <li>Adult L</li>
-              <li>Adult XL</li>
-              <li>Adult XXL</li>
-            </ul>
+        <div class="wrap">
+          <div class="shirts-head">
+            <div>
+              <h2 id="h-shirts">Be the light.</h2>
+              <p class="intro" style="margin-bottom: 0">
+                Long-sleeve shirts with You Are Not Alone on the front, You Are Loved on the back, Be The Light on one
+                sleeve and John 14:18 on the other. A quiet reminder to everyone who passes you.
+              </p>
+            </div>
             <a class="btn btn-main" href="https://docs.google.com/forms/d/e/1FAIpQLSeObp7o0zZer7F9j_HFXILAQZropBRsc49pWYwJGF-vA0AZ4Q/viewform" rel="noopener"><ion-icon name="shirt-outline" aria-hidden="true"></ion-icon>Order a shirt</a>
-            <p class="fine" style="margin-top: 1rem">Need another size? Add it on the order form.</p>
           </div>
-          <div class="tees" aria-label="Sample shirt designs">
-            <div class="tee">
-              <svg viewBox="0 0 120 120" role="img" aria-label="White shirt sample">
-                <path d="M38 18 L22 26 L10 44 L24 52 L30 46 L30 106 L90 106 L90 46 L96 52 L110 44 L98 26 L82 18 C 78 26, 70 30, 60 30 C 50 30, 42 26, 38 18 Z" fill="#ffffff" stroke="#e6def3" stroke-width="2" />
-                <text x="54" y="58" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="9" fill="#16121f">YOU</text>
-                <text x="54" y="69" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="9" fill="#16121f">ARE NOT</text>
-                <text x="54" y="80" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="9" fill="#16121f">ALONE</text>
-                <rect x="76" y="52" width="4" height="30" fill="#16121f" />
-                <rect x="70" y="59" width="16" height="4" fill="#16121f" />
-              </svg>
-              Sample design
-            </div>
-            <div class="tee">
-              <svg viewBox="0 0 120 120" role="img" aria-label="Black shirt sample">
-                <path d="M38 18 L22 26 L10 44 L24 52 L30 46 L30 106 L90 106 L90 46 L96 52 L110 44 L98 26 L82 18 C 78 26, 70 30, 60 30 C 50 30, 42 26, 38 18 Z" fill="#16121f" />
-                <text x="60" y="64" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="8" fill="#ffffff">You Are</text>
-                <text x="60" y="78" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="12" fill="#c9b3f0">NOT</text>
-                <text x="60" y="90" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="8" fill="#ffffff">Alone</text>
-              </svg>
-              Sample design
-            </div>
-            <div class="tee">
-              <svg viewBox="0 0 120 120" role="img" aria-label="Lavender shirt sample">
-                <path d="M38 18 L22 26 L10 44 L24 52 L30 46 L30 106 L90 106 L90 46 L96 52 L110 44 L98 26 L82 18 C 78 26, 70 30, 60 30 C 50 30, 42 26, 38 18 Z" fill="#c9b3f0" />
-                <rect x="58" y="48" width="4" height="22" fill="#16121f" />
-                <rect x="52" y="54" width="16" height="4" fill="#16121f" />
-                <text x="60" y="86" text-anchor="middle" font-family="Permanent Marker, sans-serif" font-size="7" fill="#16121f">JOHN 14:18</text>
-              </svg>
-              Sample design
-            </div>
+          <div class="designs">
+            <figure class="design"><img src="/demos/you-are-not-alone/img/shirt-1.jpg" alt="Rainbow cross, black" loading="lazy" /><figcaption>Rainbow cross, black</figcaption></figure>
+            <figure class="design"><img src="/demos/you-are-not-alone/img/shirt-2.jpg" alt="Rainbow cross, white" loading="lazy" /><figcaption>Rainbow cross, white</figcaption></figure>
+            <figure class="design"><img src="/demos/you-are-not-alone/img/shirt-3.jpg" alt="Black and white cross, black" loading="lazy" /><figcaption>Black and white cross, black</figcaption></figure>
+            <figure class="design"><img src="/demos/you-are-not-alone/img/shirt-4.jpg" alt="Cross and hands, cream" loading="lazy" /><figcaption>Cross and hands, cream</figcaption></figure>
+            <figure class="design"><img src="/demos/you-are-not-alone/img/shirt-5.jpg" alt="Rainbow heart, white" loading="lazy" /><figcaption>Rainbow heart, white</figcaption></figure>
+            <figure class="design"><img src="/demos/you-are-not-alone/img/shirt-6.jpg" alt="Rainbow heart, black" loading="lazy" /><figcaption>Rainbow heart, black</figcaption></figure>
+            <figure class="design"><img src="/demos/you-are-not-alone/img/shirt-7.jpg" alt="Heart, cream" loading="lazy" /><figcaption>Heart, cream</figcaption></figure>
+            <figure class="design"><img src="/demos/you-are-not-alone/img/shirt-8.jpg" alt="Heart, black" loading="lazy" /><figcaption>Heart, black</figcaption></figure>
           </div>
+          <ul class="sizes" aria-label="Sizes available">
+            <li>Youth XS</li>
+            <li>Youth S</li>
+            <li>Youth M</li>
+            <li>Youth L</li>
+            <li>Youth XL</li>
+            <li>Adult XS</li>
+            <li>Adult S</li>
+            <li>Adult M</li>
+            <li>Adult L</li>
+            <li>Adult XL</li>
+            <li>Adult XXL</li>
+          </ul>
+          <p class="fine">Pick your design on the order form. Designs that look cream in the preview may be printed on white.</p>
         </div>
       </section>
 
