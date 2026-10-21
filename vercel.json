@@ -95,15 +95,15 @@
   "rewrites": [
     {
       "source": "/YouAreNotAlone",
-      "destination": "/demos/you-are-not-alone/index.html"
+      "destination": "/demos/you-are-not-alone"
     },
     {
       "source": "/youarenotalone",
-      "destination": "/demos/you-are-not-alone/index.html"
+      "destination": "/demos/you-are-not-alone"
     },
     {
       "source": "/YouAreNOTAlone",
-      "destination": "/demos/you-are-not-alone/index.html"
+      "destination": "/demos/you-are-not-alone"
     }
   ]
 }
