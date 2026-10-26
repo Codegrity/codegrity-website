@@ -90,6 +90,24 @@
           "value": "noindex, nofollow"
         }
       ]
+    },
+    {
+      "source": "/gfour",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/gfour/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ],
   "rewrites": [
@@ -104,6 +122,14 @@
     {
       "source": "/YouAreNOTAlone",
       "destination": "/demos/you-are-not-alone"
+    },
+    {
+      "source": "/gfour",
+      "destination": "/demos/gfour"
+    },
+    {
+      "source": "/gfour/:path*",
+      "destination": "/demos/gfour/:path*"
     }
   ]
 }

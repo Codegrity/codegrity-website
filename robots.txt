@@ -7,6 +7,7 @@ Disallow: /tools/
 Disallow: /demos/
 Disallow: /YouAreNotAlone
 Disallow: /youarenotalone
+Disallow: /gfour
 
 # AI search and answer engines (named so intent is explicit)
 User-agent: OAI-SearchBot
@@ -20,5 +21,10 @@ User-agent: Perplexity-User
 User-agent: Google-Extended
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /tools/
+Disallow: /demos/
+Disallow: /YouAreNotAlone
+Disallow: /youarenotalone
+Disallow: /gfour
 
 Sitemap: https://www.codegrity.com/sitemap.xml
