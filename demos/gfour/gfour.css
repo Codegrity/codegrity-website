@@ -473,8 +473,11 @@ p { margin: 0 0 1em; }
 .report-top { background: var(--ink); color: #e0ddd5; }
 .report-top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; }
 .report-top a { color: #fff; font-weight: 600; text-decoration: none; }
-.report-top .cg { font-weight: 800; font-variation-settings: "wdth" 110; font-size: 1.2rem; letter-spacing: -.02em; }
-.report-top .cg span { color: #5eead4; }
+.report-top .cg { display: inline-flex; align-items: center; gap: .65rem; }
+.report-top .cg img { width: 34px; height: 34px; }
+.cg-word { font-weight: 700; font-variation-settings: "wdth" 100; font-size: 1.3rem; letter-spacing: -.02em; color: #fff; }
+.cg-word span { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.cg-foot { display: inline-flex; align-items: center; gap: .6rem; }
 .toc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem 2rem; list-style: none; padding: 0; margin: 2rem 0 0; counter-reset: t; }
 .toc li { counter-increment: t; border-top: 1px solid var(--line); padding-top: .6rem; }
 .toc a { text-decoration: none; font-weight: 600; color: var(--ink); }
