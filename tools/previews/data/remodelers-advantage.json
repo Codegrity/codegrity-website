@@ -80,5 +80,9 @@
     }
   ],
   "contact_name": "Victoria",
-  "pin3": "trust"
+  "pins": {
+    "h1": 1,
+    "proof": 2,
+    "trust": 3
+  }
 }

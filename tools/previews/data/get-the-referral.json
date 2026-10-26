@@ -1,0 +1,108 @@
+{
+  "slug": "get-the-referral",
+  "company": "Get The Referral",
+  "domain": "getthereferral.com",
+  "logo": "logo.svg",
+  "colors": {
+    "brand": "#312d71",
+    "brand_ink": "#ffffff",
+    "brand_soft": "#e8f1fa"
+  },
+  "nav": [
+    "Who Is GTR For?",
+    "Solutions",
+    "By Industry",
+    "Resources",
+    "Pricing"
+  ],
+  "cta_primary": "Book a demo",
+  "cta_secondary": "See GTR in action",
+  "h1": "Become the most referred contractor in home services.",
+  "sub": "Referral software built for contractors who want steady growth. Referrals are your best source of new customers. GTR makes it simple.",
+  "trust_line": "Branded referral apps for contractors since 2014",
+  "quote": {
+    "text": "GTR has been the largest part of our successful referral program to date.",
+    "name": "Corey P.",
+    "title": "",
+    "company": "",
+    "placeholder": "Company name and trade"
+  },
+  "stat": {
+    "value": "500+",
+    "label": "home services companies trust GTR",
+    "source": "In 35 states, Puerto Rico, Canada and Australia"
+  },
+  "cards_title": "Everything your referral program needs",
+  "cards": [
+    {
+      "icon": "phone-portrait-outline",
+      "name": "Homeowner App",
+      "desc": "Your branded app, where homeowners track their project and submit, share and review referrals."
+    },
+    {
+      "icon": "briefcase-outline",
+      "name": "Sales Rep App",
+      "desc": "Reps log new referrals on site, during the appointment."
+    },
+    {
+      "icon": "flash-outline",
+      "name": "Referral Boost",
+      "desc": "Collect referrals by text, email or link before your app launches."
+    },
+    {
+      "icon": "wallet-outline",
+      "name": "GTR Wallet",
+      "desc": "Send digital rewards like gift cards or cash, automatically."
+    }
+  ],
+  "faq_title": "Questions contractors ask",
+  "faq": [
+    {
+      "q": "How do we pay referral rewards?",
+      "a": "GTR Wallet sends digital rewards like gift cards or cash automatically."
+    },
+    {
+      "q": "How long does onboarding take?",
+      "a": "Your app can launch in as little as 3 days, and most companies finish onboarding in 1 to 2 weeks."
+    },
+    {
+      "q": "How do we integrate with GTR?",
+      "a": "Connect GTR through your CRM, our API or Zapier."
+    },
+    {
+      "q": "Can we generate referrals on our website too?",
+      "a": "Absolutely, and we recommend it."
+    }
+  ],
+  "partners_label": "Trusted by",
+  "partners": [
+    "Panda",
+    "Evergreen",
+    "Kingdom",
+    "Zuna",
+    "Owens Corning"
+  ],
+  "pins": {
+    "proof": 1,
+    "quote": 2,
+    "faq": 3
+  },
+  "fixes": [
+    {
+      "title": "Put your biggest proof next to the headline",
+      "now": "\"Trusted by 500+ home services companies\" is a single line with nothing to back it up, and your reach across 35 states, Puerto Rico, Canada and Australia is only on the About page.",
+      "preview": "The 500+ figure up top with your reach as its source line, beside a customer quote. Buyers believe a number when it comes with context."
+    },
+    {
+      "title": "Testimonials a contractor can trust",
+      "now": "All eight testimonials show a first name and last initial only, like \"Kyle H.\" and \"Nick R.\", with no company or trade. A roofer can't tell whether any of them run a business like theirs.",
+      "preview": "Each quote with the person's company and trade. The dashed label shows where it goes."
+    },
+    {
+      "title": "FAQ answers that match their questions",
+      "now": "Three answers appear under the wrong question. \"How do we pay referral rewards?\" is answered with app launch timing, and \"How much time do we need for onboarding?\" is answered \"Yes, we recommend it.\"",
+      "preview": "Each question with its correct answer, written from what your own site already says about GTR Wallet, onboarding and integrations."
+    }
+  ],
+  "contact_name": "Jamey"
+}

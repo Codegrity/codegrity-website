@@ -37,11 +37,31 @@ def build(slug):
     else:
         logo = f'<span class="site-logo text">{e(d["company"])}</span>'
     nav = "".join(f"<span>{e(n)}</span>" for n in d["nav"])
-    pin = ' class="pin pin-inline" data-pin="3"'
-    pin3_trust = pin if d.get("pin3") == "trust" else ""
-    pin3_partners = pin if d.get("pin3", "partners") == "partners" else ""
+    pins = d.get("pins", {"h1": 1, "proof": 2, "partners": 3})
+
+    def pa(target, inline=True):
+        n = pins.get(target)
+        if not n:
+            return ""
+        return f' class="pin{" pin-inline" if inline else ""}" data-pin="{n}"'
+
+    def pcls(target):
+        return " pin" if pins.get(target) else ""
+
+    def pnum(target):
+        return f' data-pin="{pins[target]}"' if pins.get(target) else ""
+
     q = d["quote"]
     s = d["stat"]
+    if q.get("company"):
+        who_line = f'<span>{e(", ".join(x for x in [q.get("title"), q.get("company")] if x))}</span>'
+    else:
+        who_line = f'<span class="ph">{e(q.get("placeholder", "Company name and trade"))}</span>'
+    faq_html = ""
+    if d.get("faq"):
+        items = "".join(f'<div class="qa"><b>{e(x["q"])}</b><p>{e(x["a"])}</p></div>' for x in d["faq"])
+        faq_html = f'<div class="site-faq{pcls("faq")}"{pnum("faq")}><h3>{e(d.get("faq_title", "Questions contractors ask"))}</h3><div class="qas">{items}</div></div>'
+
     cards = "".join(
         f'<div class="card">{icon(cd["icon"])}<h4>{e(cd["name"])}</h4><p>{e(cd["desc"])}</p></div>' for cd in d["cards"]
     )
@@ -94,18 +114,19 @@ def build(slug):
             <div class="site-nav">{logo}<div class="site-links">{nav}</div><span class="site-btn">{e(d["cta_primary"])}</span></div>
             <div class="site-hero">
               <div>
-                <h2 class="pin pin-inline" data-pin="1">{e(d["h1"])}</h2>
+                <h2><span{pa("h1")}>{e(d["h1"])}</span></h2>
                 <p class="sub">{e(d["sub"])}</p>
                 <div class="site-ctas"><span class="site-btn">{e(d["cta_primary"])}</span><span class="site-btn ghost">{e(d["cta_secondary"])}</span></div>
-                <p class="trust">{icon("checkmark-circle")}<span{pin3_trust}>{e(d["trust_line"])}</span></p>
+                <p class="trust">{icon("checkmark-circle")}<span{pa("trust")}>{e(d["trust_line"])}</span></p>
               </div>
-              <div class="proof pin" data-pin="2">
+              <div class="proof{pcls("proof")}"{pnum("proof")}>
                 <div class="stat"><b>{e(s["value"])}</b><span>{e(s["label"])}</span><small>{e(s["source"])}</small></div>
-                <div class="quote"><p>&ldquo;{e(q["text"])}&rdquo;</p><div class="who"><span class="mono">{e(initials(q["name"]))}</span><div><b>{e(q["name"])}</b><span>{e(q["title"])}, {e(q["company"])}</span></div></div></div>
+                <div class="quote{pcls("quote")}"{pnum("quote")}><p>&ldquo;{e(q["text"])}&rdquo;</p><div class="who"><span class="mono">{e(initials(q["name"]))}</span><div><b>{e(q["name"])}</b>{who_line}</div></div></div>
               </div>
             </div>
+            {faq_html}
             <div class="site-cards"><h3>{e(d["cards_title"])}</h3><div class="cards">{cards}</div></div>
-            <div class="site-partners"><span{pin3_partners}>{e(d["partners_label"])}</span>{partners}</div>
+            <div class="site-partners"><span{pa("partners")}>{e(d["partners_label"])}</span>{partners}</div>
           </div>
         </div>
       </div>
