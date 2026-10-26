@@ -74,10 +74,11 @@
       "preview": "The 40% figure next to the headline with a source line, and a named member quote beside it. A sourced number is what both buyers and AI search tools trust."
     },
     {
-      "title": "Housekeeping that signals a maintained site",
-      "now": "Partner logos are labeled with file names like \"builderfunnel-300x133-1.png\", so search engines and screen readers can't tell who your partners are. The footer reads \"Copyright © 2010 -\" with no end year.",
-      "preview": "Partners named in real text, and a footer year that updates itself."
+      "title": "A search description that says what you do",
+      "now": "Your site's search description, the text that usually appears under your name in Google, reads \"Reach your remodeling business goals with Remodelers Advantage.\" It doesn't mention Roundtables, consulting or training, the things remodelers actually search for.",
+      "preview": "One plain sentence about what you offer and who it's for, used as your search description and repeated under the buttons: \"Peer Roundtables, consulting and training for remodeling business owners.\""
     }
   ],
-  "contact_name": "Victoria"
+  "contact_name": "Victoria",
+  "pin3": "trust"
 }

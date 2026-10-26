@@ -37,6 +37,9 @@ def build(slug):
     else:
         logo = f'<span class="site-logo text">{e(d["company"])}</span>'
     nav = "".join(f"<span>{e(n)}</span>" for n in d["nav"])
+    pin = ' class="pin pin-inline" data-pin="3"'
+    pin3_trust = pin if d.get("pin3") == "trust" else ""
+    pin3_partners = pin if d.get("pin3", "partners") == "partners" else ""
     q = d["quote"]
     s = d["stat"]
     cards = "".join(
@@ -94,7 +97,7 @@ def build(slug):
                 <h2 class="pin pin-inline" data-pin="1">{e(d["h1"])}</h2>
                 <p class="sub">{e(d["sub"])}</p>
                 <div class="site-ctas"><span class="site-btn">{e(d["cta_primary"])}</span><span class="site-btn ghost">{e(d["cta_secondary"])}</span></div>
-                <p class="trust">{icon("checkmark-circle")}{e(d["trust_line"])}</p>
+                <p class="trust">{icon("checkmark-circle")}<span{pin3_trust}>{e(d["trust_line"])}</span></p>
               </div>
               <div class="proof pin" data-pin="2">
                 <div class="stat"><b>{e(s["value"])}</b><span>{e(s["label"])}</span><small>{e(s["source"])}</small></div>
@@ -102,7 +105,7 @@ def build(slug):
               </div>
             </div>
             <div class="site-cards"><h3>{e(d["cards_title"])}</h3><div class="cards">{cards}</div></div>
-            <div class="site-partners"><span class="pin pin-inline" data-pin="3">{e(d["partners_label"])}</span>{partners}</div>
+            <div class="site-partners"><span{pin3_partners}>{e(d["partners_label"])}</span>{partners}</div>
           </div>
         </div>
       </div>
