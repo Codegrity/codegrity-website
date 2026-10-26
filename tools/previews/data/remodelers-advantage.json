@@ -2,10 +2,21 @@
   "slug": "remodelers-advantage",
   "company": "Remodelers Advantage",
   "domain": "remodelersadvantage.com",
-  "logo": null,
+  "logo": "logo.png",
   "logo_dark_bg": false,
-  "colors": { "brand": "#9b0000", "brand_ink": "#ffffff", "brand_soft": "#f7e9e7" },
-  "nav": ["Membership", "Roundtables", "Training", "Coaching", "PowerTips", "About"],
+  "colors": {
+    "brand": "#c10230",
+    "brand_ink": "#ffffff",
+    "brand_soft": "#fbe8ec"
+  },
+  "nav": [
+    "Membership",
+    "Roundtables",
+    "Training",
+    "Coaching",
+    "PowerTips",
+    "About"
+  ],
   "cta_primary": "Discover what works",
   "cta_secondary": "Calculate my ROI",
   "h1": "More profit. Less chaos. Finally.",
@@ -24,13 +35,33 @@
   },
   "cards_title": "Find your path",
   "cards": [
-    { "icon": "people-outline", "name": "Roundtables", "desc": "Sit down with a group of non-competing remodelers who've hit the same walls." },
-    { "icon": "construct-outline", "name": "Production Manager Roundtables", "desc": "Stronger production managers mean a better, more efficient remodeling company." },
-    { "icon": "school-outline", "name": "Remodelers University", "desc": "Learn at your own pace with self-guided education, available 24/7." },
-    { "icon": "compass-outline", "name": "Consulting", "desc": "Reach your goals faster with coaching tailored to your challenges." }
+    {
+      "icon": "people-outline",
+      "name": "Roundtables",
+      "desc": "Sit down with a group of non-competing remodelers who've hit the same walls."
+    },
+    {
+      "icon": "construct-outline",
+      "name": "Production Manager Roundtables",
+      "desc": "Stronger production managers mean a better, more efficient remodeling company."
+    },
+    {
+      "icon": "school-outline",
+      "name": "Remodelers University",
+      "desc": "Learn at your own pace with self-guided education, available 24/7."
+    },
+    {
+      "icon": "compass-outline",
+      "name": "Consulting",
+      "desc": "Reach your goals faster with coaching tailored to your challenges."
+    }
   ],
   "partners_label": "Partner network includes",
-  "partners": ["JobTread", "Houzz", "Builder Funnel"],
+  "partners": [
+    "JobTread",
+    "Houzz",
+    "Builder Funnel"
+  ],
   "fixes": [
     {
       "title": "One clear promise at the top",
