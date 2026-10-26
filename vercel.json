@@ -108,6 +108,15 @@
           "value": "noindex, nofollow"
         }
       ]
+    },
+    {
+      "source": "/p/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ],
   "rewrites": [
@@ -130,6 +139,10 @@
     {
       "source": "/gfour/:path*",
       "destination": "/demos/gfour/:path*"
+    },
+    {
+      "source": "/p/:slug",
+      "destination": "/demos/p/:slug"
     }
   ]
 }

@@ -1,0 +1,52 @@
+{
+  "slug": "remodelers-advantage",
+  "company": "Remodelers Advantage",
+  "domain": "remodelersadvantage.com",
+  "logo": null,
+  "logo_dark_bg": false,
+  "colors": { "brand": "#9b0000", "brand_ink": "#ffffff", "brand_soft": "#f7e9e7" },
+  "nav": ["Membership", "Roundtables", "Training", "Coaching", "PowerTips", "About"],
+  "cta_primary": "Discover what works",
+  "cta_secondary": "Calculate my ROI",
+  "h1": "More profit. Less chaos. Finally.",
+  "sub": "You love the craft. But running the business? That's a whole different job. Join a community of remodeling owners who get it, and are getting better at it together.",
+  "trust_line": "Peer Roundtables, consulting and training for remodeling business owners",
+  "quote": {
+    "text": "It's an incredibly powerful experience, with amazing perspective, insight, and feedback, in a tough but caring environment.",
+    "name": "Jeremy Steinruck",
+    "title": "Vice President",
+    "company": "Velocity"
+  },
+  "stat": {
+    "value": "40%",
+    "label": "average first-year revenue increase for Roundtables members",
+    "source": "Source: Remodelers Advantage member data"
+  },
+  "cards_title": "Find your path",
+  "cards": [
+    { "icon": "people-outline", "name": "Roundtables", "desc": "Sit down with a group of non-competing remodelers who've hit the same walls." },
+    { "icon": "construct-outline", "name": "Production Manager Roundtables", "desc": "Stronger production managers mean a better, more efficient remodeling company." },
+    { "icon": "school-outline", "name": "Remodelers University", "desc": "Learn at your own pace with self-guided education, available 24/7." },
+    { "icon": "compass-outline", "name": "Consulting", "desc": "Reach your goals faster with coaching tailored to your challenges." }
+  ],
+  "partners_label": "Partner network includes",
+  "partners": ["JobTread", "Houzz", "Builder Funnel"],
+  "fixes": [
+    {
+      "title": "One clear promise at the top",
+      "now": "The page title and the main headline both read \"Stop Grinding. Start Scaling. More Profit. Less Chaos. Finally.\" Five short sentences compete for attention, and the same line is repeated in the browser tab and in search results.",
+      "preview": "One promise in your own words, followed by your subheadline, so a remodeler knows in three seconds what you do and for whom."
+    },
+    {
+      "title": "Your strongest proof, sourced and up front",
+      "now": "\"Roundtables members increase their annual revenue by an average of 40% in their first year\" is a strong claim with no source next to it, and named member quotes sit further down the page.",
+      "preview": "The 40% figure next to the headline with a source line, and a named member quote beside it. A sourced number is what both buyers and AI search tools trust."
+    },
+    {
+      "title": "Housekeeping that signals a maintained site",
+      "now": "Partner logos are labeled with file names like \"builderfunnel-300x133-1.png\", so search engines and screen readers can't tell who your partners are. The footer reads \"Copyright © 2010 -\" with no end year.",
+      "preview": "Partners named in real text, and a footer year that updates itself."
+    }
+  ],
+  "contact_name": "Victoria"
+}
