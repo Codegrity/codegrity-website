@@ -1186,3 +1186,22 @@ strong {
     padding: 1.25rem 1.25rem;
   }
 }
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  align-items: stretch;
+}
+
+.testimonials .testimonial {
+  margin: 0;
+  max-width: none;
+}
+
+@media (max-width: 860px) {
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+}
