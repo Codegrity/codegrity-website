@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>H.E.B. Carpet Cleaning website preview | Codegrity</title>
+    <meta name="description" content="A website preview for H.E.B. Carpet Cleaning, built by Codegrity with Luke's own logo, services and service area." />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap" />
+    <link rel="stylesheet" href="/demos/p/preview.css" />
+    <style>
+      :root { --brand: #0b2a72; --brand-ink: #ffffff; --brand-soft: #e7f0fb; --sky: #1f6fc4; }
+      .sr { position: absolute; left: -9999px; }
+      .site-logo img { height: 72px; }
+      .site-phone { font-weight: 700; color: var(--brand); white-space: nowrap; display: inline-flex; align-items: center; gap: .35rem; }
+      .site-nav .site-btn { margin-left: .4rem; }
+      .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.4rem; }
+      .chip { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .8rem; border-radius: 999px; background: var(--brand-soft); color: var(--brand); font-weight: 600; font-size: .9rem; }
+      .chip ion-icon { font-size: 1.05rem; }
+
+      /* booking widget mock */
+      .book { background: #fff; border: 1px solid var(--cg-line); border-radius: 18px; padding: 1.4rem; box-shadow: 0 20px 40px -24px rgba(11, 42, 114, .45); }
+      .book h3 { font-size: 1.15rem; margin-bottom: .3rem; }
+      .book p.small { color: #5b616e; font-size: .9rem; margin: 0 0 1rem; }
+      .days { display: grid; grid-template-columns: repeat(5, 1fr); gap: .4rem; margin-bottom: .9rem; }
+      .day { border: 1px solid var(--cg-line); border-radius: 10px; padding: .45rem 0; text-align: center; font-size: .8rem; color: #3a3f4a; }
+      .day b { display: block; font-size: 1.05rem; color: #15171c; }
+      .day.on { border-color: var(--brand); background: var(--brand); color: #fff; }
+      .day.on b { color: #fff; }
+      .times { display: grid; grid-template-columns: repeat(3, 1fr); gap: .4rem; }
+      .time { border: 1.5px solid var(--sky); color: var(--sky); border-radius: 10px; padding: .55rem 0; text-align: center; font-weight: 600; font-size: .9rem; }
+      .time.on { background: var(--sky); color: #fff; }
+      .book .site-btn { width: 100%; margin-top: 1rem; }
+      .powered { display: block; text-align: center; font-size: .78rem; color: #8b919c; margin-top: .6rem; }
+
+      /* work + reviews slots */
+      .block { padding: clamp(2rem, 5vw, 3.2rem) var(--pad); border-top: 1px solid var(--cg-line); }
+      .block h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin-bottom: .4rem; }
+      .block p.lead { color: #5b616e; margin: 0 0 1.4rem; }
+      .videos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+      .video { aspect-ratio: 16 / 10; border-radius: 14px; background: linear-gradient(135deg, #0b2a72, #1f6fc4); position: relative; display: grid; place-items: center; color: #fff; overflow: hidden; }
+      .video::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 14px, transparent 14px 28px); }
+      .video .play { width: 58px; height: 58px; border-radius: 50%; background: #fff; color: var(--brand); display: grid; place-items: center; font-size: 1.6rem; position: relative; }
+      .video span { position: absolute; left: .8rem; bottom: .7rem; font-size: .82rem; font-weight: 600; background: rgba(0,0,0,.35); padding: .2rem .55rem; border-radius: 6px; }
+      .slot { border: 2px dashed #b9c6dd; border-radius: 14px; padding: 1.3rem; display: flex; gap: 1rem; align-items: center; color: #4a5568; background: #f7f9fd; }
+      .slot ion-icon { font-size: 2rem; color: var(--sky); flex: none; }
+      .slot b { color: #15171c; }
+      .areas { display: flex; flex-wrap: wrap; gap: .6rem; }
+      .area { padding: .6rem 1rem; border: 1px solid var(--cg-line); border-radius: 10px; font-weight: 600; background: #fff; display: inline-flex; gap: .4rem; align-items: center; }
+      .area ion-icon { color: var(--sky); }
+      .site-foot { background: var(--brand); color: #dbe6f7; padding: 1.3rem var(--pad); display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; font-size: .92rem; }
+      .site-foot .soc { display: flex; gap: .6rem; font-size: 1.3rem; color: #fff; }
+
+      /* the pitch */
+      .why { padding: clamp(3rem, 7vw, 5rem) 0; }
+      .why h2, .deal h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 700; margin-bottom: .6rem; }
+      .why > .wrap > p { color: var(--cg-muted); max-width: 62ch; }
+      .reasons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; }
+      .reason { background: #fff; border: 1px solid var(--cg-line); border-radius: 18px; padding: 1.5rem; }
+      .reason ion-icon { font-size: 1.7rem; color: var(--sky); }
+      .reason h3 { font-size: 1.15rem; margin: .8rem 0 .5rem; }
+      .reason p { margin: 0; color: #4a505c; font-size: 1rem; }
+      .compare { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .col { border-radius: 18px; padding: 1.5rem; }
+      .col.now { background: #fff; border: 1px solid var(--cg-line); }
+      .col.new { background: var(--brand); color: #fff; }
+      .col h3 { font-size: 1.1rem; margin-bottom: .9rem; }
+      .col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+      .col li { display: flex; gap: .6rem; align-items: flex-start; font-size: 1rem; }
+      .col.now li ion-icon { color: #b4472f; flex: none; margin-top: .2rem; }
+      .col.new li ion-icon { color: #8fd0ff; flex: none; margin-top: .2rem; }
+      .math { margin-top: 1.5rem; background: var(--brand-soft); border-radius: 18px; padding: 1.4rem 1.6rem; display: flex; gap: 1rem; align-items: center; }
+      .math ion-icon { font-size: 2rem; color: var(--brand); flex: none; }
+      .math p { margin: 0; font-size: 1.08rem; color: #15171c; }
+
+      .deal { background: #fff; padding: clamp(3rem, 7vw, 5rem) 0; border-top: 1px solid var(--cg-line); }
+      .deal-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem 2rem; grid-template-rows: auto 1fr; align-items: start; margin-top: 1.5rem; }
+      .note { font-size: 1.12rem; line-height: 1.6; color: #22252c; }
+      .note p { margin: 0 0 1rem; }
+      .price { border: 2px solid var(--brand); border-radius: 20px; padding: 1.6rem; position: relative; }
+      .price .tag { position: absolute; top: -14px; left: 1.4rem; background: var(--brand); color: #fff; font-weight: 700; font-size: .85rem; padding: .25rem .7rem; border-radius: 999px; }
+      .price .was { color: #8b919c; text-decoration: line-through; font-size: 1.05rem; }
+      .price .now { font-size: 2.6rem; font-weight: 700; letter-spacing: -.03em; color: var(--brand); line-height: 1.05; }
+      .price .now small { font-size: 1.05rem; font-weight: 600; color: #3a3f4a; letter-spacing: 0; }
+      .price ul { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: .55rem; }
+      .price li { display: flex; gap: .55rem; align-items: flex-start; }
+      .price li ion-icon { color: var(--sky); flex: none; margin-top: .2rem; font-size: 1.1rem; }
+      .alt { margin-top: 1rem; font-size: .98rem; color: #4a505c; }
+      .asks { margin-top: 1rem; background: #f7f9fd; border-radius: 14px; padding: 1rem 1.2rem; font-size: .98rem; color: #3a3f4a; }
+      .cta-row { display: flex; flex-wrap: wrap; gap: .75rem; align-self: start; }
+      .deal-grid .note { grid-column: 1; grid-row: 1; } .deal-grid .price { grid-column: 2; grid-row: 1 / span 2; } .deal-grid .cta-row { grid-column: 1; grid-row: 2; }
+      .btn-b { display: inline-flex; align-items: center; gap: .5rem; padding: 1rem 1.4rem; border-radius: 999px; font-weight: 700; text-decoration: none; }
+      .btn-b.fill { background: var(--brand); color: #fff; }
+      .btn-b.line { border: 2px solid var(--brand); color: var(--brand); }
+
+      @media (max-width: 1000px) { .reasons { grid-template-columns: 1fr 1fr; } .site-phone { display: none; } }
+      @media (max-width: 820px) { .compare, .deal-grid { grid-template-columns: 1fr; } .deal-grid { grid-template-rows: none; } .deal-grid .note, .deal-grid .price, .deal-grid .cta-row { grid-column: auto; grid-row: auto; } .price .now small { display: block; margin-top: .3rem; } .videos { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 560px) { .reasons, .videos { grid-template-columns: 1fr; } .site-logo img { height: 56px; } .cta-row .btn-b { width: 100%; justify-content: center; } }
+    </style>
+  </head>
+  <body>
+    <header class="cg-strip">
+      <div class="wrap">
+        <a class="cg-brand" href="https://www.codegrity.com/"><img src="/favicon.svg" alt="" width="28" height="28" /><span>Code<span>grity</span></span></a>
+        <p>A website preview for <b>H.E.B. Carpet Cleaning</b>, built around your logo and your business.</p>
+        <a class="jump" href="#deal">See the deal</a>
+      </div>
+    </header>
+    <main>
+      <section class="intro">
+        <div class="wrap">
+          <h1>Luke, here's what your website could look like.</h1>
+          <p>Same logo, same services, same phone number. The difference: a site that shows off your work, shows up in local searches and lets customers book while you're on a job.</p>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <div class="frame" role="img" aria-label="Preview of a new H.E.B. Carpet Cleaning website">
+          <div class="frame-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url"><ion-icon name="lock-closed" aria-hidden="true"></ion-icon>hebcarpetcleaning.com</span></div>
+          <div class="site" aria-hidden="true">
+            <div class="site-nav">
+              <span class="site-logo"><img src="/demos/p/heb-carpet-cleaning/logo.jpg" alt="H.E.B. Carpet Cleaning" width="331" height="360" /></span>
+              <div class="site-links"><span>Services</span><span>Our Work</span><span>Service Areas</span><span>Reviews</span></div>
+              <span class="site-phone"><ion-icon name="call"></ion-icon>817-905-3906</span>
+              <span class="site-btn">Book a free estimate</span>
+            </div>
+
+            <div class="site-hero">
+              <div>
+                <h2>Carpet cleaning in Hurst, Euless and Bedford, done honestly.</h2>
+                <p class="sub">Owner-operated by Luke, with nearly 10 years of experience. Truckmount steam cleaning, upholstery, rugs, and tile and grout, for homes and businesses. No upselling.</p>
+                <div class="site-ctas"><span class="site-btn">Book a free estimate</span><span class="site-btn ghost"><ion-icon name="call-outline"></ion-icon> 817-905-3906</span></div>
+                <div class="chips">
+                  <span class="chip"><ion-icon name="person-outline"></ion-icon>Owner-operated</span>
+                  <span class="chip"><ion-icon name="home-outline"></ion-icon>Homes and businesses</span>
+                  <span class="chip"><ion-icon name="ribbon-outline"></ion-icon>Nearly 10 years</span>
+                </div>
+              </div>
+              <div class="book">
+                <h3>Pick a time for your free estimate</h3>
+                <p class="small">Choose a day and time. Luke confirms by text.</p>
+                <div class="days"><div class="day">Mon<b>3</b></div><div class="day on">Tue<b>4</b></div><div class="day">Wed<b>5</b></div><div class="day">Thu<b>6</b></div><div class="day">Fri<b>7</b></div></div>
+                <div class="times"><div class="time">8:00 am</div><div class="time on">10:30 am</div><div class="time">1:00 pm</div><div class="time">3:30 pm</div><div class="time">5:00 pm</div><div class="time">6:30 pm</div></div>
+                <span class="site-btn">Confirm my estimate</span>
+                <span class="powered">Online booking powered by Cal.com</span>
+              </div>
+            </div>
+
+            <div class="site-cards">
+              <h3>What we clean</h3>
+              <div class="cards">
+                <div class="card"><ion-icon name="water-outline"></ion-icon><h4>Carpet cleaning</h4><p>Truckmount steam cleaning and low-moisture cleaning.</p></div>
+                <div class="card"><ion-icon name="bed-outline"></ion-icon><h4>Upholstery</h4><p>Sofas, chairs and sectionals, cleaned on site.</p></div>
+                <div class="card"><ion-icon name="layers-outline"></ion-icon><h4>Rug cleaning</h4><p>Area rugs refreshed and brought back to life.</p></div>
+                <div class="card"><ion-icon name="grid-outline"></ion-icon><h4>Tile and grout</h4><p>Deep-cleaned grout lines and tile floors.</p></div>
+              </div>
+            </div>
+
+            <div class="block">
+              <h3>See the difference</h3>
+              <p class="lead">Your before-and-after videos, front and center.</p>
+              <div class="videos">
+                <div class="video"><span class="play"><ion-icon name="play"></ion-icon></span><span>Your YouTube video</span></div>
+                <div class="video"><span class="play"><ion-icon name="play"></ion-icon></span><span>Your YouTube video</span></div>
+                <div class="video"><span class="play"><ion-icon name="play"></ion-icon></span><span>Your YouTube video</span></div>
+              </div>
+            </div>
+
+            <div class="block">
+              <h3>What customers say</h3>
+              <div class="slot"><ion-icon name="star-outline"></ion-icon><span><b>Your Google reviews appear here,</b> pulled in automatically, so every new review shows up on your site too.</span></div>
+            </div>
+
+            <div class="block">
+              <h3>Where we work</h3>
+              <p class="lead">Each city gets its own page, so you show up when people search "carpet cleaning" plus their city.</p>
+              <div class="areas">
+                <span class="area"><ion-icon name="location-outline"></ion-icon>Hurst</span><span class="area"><ion-icon name="location-outline"></ion-icon>Euless</span><span class="area"><ion-icon name="location-outline"></ion-icon>Bedford</span><span class="area"><ion-icon name="location-outline"></ion-icon>Fort Worth</span><span class="area"><ion-icon name="location-outline"></ion-icon>Benbrook</span><span class="area"><ion-icon name="location-outline"></ion-icon>Aledo</span>
+              </div>
+            </div>
+
+            <div class="site-foot"><span>H.E.B. Carpet Cleaning &middot; 817-905-3906 &middot; Homes and businesses</span><span class="soc"><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-youtube"></ion-icon></span></div>
+          </div>
+        </div>
+      </div>
+
+      <section class="why">
+        <div class="wrap">
+          <h2>Why this brings you more jobs.</h2>
+          <p>Facebook and Instagram are great for people who already follow you. A real website is how strangers find you, trust you and book you.</p>
+          <div class="reasons">
+            <div class="reason"><ion-icon name="search-outline"></ion-icon><h3>Show up in local searches</h3><p>A page for each city you serve, connected to your Google profile, so you come up for "carpet cleaning Euless" and "Hurst carpet cleaner." Social posts don't rank like that.</p></div>
+            <div class="reason"><ion-icon name="calendar-outline"></ion-icon><h3>Book jobs while you work</h3><p>People shop for cleaners at night and on weekends, while you're on another job. Online booking catches them before they call the next guy.</p></div>
+            <div class="reason"><ion-icon name="videocam-outline"></ion-icon><h3>Let your videos sell</h3><p>Your before-and-after videos are your best salesman, but on social they scroll away in a day. On your site, every visitor sees them.</p></div>
+            <div class="reason"><ion-icon name="shield-checkmark-outline"></ion-icon><h3>Look as good as your work</h3><p>Your own web address, no Wix ad banner, a current site. That matters most for commercial jobs: offices and property managers check the website first.</p></div>
+            <div class="reason"><ion-icon name="star-outline"></ion-icon><h3>Reviews that work for you</h3><p>Google reviews show on your site automatically, so a homeowner comparing cleaners sees proof right away.</p></div>
+            <div class="reason"><ion-icon name="phone-portrait-outline"></ion-icon><h3>Built for phones</h3><p>Most people will find you on their phone. One tap to call, one tap to book, fast to load.</p></div>
+          </div>
+
+          <div class="compare">
+            <div class="col now">
+              <h3>Your site today</h3>
+              <ul>
+                <li><ion-icon name="close-circle"></ion-icon><span>Free Wix address with a "built on Wix" ad across the top</span></li>
+                <li><ion-icon name="close-circle"></ion-icon><span>Footer still says &copy;2019</span></li>
+                <li><ion-icon name="close-circle"></ion-icon><span>Gallery link goes to a blank page; no videos or photos of your work</span></li>
+                <li><ion-icon name="close-circle"></ion-icon><span>Social icons point to Wix's own pages, not yours</span></li>
+                <li><ion-icon name="close-circle"></ion-icon><span>No reviews, no hours, no online booking</span></li>
+              </ul>
+            </div>
+            <div class="col new">
+              <h3>Your new site</h3>
+              <ul>
+                <li><ion-icon name="checkmark-circle"></ion-icon><span>Your own domain, in your name</span></li>
+                <li><ion-icon name="checkmark-circle"></ion-icon><span>Your before-and-after videos and Instagram front and center</span></li>
+                <li><ion-icon name="checkmark-circle"></ion-icon><span>Book a free estimate online, 24/7</span></li>
+                <li><ion-icon name="checkmark-circle"></ion-icon><span>Google reviews and a page for every city you serve</span></li>
+                <li><ion-icon name="checkmark-circle"></ion-icon><span>Kept up to date every month, so it never looks abandoned again</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="math"><ion-icon name="calculator-outline"></ion-icon><p><b>The math is simple:</b> if the site brings in just one extra cleaning a month, it pays for itself. Everything after that is profit.</p></div>
+        </div>
+      </section>
+
+      <section class="deal" id="deal">
+        <div class="wrap">
+          <h2>Because we go way back.</h2>
+          <div class="deal-grid">
+            <div class="note">
+              <p>Luke, you do great work, and right now your website doesn't show it. Most of your best stuff lives on Facebook, Instagram and YouTube, where new customers searching Google never see it.</p>
+              <p>I want to fix that for you, and I'm giving you my founding-client price, the lowest I offer. You'd own your domain, I'd handle everything else, and you'd keep doing what you're good at.</p>
+              <p>&mdash; PJ</p>
+            </div>
+            <div class="price">
+              <span class="tag">Friend pricing</span>
+              <div class="was">$750 build</div>
+              <div class="now">$450 <small>to build, then $79/month</small></div>
+              <ul>
+                <li><ion-icon name="checkmark-circle"></ion-icon><span>Up to 5 pages, live in about 10 business days</span></li>
+                <li><ion-icon name="checkmark-circle"></ion-icon><span>Online booking for free estimates</span></li>
+                <li><ion-icon name="checkmark-circle"></ion-icon><span>Your YouTube videos, Instagram and Google reviews built in</span></li>
+                <li><ion-icon name="checkmark-circle"></ion-icon><span>Hosting, security, backups and monitoring</span></li>
+                <li><ion-icon name="checkmark-circle"></ion-icon><span>30 minutes of changes every month</span></li>
+                <li><ion-icon name="checkmark-circle"></ion-icon><span>A short monthly report: visits, calls and what we fixed</span></li>
+                <li><ion-icon name="checkmark-circle"></ion-icon><span>No contract on the monthly care. Cancel anytime.</span></li>
+              </ul>
+              <p class="alt">Rather not pay upfront? <b>$0 down, $129/month</b> for 12 months, then it's yours and drops to $79.</p>
+              <div class="asks">All I ask in return: an honest Google review and permission to show your new site in my portfolio.</div>
+            </div>
+              <div class="cta-row">
+                <a class="btn-b fill" href="sms:+19728387422"><ion-icon name="chatbubble-outline"></ion-icon>Text PJ</a>
+                <a class="btn-b line" href="tel:+19728387422"><ion-icon name="call-outline"></ion-icon>Call (972) 838-7422</a>
+                <a class="btn-b line" href="https://cal.com/codegrity/intro"><ion-icon name="calendar-outline"></ion-icon>Book a time to talk</a>
+              </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="foot"><div class="wrap"><span>Preview prepared for H.E.B. Carpet Cleaning by Codegrity LLC. Not a live website. The domain shown is an example.</span><a href="https://www.codegrity.com/">codegrity.com</a></div></footer>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@8.1.0/dist/ionicons/ionicons.esm.js"></script>
+  </body>
+</html>
