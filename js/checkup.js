@@ -431,6 +431,10 @@
       box.append(h("p", { class: "muted" }, "The Google listing check is being switched on. Check back soon."));
       return box;
     }
+    if (S.listing.error) {
+      box.append(h("p", { class: "muted" }, S.listing.error));
+      return box;
+    }
     const m = S.listing.match;
     if (m) {
       box.append(

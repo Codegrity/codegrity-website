@@ -1,6 +1,7 @@
 // GET /api/listing?name=Business&city=McKinney TX&site=example.com[&placeId=...]
 // Google Business Profile check via the Places API (New). Needs GOOGLE_API_KEY.
 const { cleanUrl, registrable, finding, send } = require("./_lib/util");
+const { fromOurSite, rateLimited } = require("./_lib/guard");
 
 const FIELDS = ["id", "displayName", "formattedAddress", "nationalPhoneNumber", "websiteUri", "rating", "userRatingCount", "regularOpeningHours", "businessStatus", "photos", "googleMapsUri", "primaryTypeDisplayName"];
 
@@ -129,6 +130,8 @@ function assess(p, siteHost) {
 module.exports = async (req, res) => {
   const key = process.env.GOOGLE_API_KEY;
   if (!key) return send(res, 200, { enabled: false });
+  if (!fromOurSite(req)) return send(res, 403, { error: "Run the checkup at codegrity.com/checkup" });
+  if (rateLimited(req)) return send(res, 429, { error: "Too many Google checks from your connection. Try again in a few minutes." });
   const name = String(req.query.name || "").trim().slice(0, 120);
   const city = String(req.query.city || "").trim().slice(0, 80);
   const site = req.query.site ? cleanUrl(req.query.site) : null;
