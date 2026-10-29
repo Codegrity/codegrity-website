@@ -199,12 +199,11 @@ module.exports = async (req, res) => {
     const bias = await areaBias(city, req, headers);
     // Phone number is the most exact match; "LLC" and similar throw Google's search off.
     const plain = name.replace(/[,.]?\s+\b(llc|l\.l\.c\.|inc|incorporated|co|corp|corporation|ltd|pllc|lp)\b\.?$/i, "").trim() || name;
+    // At most 3 searches per check, to keep the cost of each run small.
     const queries = [
       phone ? { q: phone, bias } : null,
       city ? { q: `${plain}, ${city}`, bias } : null,
       { q: plain, bias },
-      bias ? { q: plain, bias: null } : null,
-      domain ? { q: domain, bias } : null,
     ].filter(Boolean);
     const seen = new Map();
     let best = null;

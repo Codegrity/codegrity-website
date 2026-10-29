@@ -131,7 +131,10 @@
         S.loading.checkup = false;
         render();
         runSpeed(id, j.finalUrl);
-        if (S.name) runListing(id, {});
+        // Don't spend a Google lookup on a domain that doesn't exist.
+        const unknown = (j.findings || []).some((f) => f.id === "domain-unknown");
+        if (S.name && !unknown) runListing(id, {});
+        else S.loading.listing = false;
       })
       .catch((err) => {
         if (id !== runId) return;
