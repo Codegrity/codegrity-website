@@ -151,6 +151,20 @@ function assess(p, siteHost) {
 module.exports = async (req, res) => {
   const key = process.env.GOOGLE_API_KEY;
   if (!key) return send(res, 200, { enabled: false });
+  const diag = req.query.diag === "cgx-41q9z"; // temporary diagnostic, remove after use
+  if (diag) {
+    const out = {};
+    for (const [label, body] of Object.entries({
+      a: { textQuery: "Codegrity, McKinney, TX", pageSize: 5, includePureServiceAreaBusinesses: true },
+      b: { textQuery: "Codegrity", pageSize: 5, includePureServiceAreaBusinesses: true },
+      c: { textQuery: "codegrity.com", pageSize: 5, includePureServiceAreaBusinesses: true },
+      d: { textQuery: "Codegrity McKinney", pageSize: 5, includePureServiceAreaBusinesses: true, locationBias: { circle: { center: { latitude: 33.1972, longitude: -96.6398 }, radius: 50000 } } },
+    })) {
+      const r = await places("places:searchText", { method: "POST", headers: { "X-Goog-Api-Key": key, "Content-Type": "application/json", "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress,places.websiteUri,places.pureServiceAreaBusiness" }, body: JSON.stringify(body) });
+      out[label] = { status: r.status, places: (r.json.places || []).map((p) => [p.displayName && p.displayName.text, p.formattedAddress, p.websiteUri, p.pureServiceAreaBusiness]), error: r.json.error && r.json.error.message };
+    }
+    return send(res, 200, out);
+  }
   if (!fromOurSite(req)) return send(res, 403, { error: "Run the checkup at codegrity.com/checkup" });
   if (rateLimited(req)) return send(res, 429, { error: "Too many Google checks from your connection. Try again in a few minutes." });
   const name = String(req.query.name || "").trim().slice(0, 120);
