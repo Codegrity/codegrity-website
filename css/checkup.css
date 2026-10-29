@@ -523,6 +523,51 @@
   text-decoration: underline;
 }
 
+.ck-test-why {
+  margin-bottom: 0.25rem;
+}
+.ck-steps-test {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.1rem;
+}
+.ck-step {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: start;
+}
+.ck-step-num {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+}
+.ck-step strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-top: 0.2rem;
+}
+.ck-step p {
+  margin: 0.3rem 0 0.6rem !important;
+}
+.ck-step .ck-addr {
+  margin-top: 0.55rem;
+}
+.ck-test-wait {
+  margin-top: 1rem !important;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
 /* ---------- google */
 .ck-google {
   margin-bottom: 0.75rem;

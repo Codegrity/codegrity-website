@@ -512,19 +512,18 @@
       );
       return box;
     }
-    const fromAddr = S.mail ? `your @${S.mail} address` : `your @${S.meta.emailDomain} email address`;
-    const addr = h("code", {}, t.address);
+    const domain = S.mail || S.meta.emailDomain;
     const copyBtn = h(
       "button",
       {
-        class: "btn btn-quiet ck-small",
+        class: "btn btn-primary ck-small",
         type: "button",
         onclick: (e) => {
           const b = e.currentTarget;
           (navigator.clipboard ? navigator.clipboard.writeText(t.address) : Promise.reject()).then(
             () => {
               b.lastChild.textContent = "Copied";
-              setTimeout(() => (b.lastChild.textContent = "Copy"), 1800);
+              setTimeout(() => (b.lastChild.textContent = "Copy address"), 1800);
             },
             () => prompt("Copy this address:", t.address)
           );
@@ -532,24 +531,34 @@
         },
       },
       icon("copy-outline"),
-      "Copy"
+      "Copy address"
     );
+    const step = (n, title, ...body) => h("li", { class: "ck-step" }, h("span", { class: "ck-step-num", "aria-hidden": "true" }, String(n)), h("div", {}, h("strong", {}, title), ...body));
     box.append(
-      h("h4", {}, icon("paper-plane-outline"), " Get the full email check"),
-      h("p", {}, `Send a short email from ${fromAddr} to the address below. We'll see exactly how the receiving server judged it, using the same checks Gmail and Outlook run.`),
-      h("div", { class: "ck-addr" }, addr, copyBtn),
-      h("p", { class: "muted ck-small-text" }, "Write it like a normal email to a customer: a few sentences and your usual signature, so we can check the formatting too. Nothing private, please."),
+      h("h4", {}, icon("paper-plane-outline"), " Get the full email check (2 minutes)"),
+      h("p", { class: "ck-test-why" }, "This shows whether the emails you send actually reach inboxes or land in spam. It's the same check Gmail and Outlook run on every email you send."),
       h(
-        "div",
-        { class: "ck-test-actions" },
-        h("a", { class: "btn btn-quiet ck-small", href: `mailto:${t.address}?subject=${encodeURIComponent("Checking in")}`, onclick: startPolling }, icon("mail-open-outline"), "Open my email app"),
-        t.status === "idle" ? h("button", { class: "btn btn-primary ck-small", type: "button", onclick: startPolling }, "I sent it") : null
+        "ol",
+        { class: "ck-steps-test" },
+        step(1, "Copy this address", h("div", { class: "ck-addr" }, h("code", {}, t.address), copyBtn)),
+        step(
+          2,
+          `Send it an email from your @${domain} account`,
+          h("p", {}, "Open your usual email (Gmail, Outlook or whatever you use for the business), start a new email, paste the address into To, and send it. Write a few sentences like you would to a customer, with your normal signature. Any subject works. Nothing private, please."),
+          h("a", { class: "btn btn-quiet ck-small", href: `mailto:${t.address}?subject=${encodeURIComponent("Checking in")}`, onclick: startPolling }, icon("mail-open-outline"), "Or open my email app")
+        ),
+        step(
+          3,
+          "Come back to this page",
+          h("p", {}, "Keep this tab open. Your results show up here automatically, usually within a minute of sending."),
+          t.status === "idle" ? h("button", { class: "btn btn-quiet ck-small", type: "button", onclick: startPolling }, "I've sent it") : null
+        )
       )
     );
-    if (t.status === "waiting") box.append(h("p", { class: "ck-running" }, h("span", { class: "ck-spin", "aria-hidden": "true" }), "Ready when you are: send your email to the address above. Keep this page open; your results appear here a few seconds after it arrives."));
+    if (t.status === "waiting") box.append(h("p", { class: "ck-running ck-test-wait" }, h("span", { class: "ck-spin", "aria-hidden": "true" }), "Watching for your email…"));
     if (t.status === "timeout")
       box.append(
-        h("p", { class: "muted" }, "We haven't seen it yet. Check the address and try again. ", h("button", { class: "ck-linkbtn", type: "button", onclick: () => { S.test.status = "idle"; startPolling(); } }, "Keep waiting"))
+        h("p", { class: "muted ck-test-wait" }, "We haven't seen it yet. Make sure it went to the exact address in step 1. ", h("button", { class: "ck-linkbtn", type: "button", onclick: () => { S.test.status = "idle"; startPolling(); } }, "Keep waiting"))
       );
     return box;
   }
