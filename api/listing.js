@@ -38,6 +38,26 @@ function nameMatch(query, placeName) {
   return shared / Math.max(a.length, b.length) >= 0.6;
 }
 
+// A 50 km circle around the city they typed, or around the visitor (Vercel adds
+// approximate location headers), so local service-area businesses can be found.
+async function areaBias(city, req, headers) {
+  const circle = (lat, lng) => ({ circle: { center: { latitude: lat, longitude: lng }, radius: 50000 } });
+  if (city) {
+    const r = await places("places:searchText", {
+      method: "POST",
+      headers: { ...headers, "X-Goog-FieldMask": "places.location" },
+      body: JSON.stringify({ textQuery: city, pageSize: 1 }),
+    }).catch(() => null);
+    const loc = r && r.ok && r.json.places && r.json.places[0] && r.json.places[0].location;
+    if (loc) return circle(loc.latitude, loc.longitude);
+  }
+  const h = req.headers || {};
+  const lat = parseFloat(h["x-vercel-ip-latitude"]);
+  const lng = parseFloat(h["x-vercel-ip-longitude"]);
+  if (Number.isFinite(lat) && Number.isFinite(lng)) return circle(lat, lng);
+  return null;
+}
+
 function summary(p) {
   return {
     id: p.id,
@@ -151,22 +171,6 @@ function assess(p, siteHost) {
 module.exports = async (req, res) => {
   const key = process.env.GOOGLE_API_KEY;
   if (!key) return send(res, 200, { enabled: false });
-  const diag = req.query.diag === "cgx-77m2p"; // temporary diagnostic, remove after use
-  if (diag) {
-    const out = {};
-    const bias = { circle: { center: { latitude: 32.85, longitude: -96.95 }, radius: 50000 } };
-    for (const [label, body] of Object.entries({
-      a: { textQuery: "Codegrity", pageSize: 20, includePureServiceAreaBusinesses: true },
-      b: { textQuery: "Codegrity software company", pageSize: 10, includePureServiceAreaBusinesses: true },
-      c: { textQuery: "Codegrity", pageSize: 10, includePureServiceAreaBusinesses: true, locationBias: bias },
-      d: { textQuery: "Codegrity Dallas", pageSize: 10, includePureServiceAreaBusinesses: true },
-      e: { textQuery: "Codegrity", pageSize: 10, includePureServiceAreaBusinesses: true, includedType: "software_company" },
-    })) {
-      const r = await places("places:searchText", { method: "POST", headers: { "X-Goog-Api-Key": key, "Content-Type": "application/json", "X-Goog-FieldMask": "places.id,places.displayName,places.websiteUri" }, body: JSON.stringify(body) });
-      out[label] = { status: r.status, names: (r.json.places || []).map((p) => (p.displayName && p.displayName.text) + " | " + (p.websiteUri || "") + " | " + p.id), error: r.json.error && r.json.error.message };
-    }
-    return send(res, 200, out);
-  }
   if (!fromOurSite(req)) return send(res, 403, { error: "Run the checkup at codegrity.com/checkup" });
   if (rateLimited(req)) return send(res, 429, { error: "Too many Google checks from your connection. Try again in a few minutes." });
   const name = String(req.query.name || "").trim().slice(0, 120);
@@ -187,16 +191,25 @@ module.exports = async (req, res) => {
     const domain = siteHost ? registrable(siteHost.replace(/^www\./, "")) : null;
     const isMine = (p) => (domain && p.websiteUri && hostOf(p.websiteUri) && registrable(hostOf(p.websiteUri)) === domain) || nameMatch(name, p.displayName && p.displayName.text);
 
-    // Try a few phrasings; stop as soon as one result is clearly this business.
-    const queries = [city ? `${name}, ${city}` : null, name, domain].filter(Boolean);
+    // Point the search at the right area. Businesses without a street address
+    // (service-area businesses) rank too low to show up in an unbiased search.
+    const bias = await areaBias(city, req, headers);
+    const queries = [
+      city ? { q: `${name}, ${city}`, bias } : null,
+      { q: name, bias },
+      bias ? { q: name, bias: null } : null,
+      domain ? { q: domain, bias } : null,
+    ].filter(Boolean);
     const seen = new Map();
     let best = null;
     let failed = 0;
-    for (const q of [...new Set(queries)]) {
+    for (const { q, bias: b } of queries) {
+      const body = { textQuery: q, pageSize: 10, includePureServiceAreaBusinesses: true };
+      if (b) body.locationBias = b;
       const r = await places("places:searchText", {
         method: "POST",
         headers: { ...headers, "X-Goog-FieldMask": FIELDS.map((f) => "places." + f).join(",") },
-        body: JSON.stringify({ textQuery: q, pageSize: 5, includePureServiceAreaBusinesses: true }),
+        body: JSON.stringify(body),
       });
       if (!r.ok) {
         failed++;
