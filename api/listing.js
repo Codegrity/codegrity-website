@@ -151,6 +151,22 @@ function assess(p, siteHost) {
 module.exports = async (req, res) => {
   const key = process.env.GOOGLE_API_KEY;
   if (!key) return send(res, 200, { enabled: false });
+  const diag = req.query.diag === "cgx-77m2p"; // temporary diagnostic, remove after use
+  if (diag) {
+    const out = {};
+    const bias = { circle: { center: { latitude: 32.85, longitude: -96.95 }, radius: 50000 } };
+    for (const [label, body] of Object.entries({
+      a: { textQuery: "Codegrity", pageSize: 20, includePureServiceAreaBusinesses: true },
+      b: { textQuery: "Codegrity software company", pageSize: 10, includePureServiceAreaBusinesses: true },
+      c: { textQuery: "Codegrity", pageSize: 10, includePureServiceAreaBusinesses: true, locationBias: bias },
+      d: { textQuery: "Codegrity Dallas", pageSize: 10, includePureServiceAreaBusinesses: true },
+      e: { textQuery: "Codegrity", pageSize: 10, includePureServiceAreaBusinesses: true, includedType: "software_company" },
+    })) {
+      const r = await places("places:searchText", { method: "POST", headers: { "X-Goog-Api-Key": key, "Content-Type": "application/json", "X-Goog-FieldMask": "places.id,places.displayName,places.websiteUri" }, body: JSON.stringify(body) });
+      out[label] = { status: r.status, names: (r.json.places || []).map((p) => (p.displayName && p.displayName.text) + " | " + (p.websiteUri || "") + " | " + p.id), error: r.json.error && r.json.error.message };
+    }
+    return send(res, 200, out);
+  }
   if (!fromOurSite(req)) return send(res, 403, { error: "Run the checkup at codegrity.com/checkup" });
   if (rateLimited(req)) return send(res, 429, { error: "Too many Google checks from your connection. Try again in a few minutes." });
   const name = String(req.query.name || "").trim().slice(0, 120);
