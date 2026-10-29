@@ -59,6 +59,7 @@ module.exports = async (req, res) => {
     dnsHost: email.dnsHost,
     finalUrl: web.meta.finalUrl,
     builder: web.meta.builder,
+    phone: web.meta.phone,
     checkedAt: new Date().toISOString(),
     findings,
   });

@@ -29,6 +29,7 @@ function analyzeHtml(html, now = new Date()) {
   const viewport = /<meta[^>]+name\s*=\s*["']viewport["']/i.test(head);
   const ogImage = metaContent(head, "property", "og:image") || metaContent(head, "name", "og:image");
   const tel = /href\s*=\s*["']tel:/i.test(html);
+  const telNum = (html.match(/href\s*=\s*["']tel:([^"']+)["']/i) || [])[1] || "";
   const ldBlocks = html.match(/<script[^>]+application\/ld\+json[^>]*>[\s\S]*?<\/script>/gi) || [];
   const ldBusiness = ldBlocks.some((b) => /"(address|telephone|openingHours|geo)"\s*:/.test(b));
   const microdata = /itemtype\s*=\s*["']https?:\/\/schema\.org\/(LocalBusiness|[A-Za-z]*Business|Organization|Store|Restaurant|Dentist|Physician|Plumber|Electrician|HomeAndConstructionBusiness)/i.test(html);
@@ -63,7 +64,12 @@ function analyzeHtml(html, now = new Date()) {
   else if (/shopify/i.test(html) && /cdn\.shopify\.com/i.test(html)) builder = "Shopify";
   else if (/webflow/i.test(g)) builder = "Webflow";
 
-  return { title, description, viewport, ogImage, tel, schema: ldBusiness || microdata, jsRendered, copyright, builder };
+  let phone = telNum.replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "");
+  if (phone.length !== 10) {
+    const m = text.match(/\(?\b([2-9]\d{2})\)?[\s.-]?([2-9]\d{2})[\s.-]?(\d{4})\b/);
+    phone = m ? m[1] + m[2] + m[3] : "";
+  }
+  return { title, description, viewport, ogImage, tel, phone: phone || null, schema: ldBusiness || microdata, jsRendered, copyright, builder };
 }
 
 // RDAP server per top-level domain, from IANA's bootstrap file (cached per instance).
@@ -110,7 +116,7 @@ function fmtDate(d) {
 
 async function checkWebsite(site, { now = new Date() } = {}) {
   const out = [];
-  const meta = { finalUrl: null, builder: null, jsRendered: false };
+  const meta = { finalUrl: null, builder: null, jsRendered: false, phone: null };
   const host = site.host;
   const fh = freeHost(host);
 
@@ -237,6 +243,7 @@ async function checkWebsite(site, { now = new Date() } = {}) {
   if (page.status < 400 && page.html) {
     const a = analyzeHtml(page.html, now);
     meta.builder = a.builder;
+    meta.phone = a.phone;
     meta.jsRendered = a.jsRendered;
 
     if (!a.title) {

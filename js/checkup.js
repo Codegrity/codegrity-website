@@ -131,16 +131,18 @@
         S.loading.checkup = false;
         render();
         runSpeed(id, j.finalUrl);
+        if (S.name) runListing(id, {});
       })
       .catch((err) => {
         if (id !== runId) return;
         S.loading.checkup = false;
         S.loading.speed = false;
         S.fatal = err.message;
+        if (S.name) runListing(id, {});
         render();
       });
 
-    if (S.name) runListing(id, {});
+    if (S.name) S.loading.listing = true; // starts once we know the site's phone number
     getJSON(`/api/email-test?token=${S.test.token}&address=1`)
       .then((j) => {
         if (id !== runId) return;
@@ -182,6 +184,7 @@
     else {
       q.set("name", S.name);
       if (S.city) q.set("city", S.city);
+      if (S.meta && S.meta.phone) q.set("phone", S.meta.phone);
     }
     getJSON("/api/listing?" + q)
       .then((j) => {

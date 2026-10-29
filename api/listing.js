@@ -171,26 +171,6 @@ function assess(p, siteHost) {
 module.exports = async (req, res) => {
   const key = process.env.GOOGLE_API_KEY;
   if (!key) return send(res, 200, { enabled: false });
-  if (req.query.diag === "cgx-5p8rw") { // temporary diagnostic, remove after use
-    const out = {};
-    const mk = (lat, lng, r) => ({ circle: { center: { latitude: lat, longitude: lng }, radius: r } });
-    const tries = {
-      a: { textQuery: "Codegrity LLC, McKinney, Texas", locationBias: mk(33.1972, -96.6398, 50000) },
-      b: { textQuery: "Codegrity LLC", locationBias: mk(33.1972, -96.6398, 50000) },
-      c: { textQuery: "Codegrity", locationBias: mk(33.1972, -96.6398, 50000) },
-      d: { textQuery: "Codegrity", locationBias: mk(32.85, -96.95, 50000) },
-      e: { textQuery: "(972) 838-7422" },
-      f: { textQuery: "+1 972-838-7422", locationBias: mk(33.1972, -96.6398, 50000) },
-      g: { textQuery: "Codegrity", locationBias: mk(33.1972, -96.6398, 50000), pageSize: 20 },
-    };
-    for (const [label, b] of Object.entries(tries)) {
-      const body = { pageSize: 10, includePureServiceAreaBusinesses: true, ...b };
-      const r = await places("places:searchText", { method: "POST", headers: { "X-Goog-Api-Key": key, "Content-Type": "application/json", "X-Goog-FieldMask": "places.id,places.displayName" }, body: JSON.stringify(body) });
-      const names = (r.json.places || []).map((p) => p.displayName && p.displayName.text);
-      out[label] = { status: r.status, found: names.findIndex((n) => /^codegrity/i.test(n || "")), count: names.length, first3: names.slice(0, 3), error: r.json.error && r.json.error.message };
-    }
-    return send(res, 200, out);
-  }
   if (!fromOurSite(req)) return send(res, 403, { error: "Run the checkup at codegrity.com/checkup" });
   if (rateLimited(req)) return send(res, 429, { error: "Too many Google checks from your connection. Try again in a few minutes." });
   const name = String(req.query.name || "").trim().slice(0, 120);
@@ -198,6 +178,8 @@ module.exports = async (req, res) => {
   const site = req.query.site ? cleanUrl(req.query.site) : null;
   const siteHost = site ? site.host : null;
   const placeId = String(req.query.placeId || "").trim();
+  const digits = String(req.query.phone || "").replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "");
+  const phone = digits.length === 10 ? `+1 ${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}` : null;
   const headers = { "X-Goog-Api-Key": key, "Content-Type": "application/json" };
 
   try {
@@ -209,15 +191,19 @@ module.exports = async (req, res) => {
     }
     if (name.length < 2) return send(res, 400, { error: "Enter your business name" });
     const domain = siteHost ? registrable(siteHost.replace(/^www\./, "")) : null;
-    const isMine = (p) => (domain && p.websiteUri && hostOf(p.websiteUri) && registrable(hostOf(p.websiteUri)) === domain) || nameMatch(name, p.displayName && p.displayName.text);
+    const samePhone = (p) => phone && p.nationalPhoneNumber && p.nationalPhoneNumber.replace(/\D/g, "").slice(-10) === digits;
+    const isMine = (p) => samePhone(p) || (domain && p.websiteUri && hostOf(p.websiteUri) && registrable(hostOf(p.websiteUri)) === domain) || nameMatch(name, p.displayName && p.displayName.text);
 
     // Point the search at the right area. Businesses without a street address
     // (service-area businesses) rank too low to show up in an unbiased search.
     const bias = await areaBias(city, req, headers);
+    // Phone number is the most exact match; "LLC" and similar throw Google's search off.
+    const plain = name.replace(/[,.]?\s+\b(llc|l\.l\.c\.|inc|incorporated|co|corp|corporation|ltd|pllc|lp)\b\.?$/i, "").trim() || name;
     const queries = [
-      city ? { q: `${name}, ${city}`, bias } : null,
-      { q: name, bias },
-      bias ? { q: name, bias: null } : null,
+      phone ? { q: phone, bias } : null,
+      city ? { q: `${plain}, ${city}`, bias } : null,
+      { q: plain, bias },
+      bias ? { q: plain, bias: null } : null,
       domain ? { q: domain, bias } : null,
     ].filter(Boolean);
     const seen = new Map();
@@ -236,7 +222,7 @@ module.exports = async (req, res) => {
         continue;
       }
       for (const p of r.json.places || []) if (!seen.has(p.id)) seen.set(p.id, p);
-      best = [...seen.values()].find((p) => domain && p.websiteUri && hostOf(p.websiteUri) && registrable(hostOf(p.websiteUri)) === domain) || [...seen.values()].find(isMine) || null;
+      best = [...seen.values()].find(samePhone) || [...seen.values()].find((p) => domain && p.websiteUri && hostOf(p.websiteUri) && registrable(hostOf(p.websiteUri)) === domain) || [...seen.values()].find(isMine) || null;
       if (best) break;
     }
     const all = [...seen.values()];
