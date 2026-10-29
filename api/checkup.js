@@ -2,7 +2,8 @@
 // Email (DNS) and website checks. Nothing is stored or logged.
 const { checkEmail } = require("./_lib/emailchecks");
 const { checkWebsite } = require("./_lib/webchecks");
-const { cleanUrl, cleanHost, FREE_MAIL, freeHost, finding, send } = require("./_lib/util");
+const { cleanUrl, cleanHost, FREE_MAIL, freeHost, registrable, finding, send } = require("./_lib/util");
+const dns = require("./_lib/dns");
 
 module.exports = async (req, res) => {
   if (req.method !== "GET") return send(res, 405, { error: "GET only" });
@@ -18,6 +19,17 @@ module.exports = async (req, res) => {
   const emailDomain = ownMail || (siteIsFree ? null : siteDomain);
   // true when they told us they use an address at this domain; null when unknown.
   const usesDomainEmail = ownMail ? true : mailDomain ? false : null;
+
+  // A misspelled or unregistered domain: say so once instead of a page of failures.
+  const ns = await dns.query(registrable(siteDomain), "NS");
+  if (ns.ok && !ns.records.length) {
+    return send(res, 200, {
+      site: `${site.host}${site.path || ""}`,
+      emailDomain: null,
+      checkedAt: new Date().toISOString(),
+      findings: [finding({ id: "domain-unknown", area: "website", status: "info", title: `We couldn't find ${registrable(siteDomain)}`, detail: "That domain doesn't seem to be registered. Check the spelling and run the checkup again." })],
+    });
+  }
 
   const [email, web] = await Promise.all([
     emailDomain ? checkEmail(emailDomain, { usesDomainEmail }) : Promise.resolve({ findings: [], provider: null, dnsHost: null }),

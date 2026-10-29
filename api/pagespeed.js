@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
     clearTimeout(t);
     const j = await r.json();
     if (!r.ok || !j.lighthouseResult) {
-      return send(res, 200, { findings: [finding({ id: "speed-unknown", area: "website", status: "info", title: "We couldn't measure your speed this time", detail: "Google's speed test didn't finish. Run the checkup again later." })] });
+      return send(res, 200, { reason: r.status, findings: [finding({ id: "speed-unknown", area: "website", status: "info", title: "We couldn't measure your speed this time", detail: "Google's speed test didn't finish. Run the checkup again later." })] });
     }
     const lh = j.lighthouseResult;
     const score = Math.round((lh.categories.performance.score || 0) * 100);

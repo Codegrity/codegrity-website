@@ -66,18 +66,41 @@ function analyzeHtml(html, now = new Date()) {
   return { title, description, viewport, ogImage, tel, schema: ldBusiness || microdata, jsRendered, copyright, builder };
 }
 
-async function rdapExpiry(domain) {
+// RDAP server per top-level domain, from IANA's bootstrap file (cached per instance).
+const RDAP_KNOWN = { com: "https://rdap.verisign.com/com/v1/", net: "https://rdap.verisign.com/net/v1/" };
+let rdapBootstrap = null;
+async function rdapBase(tld) {
+  if (RDAP_KNOWN[tld]) return RDAP_KNOWN[tld];
   try {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 6000);
-    const res = await fetchImpl(`https://rdap.org/domain/${domain}`, { headers: { accept: "application/rdap+json" }, signal: ctrl.signal });
-    clearTimeout(t);
-    if (!res.ok) return null;
-    const j = await res.json();
-    const ev = (j.events || []).find((e) => /expiration/i.test(e.eventAction));
-    return ev ? new Date(ev.eventDate) : null;
+    if (!rdapBootstrap) {
+      const r = await fetchImpl("https://data.iana.org/rdap/dns.json");
+      rdapBootstrap = r.ok ? await r.json() : { services: [] };
+    }
+    const svc = (rdapBootstrap.services || []).find(([tlds]) => tlds.includes(tld));
+    return svc ? svc[1][0].replace(/\/?$/, "/") : null;
   } catch {
     return null;
+  }
+}
+
+async function rdapExpiry(domain) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), 6000);
+  try {
+    const base = await rdapBase(domain.split(".").pop());
+    const urls = [base && `${base}domain/${domain}`, `https://rdap.org/domain/${domain}`].filter(Boolean);
+    for (const u of urls) {
+      try {
+        const res = await fetchImpl(u, { headers: { accept: "application/rdap+json, application/json" }, signal: ctrl.signal });
+        if (!res.ok) continue;
+        const j = await res.json();
+        const ev = (j.events || []).find((e) => /expiration/i.test(e.eventAction));
+        if (ev) return new Date(ev.eventDate);
+      } catch {}
+    }
+    return null;
+  } finally {
+    clearTimeout(t);
   }
 }
 
