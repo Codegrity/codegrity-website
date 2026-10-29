@@ -167,6 +167,132 @@
   }
 }
 
+/* ---------- loading panel */
+.ck-loader {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 1.5rem 0 0.5rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(139, 92, 246, 0.1));
+  max-width: 760px;
+}
+.ck-loader-logo {
+  width: 84px;
+  height: 84px;
+  flex: none;
+}
+.ck-loader-logo svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.ck-logo-outer {
+  transform-origin: 50px 50px;
+  animation: ck-logo-spin 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+.ck-logo-inner {
+  transform-origin: 50px 50px;
+  animation: ck-logo-pulse 1.2s ease-in-out infinite;
+}
+@keyframes ck-logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ck-logo-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.82);
+    opacity: 0.75;
+  }
+}
+.ck-loader-body {
+  flex: 1;
+  min-width: 0;
+}
+.ck-loader-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.ck-loader-sub {
+  margin: 0.2rem 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+.ck-loader-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.2);
+  overflow: hidden;
+  margin-bottom: 0.9rem;
+}
+.ck-loader-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  transition: width 0.5s ease;
+}
+.ck-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+.ck-steps li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+.ck-steps li.is-done {
+  color: var(--text);
+}
+.ck-steps ion-icon {
+  color: var(--ck-pass);
+  font-size: 1.15rem;
+  flex: none;
+}
+.ck-steps .ck-spin {
+  margin: 0 1px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ck-logo-outer {
+    animation-duration: 6s;
+  }
+  .ck-logo-inner {
+    animation: none;
+  }
+}
+@media (max-width: 560px) {
+  .ck-loader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+  .ck-loader-logo {
+    width: 64px;
+    height: 64px;
+  }
+}
+
 /* ---------- sections */
 .ck-sec {
   margin-top: 2.75rem;

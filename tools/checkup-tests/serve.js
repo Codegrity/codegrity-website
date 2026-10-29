@@ -55,7 +55,7 @@ global.fetch = async (url, init = {}) => {
     return exp ? Response.json({ events: [{ eventAction: "expiration", eventDate: exp }] }) : new Response("{}", { status: 404 });
   }
   if (u.hostname === "www.googleapis.com") {
-    await new Promise((r) => setTimeout(r, 2500));
+    await new Promise((r) => setTimeout(r, 6000));
     const target = u.searchParams.get("url");
     const score = /codegrity/.test(target) ? 0.97 : /wixsite/.test(target) ? 0.38 : 0.62;
     return Response.json({ lighthouseResult: { categories: { performance: { score } }, audits: { "largest-contentful-paint": { displayValue: score > 0.9 ? "1.4 s" : "6.8 s" } } } });

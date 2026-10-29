@@ -266,6 +266,11 @@
   // ---------- render
   function render() {
     if (!S) return;
+    const go = $("#ck-go");
+    if (go) {
+      go.disabled = busy();
+      go.lastChild.textContent = busy() ? "Checking…" : "Run my free checkup";
+    }
     const all = merged();
     const c = counts(all);
     renderSummary(all, c);
@@ -297,8 +302,8 @@
       h("div", { class: "ck-stat" }, h("strong", {}, String(c.bigger.length)), h("span", {}, c.bigger.length === 1 ? "bigger job" : "bigger jobs")),
       h("div", { class: "ck-stat ck-stat-good" }, h("strong", {}, String(c.good.length)), h("span", {}, c.good.length === 1 ? "thing looks good" : "things look good"))
     );
+    if (busy()) box.append(loader());
     box.append(stats);
-    if (busy()) box.append(h("p", { class: "ck-running" }, h("span", { class: "ck-spin", "aria-hidden": "true" }), "Still checking: ", [S.loading.checkup && "email and website", S.loading.speed && "phone speed (up to a minute)", S.loading.listing && "Google listing"].filter(Boolean).join(", ")));
     box.append(
       h(
         "div",
@@ -306,6 +311,40 @@
         h("button", { class: "btn btn-quiet ck-small", type: "button", onclick: copyLink }, icon("link-outline"), "Copy link to this checkup"),
         h("button", { class: "btn btn-quiet ck-small", type: "button", onclick: () => printReport() }, icon("print-outline"), "Print or save as PDF"),
         h("button", { class: "btn btn-quiet ck-small", type: "button", onclick: () => { results.hidden = true; $("#ck-what").hidden = false; window.scrollTo({ top: 0, behavior: "smooth" }); $("#ck-site").focus(); } }, icon("refresh-outline"), "Check another business")
+      )
+    );
+  }
+
+  const LOGO =
+    '<svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="ckLogoG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs>' +
+    '<g class="ck-logo-outer"><rect x="20" y="20" width="60" height="60" fill="none" stroke="#3b82f6" stroke-width="3" rx="6" transform="rotate(45 50 50)"/></g>' +
+    '<g class="ck-logo-inner"><rect x="35" y="35" width="30" height="30" fill="url(#ckLogoG)" rx="3" transform="rotate(45 50 50)"/><circle cx="50" cy="50" r="5" fill="#fff"/></g></svg>';
+
+  function loader() {
+    const steps = [
+      { label: "Email security", done: !S.loading.checkup },
+      { label: "Website", done: !S.loading.checkup },
+      { label: S.loading.speed && !S.loading.checkup ? "Phone speed (Google's test can take up to a minute)" : "Phone speed", done: !S.loading.speed },
+    ];
+    if (S.name) steps.push({ label: "Google listing", done: !S.loading.listing });
+    const doneCount = steps.filter((s) => s.done).length;
+    const logo = h("div", { class: "ck-loader-logo" });
+    logo.innerHTML = LOGO;
+    return h(
+      "div",
+      { class: "ck-loader", role: "status" },
+      logo,
+      h(
+        "div",
+        { class: "ck-loader-body" },
+        h("p", { class: "ck-loader-title" }, "Running your checkup"),
+        h("p", { class: "ck-loader-sub" }, `${doneCount} of ${steps.length} done. Results appear below as each one finishes.`),
+        h("div", { class: "ck-loader-bar" }, h("span", { style: `width:${Math.max(8, (doneCount / steps.length) * 100)}%` })),
+        h(
+          "ul",
+          { class: "ck-steps" },
+          steps.map((s) => h("li", { class: s.done ? "is-done" : "" }, s.done ? icon("checkmark-circle") : h("span", { class: "ck-spin", "aria-hidden": "true" }), s.label))
+        )
       )
     );
   }
