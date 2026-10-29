@@ -17,6 +17,27 @@ async function places(path, init) {
   }
 }
 
+const STOP = new Set(["the", "llc", "inc", "co", "company", "corp", "ltd", "pllc", "and", "of", "services", "service"]);
+function words(s) {
+  return String(s || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/&/g, " and ").replace(/[^a-z0-9]+/g, " ").trim().split(" ").filter((w) => w && !STOP.has(w));
+}
+// True when a Google result's name is clearly the business the visitor typed.
+function nameMatch(query, placeName) {
+  const a = words(query);
+  const b = words(placeName);
+  if (!a.length || !b.length) return false;
+  const ja = a.join("");
+  const jb = b.join("");
+  if (ja === jb) return true;
+  if (ja.length >= 4 && jb.length >= 4 && (jb.startsWith(ja) || ja.startsWith(jb)) && Math.min(ja.length, jb.length) / Math.max(ja.length, jb.length) >= 0.5) {
+    // "codegrity" vs "codegrity mckinney" is fine; "code" vs "codegravity" is not.
+    return b.includes(a[0]) || a.includes(b[0]);
+  }
+  const A = new Set(a);
+  const shared = b.filter((w) => A.has(w)).length;
+  return shared / Math.max(a.length, b.length) >= 0.6;
+}
+
 function summary(p) {
   return {
     id: p.id,
@@ -147,35 +168,54 @@ module.exports = async (req, res) => {
       return send(res, 200, { enabled: true, match: summary(r.json), alternatives: [], findings: assess(r.json, siteHost) });
     }
     if (name.length < 2) return send(res, 400, { error: "Enter your business name" });
-    const r = await places("places:searchText", {
-      method: "POST",
-      headers: { ...headers, "X-Goog-FieldMask": FIELDS.map((f) => "places." + f).join(",") },
-      body: JSON.stringify({ textQuery: city ? `${name}, ${city}` : name, pageSize: 5 }),
-    });
-    if (!r.ok) return send(res, 200, { enabled: true, error: "lookup failed", findings: [finding({ id: "gbp-unknown", area: "google", status: "info", title: "We couldn't check Google right now", detail: "Try again in a minute." })] });
-    const list = r.json.places || [];
-    if (!list.length) {
+    const domain = siteHost ? registrable(siteHost.replace(/^www\./, "")) : null;
+    const isMine = (p) => (domain && p.websiteUri && hostOf(p.websiteUri) && registrable(hostOf(p.websiteUri)) === domain) || nameMatch(name, p.displayName && p.displayName.text);
+
+    // Try a few phrasings; stop as soon as one result is clearly this business.
+    const queries = [city ? `${name}, ${city}` : null, name, domain].filter(Boolean);
+    const seen = new Map();
+    let best = null;
+    let failed = 0;
+    for (const q of [...new Set(queries)]) {
+      const r = await places("places:searchText", {
+        method: "POST",
+        headers: { ...headers, "X-Goog-FieldMask": FIELDS.map((f) => "places." + f).join(",") },
+        body: JSON.stringify({ textQuery: q, pageSize: 5 }),
+      });
+      if (!r.ok) {
+        failed++;
+        continue;
+      }
+      for (const p of r.json.places || []) if (!seen.has(p.id)) seen.set(p.id, p);
+      best = [...seen.values()].find((p) => domain && p.websiteUri && hostOf(p.websiteUri) && registrable(hostOf(p.websiteUri)) === domain) || [...seen.values()].find(isMine) || null;
+      if (best) break;
+    }
+    const all = [...seen.values()];
+    if (failed && !all.length) return send(res, 200, { enabled: true, error: "lookup failed", findings: [finding({ id: "gbp-unknown", area: "google", status: "info", title: "We couldn't check Google right now", detail: "Try again in a minute." })] });
+
+    if (best) {
+      return send(res, 200, { enabled: true, match: summary(best), alternatives: all.filter((p) => p !== best).slice(0, 4).map(summary), findings: assess(best, siteHost) });
+    }
+    if (all.length) {
       return send(res, 200, {
-        enabled: true, match: null, alternatives: [],
+        enabled: true, match: null, alternatives: all.slice(0, 5).map(summary),
         findings: [finding({
-          id: "gbp-missing", area: "google", status: "fail", fixable: true,
-          title: "We couldn't find you on Google Maps",
-          detail: `Searching Google for "${name}${city ? ", " + city : ""}" didn't turn up a business listing.`,
-          impact: "Google Maps is where most people look for a local business. If you're not there, they find your competitors instead.",
-          diy: ["Search for your business on Google Maps yourself. If it's there under a different name, run this check again with that name.", "If not, create a free profile at business.google.com and complete verification."],
+          id: "gbp-unsure", area: "google", status: "info",
+          title: `We couldn't find a listing named "${name}"`,
+          detail: "Google returned other businesses with similar names. If yours is in the list below, pick it. If not, you may not have a Google listing yet, or it uses a different name.",
+          diy: ["Search for your business on Google Maps. If it's there under a different name, run the check again with that name.", "If it isn't there, create a free profile at business.google.com and complete verification."],
         })],
       });
     }
-    let best = list[0];
-    if (siteHost) {
-      const byWeb = list.find((p) => p.websiteUri && hostOf(p.websiteUri) && registrable(hostOf(p.websiteUri)) === registrable(siteHost.replace(/^www\./, "")));
-      if (byWeb) best = byWeb;
-    }
-    send(res, 200, {
-      enabled: true,
-      match: summary(best),
-      alternatives: list.filter((p) => p !== best).slice(0, 4).map(summary),
-      findings: assess(best, siteHost),
+    return send(res, 200, {
+      enabled: true, match: null, alternatives: [],
+      findings: [finding({
+        id: "gbp-missing", area: "google", status: "fail", fixable: true,
+        title: "We couldn't find you on Google Maps",
+        detail: `Searching Google for "${name}${city ? ", " + city : ""}" didn't turn up a business listing.`,
+        impact: "Google Maps is where most people look for a local business. If you're not there, they find your competitors instead.",
+        diy: ["Search for your business on Google Maps yourself. If it's there under a different name, run this check again with that name.", "If not, create a free profile at business.google.com and complete verification."],
+      })],
     });
   } catch (e) {
     send(res, 200, { enabled: true, error: "lookup failed", findings: [finding({ id: "gbp-unknown", area: "google", status: "info", title: "We couldn't check Google right now", detail: "Try again in a minute." })] });
@@ -183,3 +223,4 @@ module.exports = async (req, res) => {
 };
 
 module.exports.assess = assess;
+module.exports.nameMatch = nameMatch;

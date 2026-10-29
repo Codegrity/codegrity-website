@@ -445,11 +445,12 @@
           h("div", {}, h("strong", {}, m.name), h("span", { class: "muted" }, m.address), m.mapsUri ? h("a", { href: m.mapsUri, target: "_blank", rel: "noopener" }, "Open in Google Maps") : null)
         )
       );
-      if (S.listing.alternatives && S.listing.alternatives.length) {
-        const sel = h("select", { "aria-label": "Pick your business" }, h("option", { value: "" }, "Not you? Pick your business"), S.listing.alternatives.map((a) => h("option", { value: a.id }, `${a.name}, ${a.address}`)));
-        sel.addEventListener("change", () => sel.value && runListing(S.id, { placeId: sel.value }));
-        box.append(sel);
-      }
+    }
+    if (S.listing.alternatives && S.listing.alternatives.length) {
+      const label = m ? "Not you? Pick your business" : "Is one of these you? Pick it";
+      const sel = h("select", { "aria-label": "Pick your business" }, h("option", { value: "" }, label), S.listing.alternatives.map((a) => h("option", { value: a.id }, `${a.name}${a.address ? ", " + a.address : ""}`)));
+      sel.addEventListener("change", () => sel.value && runListing(S.id, { placeId: sel.value }));
+      box.append(sel);
     }
     return box;
   }
