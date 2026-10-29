@@ -190,6 +190,7 @@
           <li><a href="/services">Services</a></li>
           <li><a href="/ai-automation">AI Automation</a></li>
           <li><a href="/local" aria-current="page">Local Websites</a></li>
+          <li><a href="/checkup">Free Checkup</a></li>
           <li><a href="/work">Work</a></li>
           <li><a href="/pricing">Pricing</a></li>
           <li><a href="/about">About</a></li>
@@ -215,7 +216,7 @@
             One local team, one flat monthly price.
           </p>
           <div class="actions">
-            <a class="btn btn-primary" href="#audit" data-cta="local-hero-audit">Get my free site audit</a>
+            <a class="btn btn-primary" href="#audit" data-cta="local-hero-audit">Run my free checkup</a>
             <a class="btn btn-quiet" href="#plans">See plans</a>
           </div>
         </div>
@@ -316,7 +317,7 @@
             <h2 id="h-process">Live in about two weeks</h2>
           </div>
           <ol class="steps">
-            <li><h3>Free audit</h3><p>We check your current site's speed, calls to action and search details, then send you the results.</p></li>
+            <li><h3>Free checkup</h3><p>Run the Business Checkup to see your site's speed, calls to action, search details, email and Google listing in about a minute.</p></li>
             <li><h3>20-minute call</h3><p>We agree on pages, photos and wording. You approve a preview before anything goes live.</p></li>
             <li><h3>Launch and care</h3><p>We launch, connect your Google profile and handle updates every month.</p></li>
           </ol>
@@ -333,7 +334,7 @@
               </div>
               <div>
                 <p class="amount-line"><s>$750 build</s> <strong>$450 build</strong>, any plan with a build fee</p>
-                <a class="btn btn-primary" href="#audit" data-plan="Founding spot" data-cta="local-founding">Claim a founding spot</a>
+                <a class="btn btn-primary" href="/contact#book" data-plan="Founding spot" data-cta="local-founding">Claim a founding spot</a>
               </div>
             </div>
           </div>
@@ -409,78 +410,31 @@
         <div class="wrap contact-grid">
           <div>
             <h2 id="h-audit">Find out what your site is costing you</h2>
-            <p class="muted" style="margin-top: 1rem">Send us your web address and we will email a one-page audit within one business day. No call required.</p>
+            <p class="muted" style="margin-top: 1rem">Run our free Business Checkup. You get results in about a minute, in plain English, with steps to fix each problem. No sign-up, and we don't save your results.</p>
             <ul class="checks" style="margin-top: 1.5rem">
               <li><ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon><span>Load time on a phone, measured with Google's own tool</span></li>
               <li><ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon><span>Whether customers can call or find you in one tap</span></li>
               <li><ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon><span>Whether Google and AI tools can read your business details</span></li>
-              <li><ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon><span>The three fixes that would matter most</span></li>
+              <li><ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon><span>Whether your email reaches inboxes, and whether your Google listing is complete</span></li>
             </ul>
-            <p class="muted" style="margin-top: 1.5rem">Prefer to talk? Call <a href="tel:+19728387422">(972) 838-7422</a> or email <a href="mailto:psojdei@codegrity.com">psojdei@codegrity.com</a>.</p>
+            <p class="muted" style="margin-top: 1.5rem">Want a person to look too? Email <a href="mailto:psojdei@codegrity.com?subject=Please%20review%20my%20website">psojdei@codegrity.com</a> or call <a href="tel:+19728387422">(972) 838-7422</a>.</p>
           </div>
-          <form
-            class="form"
-            id="auditForm"
-            action="https://formspree.io/f/xbdaygkq"
-            method="POST"
-            data-form="local-audit"
-            data-ajax
-            data-success="Got it. Your audit will arrive by email within one business day."
-          >
-            <input type="hidden" name="_subject" value="Local site audit request" />
-            <input type="hidden" name="service" value="local-website" />
-            <input type="hidden" name="plan_interest" id="planInterest" value="" />
-            <div class="hp-field" aria-hidden="true">
-              <label for="company_site">Leave this empty</label>
-              <input type="text" id="company_site" name="_gotcha" tabindex="-1" autocomplete="off" />
-            </div>
+          <form class="form side-card" action="/checkup" method="GET">
             <div class="field">
               <label for="website">Business website</label>
-              <input type="text" id="website" name="website" required inputmode="url" autocomplete="url" placeholder="yourbusiness.com" />
+              <input type="text" id="website" name="site" required inputmode="url" autocomplete="url" placeholder="yourbusiness.com" />
             </div>
-            <div class="form-row">
-              <div class="field">
-                <label for="audit-name">Your name <span class="hint">(optional)</span></label>
-                <input type="text" id="audit-name" name="name" autocomplete="name" />
-              </div>
-              <div class="field">
-                <label for="audit-business">Business name <span class="hint">(optional)</span></label>
-                <input type="text" id="audit-business" name="company" autocomplete="organization" />
-              </div>
+            <div class="field">
+              <label for="audit-business">Business name <span class="hint">(for the Google check)</span></label>
+              <input type="text" id="audit-business" name="name" autocomplete="organization" />
             </div>
-            <div class="form-row">
-              <div class="field">
-                <label for="audit-email">Email</label>
-                <input type="email" id="audit-email" name="email" required autocomplete="email" />
-              </div>
-              <div class="field">
-                <label for="audit-phone">Phone <span class="hint">(optional)</span></label>
-                <input type="tel" id="audit-phone" name="phone" autocomplete="tel" />
-              </div>
-            </div>
-            <label class="consent" for="audit-consent">
-              <input type="checkbox" id="audit-consent" name="email_consent" value="yes" required />
-              <span>Email me my audit and occasional tips from Codegrity. Unsubscribe anytime.</span>
-            </label>
-            <div><button class="btn btn-primary" type="submit">Get my free site audit</button></div>
-            <p class="form-status" role="status" aria-live="polite"></p>
+            <div><button class="btn btn-primary" type="submit">Run my free checkup</button></div>
+            <p class="muted" style="margin: 0; font-size: 0.95rem">Ready to talk about a new site? <a href="/contact#book">Book a call</a>.</p>
           </form>
         </div>
       </section>
     </main>
 
-    <script>
-      // Remember which plan button sent the visitor to the form, and add https:// to bare domains
-      document.querySelectorAll("[data-plan]").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          document.getElementById("planInterest").value = btn.dataset.plan;
-        });
-      });
-      document.getElementById("auditForm").addEventListener("submit", function () {
-        var site = this.website.value.trim();
-        if (site && !/^https?:\/\//i.test(site)) this.website.value = "https://" + site;
-      });
-    </script>
     <!-- footer:start -->
     <footer class="cg-footer">
       <div class="cg-footer-grid">
@@ -494,6 +448,7 @@
         <div>
           <h2>Services</h2>
           <ul>
+            <li><a href="/checkup">Free Business Checkup</a></li>
             <li><a href="/services">All services</a></li>
             <li><a href="/integrations">Integrations</a></li>
             <li><a href="/legacy-modernization">Legacy modernization</a></li>

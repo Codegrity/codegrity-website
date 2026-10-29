@@ -2,102 +2,107 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.codegrity.com/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/services</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/integrations</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/legacy-modernization</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/project-rescue</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/fractional-cto</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/ai-automation</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/ai-opportunity-audit</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/pricing</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/local</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/work</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/work/dailyprimestore</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/about</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/how-we-use-ai</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/contact</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/blog</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/blog/ai-automation-cost-small-business</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/blog/taking-over-a-software-project</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/blog/dotnet-framework-migration-checklist</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.codegrity.com/blog/the-real-cost-of-cheap-development</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.codegrity.com/checkup</loc>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>

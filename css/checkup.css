@@ -1,0 +1,675 @@
+/* Business Checkup */
+:root {
+  --ck-fail: #f87171;
+  --ck-warn: #fbbf24;
+  --ck-pass: var(--signal);
+  --ck-info: var(--link);
+}
+
+.ck-hero h1 {
+  max-width: 18ch;
+}
+
+/* ---------- form */
+.ck-form {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 1.25rem;
+  max-width: 880px;
+  padding: 1.75rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--ink-2);
+}
+.ck-field-site {
+  grid-column: 1 / -1;
+}
+.ck-field-site input {
+  font-size: 1.15rem;
+  padding: 0.95rem 1rem;
+}
+.ck-submit {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 0.25rem;
+}
+.ck-submit .btn ion-icon {
+  font-size: 1.25rem;
+}
+.ck-promise {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+.ck-promise ion-icon {
+  color: var(--signal);
+}
+.ck-form .form-status {
+  grid-column: 1 / -1;
+  margin: 0;
+  min-height: 0;
+}
+
+/* ---------- what we check */
+.ck-areas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.ck-area-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: var(--ink-2);
+}
+.ck-area-card ion-icon {
+  font-size: 1.6rem;
+  color: var(--signal);
+}
+.ck-area-card h3 {
+  margin: 0.75rem 0 0.4rem;
+  font-size: 1.2rem;
+}
+.ck-area-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* ---------- summary */
+.ck-results {
+  scroll-margin-top: calc(var(--cg-header-h, 72px) + 8px);
+}
+.ck-summary .kicker {
+  margin-bottom: 0.4rem;
+}
+.ck-site {
+  margin: 0;
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  overflow-wrap: anywhere;
+}
+.ck-when {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+}
+.ck-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.75rem 0 1.25rem;
+  max-width: 760px;
+}
+.ck-stat {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+  background: var(--ink-2);
+  display: flex;
+  flex-direction: column;
+}
+.ck-stat strong {
+  font-size: 2.1rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.ck-stat span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.ck-stat-fix strong {
+  color: var(--ck-warn);
+}
+.ck-stat-good strong {
+  color: var(--ck-pass);
+}
+.ck-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+.btn.ck-small {
+  min-height: 40px;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+}
+.ck-running {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+.ck-spin {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  border-top-color: var(--link);
+  animation: ck-spin 0.8s linear infinite;
+  flex: none;
+}
+@keyframes ck-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ck-spin {
+    animation-duration: 2.4s;
+  }
+}
+
+/* ---------- sections */
+.ck-sec {
+  margin-top: 2.75rem;
+}
+.ck-sec-head {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 1rem;
+}
+.ck-sec-head ion-icon {
+  font-size: 1.5rem;
+  color: var(--signal);
+}
+.ck-sec-head h3 {
+  margin: 0;
+  font-size: 1.45rem;
+}
+.ck-badge {
+  margin-left: auto;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.ck-badge-bad {
+  color: #1a1206;
+  background: var(--ck-warn);
+  border-color: var(--ck-warn);
+}
+.ck-badge-ok {
+  color: #04211c;
+  background: var(--ck-pass);
+  border-color: var(--ck-pass);
+}
+.ck-meta {
+  margin: 0 0 1rem;
+  color: var(--faint);
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- finding */
+.ck-item {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  gap: 0.85rem;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--line);
+  border-left-width: 4px;
+  border-radius: 10px;
+  background: var(--ink-2);
+  margin-bottom: 0.75rem;
+}
+.ck-fail {
+  border-left-color: var(--ck-fail);
+}
+.ck-warn {
+  border-left-color: var(--ck-warn);
+}
+.ck-pass {
+  border-left-color: var(--ck-pass);
+}
+.ck-info {
+  border-left-color: var(--ck-info);
+}
+.ck-ico ion-icon {
+  font-size: 1.55rem;
+  margin-top: 0.05rem;
+}
+.ck-fail .ck-ico {
+  color: var(--ck-fail);
+}
+.ck-warn .ck-ico {
+  color: var(--ck-warn);
+}
+.ck-pass .ck-ico {
+  color: var(--ck-pass);
+}
+.ck-info .ck-ico {
+  color: var(--ck-info);
+}
+.ck-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.75rem;
+}
+.ck-head h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.35;
+}
+.ck-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.18);
+  color: var(--link);
+  white-space: nowrap;
+}
+.ck-tag-big {
+  background: rgba(251, 191, 36, 0.14);
+  color: var(--ck-warn);
+}
+.ck-body p {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+.ck-body .ck-impact {
+  color: var(--text);
+}
+.ck-impact strong {
+  font-weight: 600;
+}
+.ck-evidence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+  align-items: baseline;
+}
+.ck-evidence span {
+  font-size: 0.85rem;
+  color: var(--faint);
+}
+.ck-evidence code {
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.15rem 0.45rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.ck-diy {
+  margin-top: 0.7rem;
+}
+.ck-diy summary,
+.ck-good summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--link);
+  font-size: 0.98rem;
+}
+.ck-diy ol {
+  margin: 0.6rem 0 0;
+  padding-left: 1.25rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+.ck-diy li + li {
+  margin-top: 0.35rem;
+}
+.ck-good {
+  margin-top: 0.75rem;
+}
+.ck-good summary {
+  padding: 0.5rem 0;
+}
+.ck-good[open] summary {
+  margin-bottom: 0.6rem;
+}
+
+/* ---------- email test */
+.ck-test {
+  margin: 1rem 0 0.5rem;
+  padding: 1.35rem 1.4rem;
+  border: 1px dashed var(--link);
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.07);
+}
+.ck-test h4 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.ck-test h4 ion-icon {
+  color: var(--link);
+}
+.ck-test p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+}
+.ck-addr {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+}
+.ck-addr code {
+  font-size: 1rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 8px;
+  background: var(--ink);
+  border: 1px solid var(--line);
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.ck-small-text {
+  font-size: 0.92rem;
+}
+.ck-test-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+.ck-linkbtn {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--link);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ---------- google */
+.ck-google {
+  margin-bottom: 0.75rem;
+}
+.ck-google > p {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+}
+.ck-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.ck-inline input,
+.ck-google select {
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  min-width: 0;
+}
+.ck-inline input {
+  flex: 1 1 200px;
+}
+.ck-google select {
+  margin: 0.25rem 0 0.75rem;
+  max-width: 100%;
+}
+.ck-place {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+}
+.ck-place ion-icon {
+  font-size: 1.5rem;
+  color: var(--signal);
+  flex: none;
+}
+.ck-place div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.ck-place a {
+  color: var(--link);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ---------- packages */
+.ck-packages {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line-soft);
+}
+.ck-pack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.ck-pack {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.6rem;
+  background: var(--ink-2);
+  display: flex;
+  flex-direction: column;
+}
+.ck-pack.is-rec {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 1px var(--blue);
+}
+.ck-pack.is-off {
+  opacity: 0.55;
+}
+.ck-pack .badge {
+  align-self: flex-start;
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue);
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+}
+.ck-pack h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+.ck-pack-blurb {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+.ck-pack .amount {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0.9rem 0 0.1rem;
+}
+.ck-pack .amount .per {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--faint);
+  letter-spacing: 0;
+}
+.ck-pack-total {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+}
+.ck-pack-total strong {
+  color: var(--text);
+  font-size: 1.1rem;
+}
+.ck-save {
+  color: var(--ck-pass);
+  font-weight: 600;
+}
+.ck-pack .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+.ck-rebuild {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 1.1rem 1.3rem;
+  border-radius: 12px;
+  background: rgba(94, 234, 212, 0.08);
+  border: 1px solid rgba(94, 234, 212, 0.35);
+}
+.ck-rebuild ion-icon {
+  font-size: 1.4rem;
+  color: var(--signal);
+  flex: none;
+  margin-top: 0.15rem;
+}
+.ck-rebuild p {
+  margin: 0;
+  color: var(--muted);
+}
+.ck-rebuild strong {
+  color: var(--text);
+}
+.ck-rebuild a {
+  color: var(--link);
+  font-weight: 600;
+}
+.ck-how,
+.ck-bigger {
+  margin-top: 2rem;
+  padding: 1.5rem 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.ck-how h3,
+.ck-bigger h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.15rem;
+}
+.ck-how ol,
+.ck-bigger ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--muted);
+}
+.ck-how li + li,
+.ck-bigger li + li {
+  margin-top: 0.35rem;
+}
+.ck-how p,
+.ck-bigger p {
+  margin: 0.85rem 0 0;
+}
+.ck-bigger p {
+  margin: 0 0 0.75rem;
+}
+
+/* ---------- responsive */
+@media (max-width: 860px) {
+  .ck-areas,
+  .ck-pack-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .ck-form {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+  }
+  .ck-stats {
+    gap: 0.5rem;
+  }
+  .ck-stat {
+    padding: 0.8rem;
+  }
+  .ck-stat strong {
+    font-size: 1.6rem;
+  }
+  .ck-stat span {
+    font-size: 0.85rem;
+  }
+  .ck-item {
+    padding: 1rem;
+    grid-template-columns: 1.4rem minmax(0, 1fr);
+    gap: 0.65rem;
+  }
+  .ck-ico ion-icon {
+    font-size: 1.3rem;
+  }
+  .ck-submit .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- print */
+@media print {
+  .cg-header,
+  .cg-footer,
+  .ck-hero,
+  #ck-what,
+  #ck-faq,
+  .ck-tools,
+  .ck-test,
+  .ck-pack .btn,
+  .ck-inline,
+  .ck-google select {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #111;
+  }
+  .sec {
+    padding: 0;
+    border: 0;
+  }
+  .ck-item,
+  .ck-stat,
+  .ck-pack,
+  .ck-how,
+  .ck-bigger,
+  .ck-place {
+    background: #fff;
+    border-color: #ccc;
+    break-inside: avoid;
+  }
+  .ck-body p,
+  .ck-stat span,
+  .muted,
+  .ck-meta,
+  .ck-diy ol {
+    color: #333;
+  }
+  .ck-body .ck-impact,
+  .ck-head h4,
+  .ck-evidence code {
+    color: #111;
+  }
+  .ck-evidence code {
+    background: #f4f4f4;
+  }
+  .ck-diy summary,
+  .ck-good summary {
+    color: #111;
+  }
+}

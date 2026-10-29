@@ -29,6 +29,10 @@
       "label": "Local Websites"
     },
     {
+      "href": "/checkup",
+      "label": "Free Checkup"
+    },
+    {
       "href": "/work",
       "label": "Work"
     },
@@ -55,6 +59,10 @@
       {
         "title": "Services",
         "links": [
+          {
+            "href": "/checkup",
+            "label": "Free Business Checkup"
+          },
           {
             "href": "/services",
             "label": "All services"
@@ -304,6 +312,14 @@
       "title": "Page Not Found | Codegrity",
       "description": "That page does not exist. Find our services, work and contact details here.",
       "noindex": true
+    },
+    "checkup.html": {
+      "path": "/checkup",
+      "title": "Free Business Checkup: Email, Website and Google Listing | Codegrity",
+      "description": "Free checkup for small businesses. See if your email lands in spam, what's wrong with your website, and whether your Google listing is complete, with plain-English fixes.",
+      "crumb": "Business Checkup",
+      "image": "/images/og-checkup.png",
+      "imageAlt": "Codegrity Business Checkup: find what's quietly costing you customers. Free email, website and Google listing check."
     }
   }
 }
