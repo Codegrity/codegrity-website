@@ -26,7 +26,8 @@ function header(headers, name) {
   if (!headers) return [];
   const v = headers[name] ?? headers[name.toLowerCase()] ?? Object.entries(headers).find(([k]) => k.toLowerCase() === name)?.[1];
   if (v == null) return [];
-  return Array.isArray(v) ? v.map(String) : [String(v)];
+  const one = (x) => (typeof x === "string" ? x : JSON.stringify(x));
+  return Array.isArray(v) ? v.map(one) : [one(v)];
 }
 
 function analyze(e, expected) {
@@ -57,8 +58,11 @@ function analyze(e, expected) {
   }
 
   // DKIM
-  if (auth.dkim === "pass" && (aligned || !fromDomain)) {
-    out.push(finding({ id: "test-dkim", area: "email", status: "pass", title: "Your test email was signed with DKIM", detail: "The signature proves it really came from you.", evidence: `dkim=pass${signers.length ? ` (signed by ${signers.join(", ")})` : ""}` }));
+  // Only call DKIM "not your domain" when we can actually see the signer and it
+  // isn't you. A DMARC pass already proves your domain was authenticated.
+  const unaligned = signers.length > 0 && !aligned && auth.dmarc !== "pass";
+  if (auth.dkim === "pass" && !unaligned) {
+    out.push(finding({ id: "test-dkim", area: "email", status: "pass", title: "Your test email was signed with DKIM", detail: "The signature proves it really came from you.", evidence: `dkim=pass${signers.length ? ` (signed by ${signers.join(", ")})` : ""}${auth.dmarc === "pass" ? ", dmarc=pass" : ""}` }));
   } else if (auth.dkim === "pass") {
     out.push(finding({
       id: "test-dkim", area: "email", status: "warn", fixable: true,
