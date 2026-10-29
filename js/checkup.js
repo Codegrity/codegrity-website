@@ -364,7 +364,7 @@
           { class: "ck-sec-head" },
           icon(area.icon),
           h("h3", {}, area.label),
-          loading ? h("span", { class: "ck-badge ck-badge-wait" }, "Checking") : rows.length ? h("span", { class: "ck-badge" + (toFix ? " ck-badge-bad" : " ck-badge-ok") }, toFix ? `${toFix} to fix` : "Looks good") : null
+          loading ? h("span", { class: "ck-badge ck-badge-wait" }, "Checking") : rows.some((f) => f.id === "gbp-unsure") ? h("span", { class: "ck-badge" }, "Not found") : rows.length ? h("span", { class: "ck-badge" + (toFix ? " ck-badge-bad" : " ck-badge-ok") }, toFix ? `${toFix} to fix` : "Looks good") : null
         )
       );
       const metaLine = sectionMeta(area.id);

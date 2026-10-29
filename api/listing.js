@@ -180,7 +180,7 @@ module.exports = async (req, res) => {
       const r = await places("places:searchText", {
         method: "POST",
         headers: { ...headers, "X-Goog-FieldMask": FIELDS.map((f) => "places." + f).join(",") },
-        body: JSON.stringify({ textQuery: q, pageSize: 5 }),
+        body: JSON.stringify({ textQuery: q, pageSize: 5, includePureServiceAreaBusinesses: true }),
       });
       if (!r.ok) {
         failed++;
