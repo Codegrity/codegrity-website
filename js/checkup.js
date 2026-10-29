@@ -540,7 +540,7 @@
         t.status === "idle" ? h("button", { class: "btn btn-primary ck-small", type: "button", onclick: startPolling }, "I sent it") : null
       )
     );
-    if (t.status === "waiting") box.append(h("p", { class: "ck-running" }, h("span", { class: "ck-spin", "aria-hidden": "true" }), "Waiting for your email. It usually arrives within a minute."));
+    if (t.status === "waiting") box.append(h("p", { class: "ck-running" }, h("span", { class: "ck-spin", "aria-hidden": "true" }), "Ready when you are: send your email to the address above. Keep this page open; your results appear here a few seconds after it arrives."));
     if (t.status === "timeout")
       box.append(
         h("p", { class: "muted" }, "We haven't seen it yet. Check the address and try again. ", h("button", { class: "ck-linkbtn", type: "button", onclick: () => { S.test.status = "idle"; startPolling(); } }, "Keep waiting"))
